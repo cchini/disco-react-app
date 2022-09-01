@@ -1,0 +1,18 @@
+{
+  "baseUrl": "./",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "lib": ["es5", "es6", "dom", "ES2019.Array"],
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "typeRoots": ["node_modules/@types", "./typings"],
+    "resolveJsonModule": true
+  },
+  "include": ["./**/**/**/*.tsx", "./**/**/**/*.ts", "modules"]
+}
