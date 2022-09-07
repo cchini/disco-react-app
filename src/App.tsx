@@ -1,8 +1,7 @@
 import React from "react";
+import Router from "./routes/Router";
 import "./index.scss";
 
-const App = () => {
-  return <div className="test">THIS IS DISCO!</div>;
-};
+const App = () => <Router />;
 
 export default App;
