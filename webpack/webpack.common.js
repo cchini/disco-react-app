@@ -68,8 +68,10 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
+              name: "[name].[ext]",
               esModule: false,
-              publicPath: "/js",
+              publicPath: "../images",
+              outputPath: "/images",
             },
           },
         ],
@@ -82,8 +84,8 @@ module.exports = {
             options: {
               name: "[name].[ext]",
               esModule: false,
-              publicPath: "paths",
-              outputPath: "paths",
+              publicPath: "../fonts",
+              outputPath: "/fonts",
             },
           },
         ],
@@ -93,7 +95,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin(envKeys),
     new MiniCssExtractPlugin({
-      filename: "app.css",
+      filename: "css/app.css",
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
