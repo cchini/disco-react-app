@@ -17,5 +17,6 @@
     "typeRoots": ["node_modules/@types", "./typings"],
     "resolveJsonModule": true
   },
-  "include": ["./**/**/**/*.tsx", "./**/**/**/*.ts", "modules"]
+  "include": ["src/**/**/*"],
+  "exclude": ["node_modules", "build"]
 }
