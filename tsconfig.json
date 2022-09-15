@@ -1,7 +1,10 @@
 {
   "baseUrl": "./",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src/",
+    "paths": {
+      "@components/*": ["./components/*"]
+    },
     "outDir": "./dist",
     "sourceMap": true,
     "noImplicitAny": false,

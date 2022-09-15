@@ -1,0 +1,44 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "clientId": 1,
+      "name": "EMEA - GETIR - UK",
+      "deleted": false,
+      "countryName": "UK",
+      "platforms": [
+        {
+          "id": 1,
+          "accountId": 1,
+          "businessManagerId": "123123123123",
+          "businessManagerName": "GETIR COMPANY",
+          "statusId": 1,
+          "platformOwnerId": 1,
+          "status": {
+            "id": 1,
+            "name": "active",
+            "code": "ACTIVE"
+          },
+          "platformOwner": {
+            "id": 1,
+            "name": "Meta",
+            "code": "META"
+          },
+          "pages": [
+            {
+              "id": 3,
+              "accountPlatformId": 1,
+              "pageId": "asdasd545D242",
+              "pageName": "Getir UK",
+              "platform": {
+                "name": "Instragram",
+                "code": "INSTAGRAM",
+                "enabled": "true"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
