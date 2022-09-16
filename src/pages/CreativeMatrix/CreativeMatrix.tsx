@@ -1,8 +1,9 @@
-import React from 'react';
-import { Button, Input } from '@components/index';
+import React, { useState } from 'react';
+import { Button, Input, Modal } from '@components/index';
 import './creativeMatrix.scss';
 
 const CreativeMatrix = () => {
+  const [open, setOpen] = useState(false);
   const cardsTemplate = [
     {
       rrss: [
@@ -132,6 +133,86 @@ const CreativeMatrix = () => {
   ];
   return (
     <section>
+      <Modal
+        className="modalDetails"
+        active={open}
+        onClose={() => setOpen(false)}
+        header={
+          <header className="headerModal">
+            <div>
+              <p>Template</p>
+              <h3>All channels (FB & IG, TikTok, SONA)</h3>
+            </div>
+            <Button onClick={() => setOpen(false)}>X</Button>
+          </header>
+        }>
+        <section className="modalContent">
+          <section className="rrssItem">
+            <h4>Facebook & Instagram</h4>
+            <section className="content">
+              <div className="formats">
+                <p>Image</p>
+                <p>Video</p>
+                <p>Carousel</p>
+              </div>
+              <div className="placements">
+                <ul>
+                  <li>Facebook 1</li>
+                  <li>Facebook 2</li>
+                  <li>Facebook 3</li>
+                  <li>Facebook 4</li>
+                  <li>Facebook 5</li>
+                  <li>Facebook 6</li>
+                  <li>Instagram 1</li>
+                  <li>Instagram 2</li>
+                  <li>Instagram 3</li>
+                  <li>Instagram 4</li>
+                  <li>Messenger 1</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <section className="rrssItem">
+            <h4>SONA</h4>
+            <section className="content">
+              <div className="formats">
+                <p>Image</p>
+                <p>Video</p>
+                <p>Carousel</p>
+              </div>
+              <div className="placements">
+                <ul>
+                  <li>SONA 1</li>
+                  <li>SONA 2</li>
+                  <li>SONA 3</li>
+                  <li>SONA 4</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+          <section className="rrssItem">
+            <h4>TikTok</h4>
+            <section className="content">
+              <div className="formats">
+                <p>Image</p>
+                <p>Video</p>
+                <p>Carousel</p>
+              </div>
+              <div className="placements">
+                <ul>
+                  <li>TikTok 1</li>
+                  <li>TikTok 2</li>
+                  <li>TikTok 3</li>
+                  <li>TikTok 4</li>
+                </ul>
+              </div>
+            </section>
+          </section>
+        </section>
+        <footer className="footerModal">
+          <Button onClick={() => setOpen(false)}>Select</Button>
+        </footer>
+      </Modal>
       <h1>Creative Matrix</h1>
 
       {/* Sección de cards de redes sociales */}
@@ -147,7 +228,7 @@ const CreativeMatrix = () => {
               </ul>
               <div>
                 <Button>Select</Button>
-                <Button>Details</Button>
+                <Button onClick={() => setOpen(true)}>Details</Button>
               </div>
               <p>{element.title}</p>
             </article>

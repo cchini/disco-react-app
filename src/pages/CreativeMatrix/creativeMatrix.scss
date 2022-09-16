@@ -59,3 +59,38 @@
     }
   }
 }
+
+.modalDetails {
+  padding: 1.5rem 1rem;
+  width: 500px;
+  height: 100%;
+  max-height: 450px;
+  overflow-y: hidden;
+  .headerModal {
+    display: flex;
+    justify-content: space-between;
+    > h3 {
+      text-transform: uppercase;
+    }
+  }
+  .modalContent {
+    overflow-y: scroll;
+    max-height: 300px;
+    .rrssItem {
+      .content {
+        display: flex;
+        .formats,
+        .placements {
+          flex: 1;
+        }
+      }
+    }
+  }
+  .footerModal {
+    margin: 0.75rem 0 0;
+    padding: 0.5rem 0;
+    border-top: 1px solid grey;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
