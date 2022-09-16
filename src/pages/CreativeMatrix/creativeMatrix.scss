@@ -83,6 +83,37 @@
         .placements {
           flex: 1;
         }
+        .placements {
+          .placementsList {
+            &_item {
+              position: relative;
+
+              .placements_tooltip {
+                display: none;
+                background: lightsteelblue;
+                border: 1px solid red;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+
+                .imageTooltip {
+                  background: lightseagreen;
+                  height: 100px;
+                  width: 50px;
+                  flex: 1;
+                }
+                .info {
+                  flex: 1;
+                }
+              }
+              &:hover {
+                .placements_tooltip {
+                  opacity: 1;
+                  display: flex;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

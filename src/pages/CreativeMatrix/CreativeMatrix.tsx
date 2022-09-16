@@ -156,18 +156,42 @@ const CreativeMatrix = () => {
                 <p>Carousel</p>
               </div>
               <div className="placements">
-                <ul>
-                  <li>Facebook 1</li>
-                  <li>Facebook 2</li>
-                  <li>Facebook 3</li>
-                  <li>Facebook 4</li>
-                  <li>Facebook 5</li>
-                  <li>Facebook 6</li>
-                  <li>Instagram 1</li>
-                  <li>Instagram 2</li>
-                  <li>Instagram 3</li>
-                  <li>Instagram 4</li>
-                  <li>Messenger 1</li>
+                <ul className="placementsList">
+                  {/* Sólo este tiene el ejemplo de tootltip */}
+                  <li className="placementsList_item">
+                    Facebook 1 con tooltip
+                    <div className="placements_tooltip">
+                      <figure className="imageTooltip">
+                        <img />
+                      </figure>
+                      <div className="info">
+                        <h5>About this placement</h5>
+                        <p>
+                          Lorem ipsum dolor, sit amet consectetur adipisicing
+                          elit. Impedit tempora expedita nobis sapiente...
+                        </p>
+                        <h5>Dynamic elements</h5>
+                        <ol>
+                          <li>Caption</li>
+                          <li>Image / Video / Carousel</li>
+                          <li>URL</li>
+                          <li>Title</li>
+                          <li>Description</li>
+                          <li>CTA</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="placementsList_item">Facebook 2</li>
+                  <li className="placementsList_item">Facebook 3</li>
+                  <li className="placementsList_item">Facebook 4</li>
+                  <li className="placementsList_item">Facebook 5</li>
+                  <li className="placementsList_item">Facebook 6</li>
+                  <li className="placementsList_item">Instagram 1</li>
+                  <li className="placementsList_item">Instagram 2</li>
+                  <li className="placementsList_item">Instagram 3</li>
+                  <li className="placementsList_item">Instagram 4</li>
+                  <li className="placementsList_item">Messenger 1</li>
                 </ul>
               </div>
             </section>
