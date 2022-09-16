@@ -1,7 +1,10 @@
 {
   "baseUrl": "./",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src/",
+    "paths": {
+      "@components/*": ["./components/*"]
+    },
     "outDir": "./dist",
     "sourceMap": true,
     "noImplicitAny": false,
@@ -14,5 +17,6 @@
     "typeRoots": ["node_modules/@types", "./typings"],
     "resolveJsonModule": true
   },
-  "include": ["./**/**/**/*.tsx", "./**/**/**/*.ts", "modules"]
+  "include": ["src/**/**/*"],
+  "exclude": ["node_modules", "build"]
 }

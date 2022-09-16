@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const path = require("path");
 const dotenv = require("dotenv");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -17,7 +18,10 @@ module.exports = {
   },
   target: "web",
   resolve: {
-    extensions: [".ts", ".tsx", ".scss", ".mjs", ".js", ".json", "css"],
+    alias: {
+      "@components": path.resolve(__dirname, "../src/components/"),
+    },
+    extensions: [".tsx", ".ts", ".scss", ".mjs", ".js", ".json", "css"],
   },
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})],
