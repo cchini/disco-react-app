@@ -8,8 +8,11 @@
 }
 .componentSwitch {
   .label {
-    @include text(14, layout-grey-90);
-    @include flex(center, center);
+    font-size: 0.875rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     &_left {
       padding: 0 0.5rem 0 0;
@@ -30,24 +33,27 @@
       width: 0;
       height: 0;
       &:checked + .label_button {
-        @include box(darwined-blue-10, 10px);
+        background: lightblue;
+        border-radius: 0.75px;
+        width: 10px;
+        height: 10px;
       }
       &:checked + .label_button:before {
         @extend %buttonChecked;
       }
       &:disabled + .label_button {
-        background: map-get($colors, layout-grey-10);
+        background: grey;
         pointer-events: none;
       }
       &:disabled + .label_button::before {
-        background: map-get($colors, layout-grey-10);
-        border: 1px solid map-get($colors, layout-grey-30);
+        background: grey;
+        border: darkgray;
         height: 14px;
         width: 14px;
         box-shadow: none;
       }
       &:checked:disabled + .label_button {
-        background: map-get($colors, layout-grey-30);
+        background: darkgray;
         pointer-events: none;
       }
       &:checked:disabled + .label_button::before {
@@ -64,8 +70,9 @@
       position: relative;
       cursor: pointer;
       &::before {
-        @include box(foris-white, 50%);
-        box-shadow: 0 0 10px 0 rgba(map-get($colors, layout-grey-90), 0.2);
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 10px 0 rgba(lightgrey, 0.2);
         position: absolute;
         content: '';
         height: 16px;
