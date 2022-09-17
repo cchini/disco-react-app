@@ -1,8 +1,6 @@
 - request:
     url: /disco/api/account
-    method: get
-    query:
-      clientId: 6d1ea72d-8173-4aa2-b0f4-7cd574c5d24c
+    method: GET
   response:
     - status: 200
       latency: 500

@@ -1,9 +1,9 @@
-const webpack = require("webpack");
-const path = require("path");
-const dotenv = require("dotenv");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const webpack = require('webpack');
+const path = require('path');
+const dotenv = require('dotenv');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 // .ENV variables
 const env = dotenv.config().parsed || {};
@@ -14,24 +14,29 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 
 module.exports = {
   entry: {
-    app: "./src/index.tsx",
+    app: './src/index.tsx',
   },
-  target: "web",
+  target: 'web',
   resolve: {
     alias: {
-      "@components": path.resolve(__dirname, "../src/components/"),
+      '@components': path.resolve(__dirname, '../src/components/'),
+      '@utilities': path.resolve(__dirname, '../src/utilities'),
+      '@models': path.resolve(__dirname, '../src/models'),
+      '@hooks': path.resolve(__dirname, '../src/hooks'),
+      '@services': path.resolve(__dirname, '../src/services'),
+      '@redux': path.resolve(__dirname, '../src/redux'),
     },
-    extensions: [".tsx", ".ts", ".scss", ".mjs", ".js", ".json", "css"],
+    extensions: ['.tsx', '.ts', '.scss', '.mjs', '.js', '.json', 'css'],
   },
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})],
-    runtimeChunk: "single",
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all",
+          name: 'vendors',
+          chunks: 'all',
         },
       },
     },
@@ -42,12 +47,12 @@ module.exports = {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
+              '@babel/preset-env',
+              '@babel/preset-react',
+              '@babel/preset-typescript',
             ],
           },
         },
@@ -57,11 +62,11 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {},
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {},
           },
         ],
@@ -70,12 +75,12 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[ext]",
+              name: '[name].[ext]',
               esModule: false,
-              publicPath: "../images",
-              outputPath: "/images",
+              publicPath: '../images',
+              outputPath: '/images',
             },
           },
         ],
@@ -84,12 +89,12 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[ext]",
+              name: '[name].[ext]',
               esModule: false,
-              publicPath: "../fonts",
-              outputPath: "/fonts",
+              publicPath: '../fonts',
+              outputPath: '/fonts',
             },
           },
         ],
@@ -99,11 +104,11 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin(envKeys),
     new MiniCssExtractPlugin({
-      filename: "css/app.css",
+      filename: 'css/app.css',
     }),
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "index.html",
+      template: './public/index.html',
+      filename: 'index.html',
     }),
   ],
 };

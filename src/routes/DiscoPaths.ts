@@ -1,6 +1,6 @@
 import { DiscoPaths, DiscoPages } from './models/Paths';
 import Home from '../pages/Home/Home';
-import AccountSetup from '../pages/AccountSetup/AccountSetup';
+import AccountSetup from '../pages/AccountSetup/IntegratedAccount';
 import Campaigns from '../pages/Campaigns/Campaigns';
 import CreativeMatrix from '../pages/CreativeMatrix/CreativeMatrix';
 import NewMatrixStep1 from '../pages/CreativeMatrix/NewMatrix/NewMatrixStep1';
