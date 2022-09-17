@@ -1,0 +1,62 @@
+.componentCheck {
+  &.componentCheck__disabled {
+    .componentCheck_label {
+      color: dark;
+    }
+  }
+  .labelCheckbox {
+    font-size: 0.875rem;
+    color: darkgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_left {
+      padding: 0 0.5rem 0 0;
+      width: calc(100% - 16px);
+    }
+    &_right {
+      padding: 0 0 0 0.5rem;
+      width: calc(100% - 16px);
+    }
+    &_checkbox[type='checkbox'] {
+      background: white;
+      border-radius: 0.125rem;
+      border: 1px solid red;
+      height: 16px;
+      width: 16px;
+      cursor: pointer;
+      appearance: none;
+      outline: 0;
+      position: unset;
+      opacity: inherit;
+      z-index: 1;
+      &:checked {
+        background: lightskyblue;
+        border: 1px solid blue;
+      }
+      &:hover {
+        border-color: lightskyblue;
+      }
+      &:disabled {
+        background: lightgray;
+        border: 1px solid gray;
+        pointer-events: none;
+      }
+      &:after {
+        content: 'ok';
+        font-size: 0.365rem;
+        color: white;
+        display: none;
+        position: relative;
+        left: 1px;
+        top: 1px;
+      }
+      &:checked:after {
+        display: block;
+      }
+      &:disabled:after {
+        border-color: white;
+      }
+    }
+  }
+}
