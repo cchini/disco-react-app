@@ -1,5 +1,5 @@
-import React, { FC, DetailedHTMLProps, InputHTMLAttributes } from "react";
-import cx from "classnames"
+import React, { FC, DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import cx from 'classnames';
 
 export interface InputProps
   extends DetailedHTMLProps<
@@ -8,11 +8,22 @@ export interface InputProps
   > {
   className?: string;
   disabled?: boolean;
+  label?: string;
 }
 
-const Input: FC<InputProps> = (props) => {
-  const { type = "text", disabled=false, className } = props;
-  return <input  className={cx("inputclassname", className && className)} type={type} disabled={disabled} />;
+const Input: FC<InputProps> = props => {
+  const { type = 'text', label = '', disabled = false, className } = props;
+  return (
+    <>
+      <label>{label}</label>
+      <input
+        className={cx('inputclassname', className && className)}
+        type={type}
+        disabled={disabled}
+      />
+      ;
+    </>
+  );
 };
 
 export default Input;
