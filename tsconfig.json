@@ -3,7 +3,12 @@
   "compilerOptions": {
     "baseUrl": "./src/",
     "paths": {
-      "@components/*": ["./components/*"]
+      "@components/*": ["./components/*"],
+      "@utilities/*": ["./utilities/*"],
+      "@models/*": ["./models/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@services/*": ["./services/*"],
+      "@redux/*": ["./redux/*"]
     },
     "outDir": "./dist",
     "sourceMap": true,
