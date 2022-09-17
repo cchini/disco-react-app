@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import cx from 'classnames';
 import './switch.scss';
 
@@ -9,53 +9,21 @@ export interface ISwitch
   > {
   /** overwrite className */
   className?: string;
-  /** overwrite className in checkbox */
-  classNameSwitch?: string;
-  /** label Left side checkbox */
-  labelLeft?: React.ReactNode | string;
-  /** label Right side checkbox */
-  labelRight?: React.ReactNode | string;
-  /** disabled state */
-  disabled?: boolean;
+  /** label  checkbox */
+  label?: React.ReactNode | string;
   ref?: any;
+  /** name for interaction state */
+  name: string;
 }
 
-const Switch: React.FC<ISwitch> = ({
-  labelLeft = '',
-  labelRight = '',
-  disabled = false,
-  ...props
-}: ISwitch) => {
-  const { className, classNameSwitch, ref } = props;
-  const isLabelLeftString = labelLeft && typeof labelLeft === 'string';
-  const isLabelRightString = labelRight && typeof labelRight === 'string';
+const Switch: React.FC<ISwitch> = ({ label = '', ...props }: ISwitch) => {
+  const { className, ref, name } = props;
   return (
-    <div
-      className={cx(
-        'componentSwitch',
-        'container-row',
-        'row_align--end',
-        className && className,
-      )}>
-      <label className="label">
-        {isLabelLeftString ? (
-          <span className={'label_left'}>{labelLeft}</span>
-        ) : (
-          <>{labelLeft}</>
-        )}
-        <input
-          {...props}
-          className={cx('label_switch', classNameSwitch && classNameSwitch)}
-          type="checkbox"
-          disabled={disabled}
-          ref={ref}
-        />
-        <span className={'label_button'}></span>
-        {isLabelRightString ? (
-          <span className={'label_right'}>{labelRight}</span>
-        ) : (
-          <>{labelRight}</>
-        )}
+    <div className={cx(className)}>
+      {label ?? <span>{label}</span>}
+      <input id={name} type="checkbox" ref={ref} />
+      <label htmlFor={name} className="check-trail">
+        <span className="check-handler"></span>
       </label>
     </div>
   );

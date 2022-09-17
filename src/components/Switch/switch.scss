@@ -1,87 +1,51 @@
-@import '../../assets/scss/variables';
-@import '../../assets/icomoon/variables.scss';
-@import '../../assets/scss/mixin';
+$clouds: #ecf0f1;
+$turquoise: #1abc9c;
+$greensea: #16a085;
+$night: #34495e;
+$midnight: #2c3e50;
+$transition: all 0.5s ease;
 
-%buttonChecked {
-  left: calc(100% - 2px);
-  transform: translateX(-100%);
+/* Hide the input */
+input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
 }
-.componentSwitch {
-  .label {
-    font-size: 0.875rem;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    &_left {
-      padding: 0 0.5rem 0 0;
-    }
-    &_right {
-      padding: 0 0 0 0.5rem;
-    }
-
-    &:active {
-      .label_button {
-        &::before {
-          width: 24px;
-        }
-      }
-    }
-    &_switch[type='checkbox'] {
-      opacity: 0;
-      width: 0;
-      height: 0;
-      &:checked + .label_button {
-        background: lightblue;
-        border-radius: 0.75px;
-        width: 10px;
-        height: 10px;
-      }
-      &:checked + .label_button:before {
-        @extend %buttonChecked;
-      }
-      &:disabled + .label_button {
-        background: grey;
-        pointer-events: none;
-      }
-      &:disabled + .label_button::before {
-        background: grey;
-        border: darkgray;
-        height: 14px;
-        width: 14px;
-        box-shadow: none;
-      }
-      &:checked:disabled + .label_button {
-        background: darkgray;
-        pointer-events: none;
-      }
-      &:checked:disabled + .label_button::before {
-        @extend %buttonChecked;
-        border: none;
-        height: 16px;
-        width: 16px;
-      }
-    }
-    &_button {
-      @include box(layout-grey-20, 10px);
-      width: 40px;
-      height: 20px;
-      position: relative;
-      cursor: pointer;
-      &::before {
-        background: white;
-        border-radius: 50%;
-        box-shadow: 0 0 10px 0 rgba(lightgrey, 0.2);
-        position: absolute;
-        content: '';
-        height: 16px;
-        width: 16px;
-        left: 2px;
-        bottom: 2px;
-        top: 2px;
-        transition: all 0.35s ease-in;
-      }
+.check-trail {
+  display: flex;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  background: $midnight;
+  border-radius: 15px;
+  transition: $transition;
+  cursor: pointer;
+}
+.check-handler {
+  display: flex;
+  margin-left: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: $transition;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  &:before {
+    content: 'OFF';
+    color: $night;
+    font-size: 0.5rem;
+    font-weight: bold;
+  }
+}
+input[type='checkbox']:checked + .check-trail {
+  background: $greensea;
+  .check-handler {
+    margin-left: 50%;
+    color: $turquoise;
+    &::before {
+      content: 'ON';
     }
   }
 }
