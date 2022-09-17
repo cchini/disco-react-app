@@ -1,0 +1,127 @@
+.cardsContent {
+  margin: 0 0 2rem;
+  display: flex;
+  .cardRrss {
+    width: 200px;
+    height: 100px;
+    background: white;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin: 0 1rem 0 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.navTable {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 1.5rem;
+}
+.table {
+  border: 1px solid red;
+
+  .headerTable {
+    background: black;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    &_item {
+      color: white;
+      border-right: 1px solid white;
+      padding: 0.25rem 0.75rem;
+      flex-basis: 100%;
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+  .contentTable {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    background: white;
+    &_item {
+      color: black;
+      border-right: 1px solid white;
+      padding: 0.25rem 0.75rem;
+      flex-basis: 100%;
+      &:last-child {
+        border: none;
+      }
+      &:nth-child(odd) {
+        background: lightgrey;
+      }
+    }
+  }
+}
+
+.modalDetails {
+  padding: 1.5rem 1rem;
+  width: 500px;
+  height: 100%;
+  max-height: 450px;
+  overflow-y: hidden;
+  .headerModal {
+    display: flex;
+    justify-content: space-between;
+    > h3 {
+      text-transform: uppercase;
+    }
+  }
+  .modalContent {
+    overflow-y: scroll;
+    max-height: 300px;
+    .rrssItem {
+      .content {
+        display: flex;
+        .formats,
+        .placements {
+          flex: 1;
+        }
+        .placements {
+          .placementsList {
+            &_item {
+              position: relative;
+
+              .placements_tooltip {
+                display: none;
+                background: lightsteelblue;
+                border: 1px solid red;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+
+                .imageTooltip {
+                  background: lightseagreen;
+                  height: 100px;
+                  width: 50px;
+                  flex: 1;
+                }
+                .info {
+                  flex: 1;
+                }
+              }
+              &:hover {
+                .placements_tooltip {
+                  opacity: 1;
+                  display: flex;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .footerModal {
+    margin: 0.75rem 0 0;
+    padding: 0.5rem 0;
+    border-top: 1px solid grey;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

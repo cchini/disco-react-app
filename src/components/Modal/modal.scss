@@ -13,6 +13,7 @@
   overflow: auto;
   &.modal--show {
     display: flex;
+    align-items: center;
   }
   .modal_content {
     position: relative;

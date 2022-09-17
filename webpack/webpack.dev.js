@@ -1,19 +1,20 @@
-const { merge } = require("webpack-merge");
-const path = require("path");
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
-const common = require("./webpack.common");
+const { merge } = require('webpack-merge');
+const path = require('path');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const common = require('./webpack.common');
 
 module.exports = merge(common, {
-  mode: "development",
+  mode: 'development',
   output: {
-    filename: "js/[name].js",
-    path: path.resolve(__dirname, "../public"),
+    filename: 'js/[name].js',
+    path: path.resolve(__dirname, '../public'),
+    publicPath: '/',
   },
-  devtool: "eval",
+  devtool: 'eval',
   devServer: {
     historyApiFallback: true,
     static: {
-      directory: path.join(__dirname, "../public"),
+      directory: path.join(__dirname, '../public'),
     },
     port: 3000,
     open: true,
