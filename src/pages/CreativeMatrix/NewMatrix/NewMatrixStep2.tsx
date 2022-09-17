@@ -67,6 +67,7 @@ const NewMatrixStep2 = () => {
             />
           </div>
           <div className="preview">
+            <h4>Preview</h4>
             {/* Acá debería ir el compoennte preview con la parte de previsualización de DragDropUpload */}
             {/* <PreviewUpload
               accept=".jpg,.png,.jpeg"
