@@ -40,12 +40,6 @@ export interface Account {
 }
 
 export interface AccountOption {
-  account: Account[];
-  label: string;
-  value: string;
-}
-
-export interface AccountSelected {
   account: Account;
   label: string;
   value: string;
@@ -53,5 +47,5 @@ export interface AccountSelected {
 
 export interface ReduxAccount {
   accounts: AccountOption[];
-  account: AccountSelected;
+  account: AccountOption;
 }

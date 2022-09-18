@@ -25,6 +25,7 @@ module.exports = {
       '@hooks': path.resolve(__dirname, '../src/hooks'),
       '@services': path.resolve(__dirname, '../src/services'),
       '@redux': path.resolve(__dirname, '../src/redux'),
+      '@adapters': path.resolve(__dirname, '../src/adapters'),
     },
     extensions: ['.tsx', '.ts', '.scss', '.mjs', '.js', '.json', 'css'],
   },

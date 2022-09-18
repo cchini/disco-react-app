@@ -2,40 +2,34 @@ import React, { useState } from 'react';
 import Router from './routes/Router';
 import { Provider } from 'react-redux';
 import store from '@redux/store';
-import { Account } from '@models/account.model';
+import { AccountOption } from '@models/account.model';
 import useFetchAndLoad from '@hooks/useFetchAndLoad';
 import { getAccounts } from '@services/accountSetup.service';
+import { accountOptionAdapter } from '@adapters/account.adapter';
 import { useAsync } from '@hooks/useAsyncAxios';
-import { modifyAccounts, modifyAccount } from '@redux/states/account.state';
+import { modifyListAccounts, modifyAccount } from '@redux/states/account.state';
 import { getAccountStorage } from '@utilities/localstorage.utility';
 import './index.scss';
 
 const App = () => {
   const storageAccount = getAccountStorage();
-  const [accounts, setAccounts] = useState<Account[]>([]);
+  const [accounts, setAccounts] = useState<AccountOption[]>([]);
   const { loading, callEndpoint } = useFetchAndLoad();
   const getApiData = async () => await callEndpoint(getAccounts());
   useAsync(
     getApiData,
-    response => setAccounts(response?.accounts),
+    response => setAccounts(accountOptionAdapter(response)),
     () => {},
   );
 
   if (loading) return <div>Loading</div>;
 
-  store.dispatch(modifyAccounts(accounts));
+  store.dispatch(modifyListAccounts(accounts));
   if (storageAccount && accounts?.length > 0) {
     const findAccount = accounts?.find(
-      value => value?.id?.toString() === storageAccount,
+      value => value?.account?.id?.toString() === storageAccount,
     );
-    if (findAccount)
-      store.dispatch(
-        modifyAccount({
-          account: findAccount,
-          value: findAccount?.id,
-          label: findAccount?.name,
-        }),
-      );
+    if (findAccount) store.dispatch(modifyAccount(findAccount));
   }
 
   return (

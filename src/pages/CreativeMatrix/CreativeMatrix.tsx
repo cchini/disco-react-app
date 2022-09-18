@@ -1,9 +1,26 @@
 import React, { useState } from 'react';
 import { Button, Input, Modal } from '@components/index';
+import MatrixTable from './components/MatrixTable/MatrixTable';
+import { CreativeMatrix as Matrix } from '@models/creativeMatrix.model';
+import useFetchAndLoad from '@hooks/useFetchAndLoad';
+import { useAsync } from '@hooks/useAsyncAxios';
+import { getAllCreativeMatrix } from '@services/creativeMatrix.service';
+import { allCreativeMatrixAdapter } from '@adapters/creativeMatrix.adapter';
 import './creativeMatrix.scss';
 
 const CreativeMatrix = () => {
   const [open, setOpen] = useState(false);
+  const [matrixList, setMatrixList] = useState<Matrix[]>([]);
+  const { loading, callEndpoint } = useFetchAndLoad();
+  const getApiData = async () => await callEndpoint(getAllCreativeMatrix());
+  useAsync(
+    getApiData,
+    response => setMatrixList(allCreativeMatrixAdapter(response)),
+    () => {},
+  );
+
+  if (loading) return <div>Loading</div>;
+
   const cardsTemplate = [
     {
       rrss: [
@@ -269,42 +286,7 @@ const CreativeMatrix = () => {
           </div>
           <Button>New</Button>
         </div>
-
-        <section className="table">
-          <ul className="headerTable">
-            <li className="headerTable_item">ID</li>
-            <li className="headerTable_item">Name</li>
-            <li className="headerTable_item">Type</li>
-            <li className="headerTable_item">Status</li>
-            <li className="headerTable_item">Last update</li>
-            <li className="headerTable_item">Actions</li>
-          </ul>
-
-          <ul className="contentTable">
-            <li className="contentTable_item">021</li>
-            <li className="contentTable_item">2022 May Getir All Channels</li>
-            <li className="contentTable_item">
-              All channels (FB & IG, TikTok, SONA)
-            </li>
-            <li className="contentTable_item">Active</li>
-            <li className="contentTable_item">Mar 29, 202211:20 AM</li>
-            <li className="contentTable_item">
-              <Button>Edit</Button>
-              <Button>Refresh</Button>
-            </li>
-          </ul>
-          <ul className="contentTable">
-            <li className="contentTable_item">022</li>
-            <li className="contentTable_item">2022 May Getir All Channels</li>
-            <li className="contentTable_item">Facebook & Instagram</li>
-            <li className="contentTable_item">Active</li>
-            <li className="contentTable_item">Mar 29, 202211:20 AM</li>
-            <li className="contentTable_item">
-              <Button>Edit</Button>
-              <Button>Refresh</Button>
-            </li>
-          </ul>
-        </section>
+        <MatrixTable data={matrixList} />
       </section>
     </section>
   );

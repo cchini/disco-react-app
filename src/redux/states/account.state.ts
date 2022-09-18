@@ -10,19 +10,16 @@ export const accountsSlice = createSlice({
   name: 'accounts',
   initialState: AccountsEmptyState,
   reducers: {
-    modifyAccounts: (state, action) => {
-      const listAccounts = action.payload;
-      const response = listAccounts?.map((acc: Account) => {
-        return { account: acc, label: acc?.name, value: acc.id };
-      });
-      return { ...state, accounts: response };
-    },
+    modifyListAccounts: (state, action) => ({
+      ...state,
+      accounts: action.payload,
+    }),
     resetAccounts: () => AccountsEmptyState,
     modifyAccount: (state, action) => ({ ...state, account: action.payload }),
   },
 });
 
-export const { modifyAccounts, resetAccounts, modifyAccount } =
+export const { modifyListAccounts, resetAccounts, modifyAccount } =
   accountsSlice.actions;
 
 export default accountsSlice.reducer;

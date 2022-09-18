@@ -8,7 +8,8 @@
       "@models/*": ["./models/*"],
       "@hooks/*": ["./hooks/*"],
       "@services/*": ["./services/*"],
-      "@redux/*": ["./redux/*"]
+      "@redux/*": ["./redux/*"],
+      "@adapters/*": ["./adapters/*"]
     },
     "outDir": "./dist",
     "sourceMap": true,
