@@ -9,7 +9,9 @@
       "@hooks/*": ["./hooks/*"],
       "@services/*": ["./services/*"],
       "@redux/*": ["./redux/*"],
-      "@adapters/*": ["./adapters/*"]
+      "@adapters/*": ["./adapters/*"],
+      "@routes/*": ["./routes/*"],
+      "@mocks/*": ["./mocks/*"]
     },
     "outDir": "./dist",
     "sourceMap": true,

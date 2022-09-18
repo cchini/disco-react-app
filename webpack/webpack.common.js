@@ -26,6 +26,8 @@ module.exports = {
       '@services': path.resolve(__dirname, '../src/services'),
       '@redux': path.resolve(__dirname, '../src/redux'),
       '@adapters': path.resolve(__dirname, '../src/adapters'),
+      '@routes': path.resolve(__dirname, '../src/routes'),
+      '@mocks': path.resolve(__dirname, '../src/mocks'),
     },
     extensions: ['.tsx', '.ts', '.scss', '.mjs', '.js', '.json', 'css'],
   },

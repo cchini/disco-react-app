@@ -1,4 +1,4 @@
-import { CreativeMatrix } from '../models/creativeMatrix.model';
+import { CreativeMatrix, TemplateMatrix } from '../models/creativeMatrix.model';
 
 export const allCreativeMatrixAdapter = (data: any): CreativeMatrix[] => {
   const matrixList = data?.creativeMatrixList;
@@ -14,6 +14,19 @@ export const allCreativeMatrixAdapter = (data: any): CreativeMatrix[] => {
       modified: value?.modified,
     };
     return matrix;
+  });
+  return response;
+};
+
+export const templateListAdapter = (data: any): TemplateMatrix[] => {
+  const templateMock = data;
+  const response = templateMock?.map(value => {
+    const template: TemplateMatrix = {
+      id: value?.id,
+      title: value?.title,
+      platforms: value?.platforms,
+    };
+    return template;
   });
   return response;
 };

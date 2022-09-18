@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Input, Modal } from '@components/index';
 import MatrixTable from './components/MatrixTable/MatrixTable';
+import TemplateCard from './components/TemplateCard/TemplateCard';
 import { CreativeMatrix as Matrix } from '@models/creativeMatrix.model';
 import useFetchAndLoad from '@hooks/useFetchAndLoad';
 import { useAsync } from '@hooks/useAsyncAxios';
 import { getAllCreativeMatrix } from '@services/creativeMatrix.service';
-import { allCreativeMatrixAdapter } from '@adapters/creativeMatrix.adapter';
+import {
+  allCreativeMatrixAdapter,
+  templateListAdapter,
+} from '@adapters/creativeMatrix.adapter';
+import { DiscoPaths } from '@routes/models/path.model';
+import { data as dataTemplate } from '@mocks/templateMatrix.mock';
 import './creativeMatrix.scss';
 
 const CreativeMatrix = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [matrixList, setMatrixList] = useState<Matrix[]>([]);
   const { loading, callEndpoint } = useFetchAndLoad();
@@ -21,133 +29,6 @@ const CreativeMatrix = () => {
 
   if (loading) return <div>Loading</div>;
 
-  const cardsTemplate = [
-    {
-      rrss: [
-        {
-          name: 'facebook',
-          exists: true,
-        },
-        {
-          name: 'instagram',
-          exists: true,
-        },
-        {
-          name: 'messenger',
-          exists: true,
-        },
-        {
-          name: 'tiktok',
-          exists: true,
-        },
-        {
-          name: 'sona',
-          exists: true,
-        },
-      ],
-      title: 'All channels (FB & IG, TikTok, SONA)',
-    },
-    {
-      rrss: [
-        {
-          name: 'facebook',
-          exists: true,
-        },
-        {
-          name: 'instagram',
-          exists: true,
-        },
-        {
-          name: 'messenger',
-          exists: true,
-        },
-        {
-          name: 'tiktok',
-          exists: true,
-        },
-        {
-          name: 'sona',
-          exists: true,
-        },
-      ],
-      title: 'Facebook & Instagram',
-    },
-    {
-      rrss: [
-        {
-          name: 'facebook',
-          exists: true,
-        },
-        {
-          name: 'instagram',
-          exists: true,
-        },
-        {
-          name: 'messenger',
-          exists: true,
-        },
-        {
-          name: 'tiktok',
-          exists: true,
-        },
-        {
-          name: 'sona',
-          exists: true,
-        },
-      ],
-      title: 'SONA',
-    },
-    {
-      rrss: [
-        {
-          name: 'facebook',
-          exists: true,
-        },
-        {
-          name: 'instagram',
-          exists: true,
-        },
-        {
-          name: 'messenger',
-          exists: true,
-        },
-        {
-          name: 'tiktok',
-          exists: true,
-        },
-        {
-          name: 'sona',
-          exists: true,
-        },
-      ],
-      title: 'TikTok',
-    },
-    {
-      rrss: [
-        {
-          name: 'facebook',
-          exists: true,
-        },
-        {
-          name: 'instagram',
-          exists: true,
-        },
-        {
-          name: 'messenger',
-          exists: true,
-        },
-        {
-          name: 'tiktok',
-          exists: true,
-        },
-        {
-          name: 'sona',
-          exists: true,
-        },
-      ],
-      title: 'Facebook, Instagram & SONA',
-    },
-  ];
   return (
     <section>
       <Modal
@@ -254,27 +135,15 @@ const CreativeMatrix = () => {
           <Button onClick={() => setOpen(false)}>Select</Button>
         </footer>
       </Modal>
-      <h1>Creative Matrix</h1>
 
+      <h1>Creative Matrix</h1>
       {/* Sección de cards de redes sociales */}
       <section>
         <h2>Start with a Template</h2>
-        <section className="cardsContent">
-          {cardsTemplate.map(element => (
-            <article className="cardRrss">
-              <ul>
-                {element.rrss.map(
-                  rrssType => rrssType.exists ?? <li>{rrssType.name}</li>,
-                )}
-              </ul>
-              <div>
-                <Button>Select</Button>
-                <Button onClick={() => setOpen(true)}>Details</Button>
-              </div>
-              <p>{element.title}</p>
-            </article>
-          ))}
-        </section>
+        <TemplateCard
+          data={templateListAdapter(dataTemplate)}
+          openModal={() => setOpen(true)}
+        />
       </section>
 
       {/* Sección tabla */}
@@ -284,7 +153,9 @@ const CreativeMatrix = () => {
             <Input placeholder="Search" />
             <Button>Search</Button>
           </div>
-          <Button>New</Button>
+          <Button onClick={() => navigate(`/${DiscoPaths.NewMatrixStep1}`)}>
+            New
+          </Button>
         </div>
         <MatrixTable data={matrixList} />
       </section>

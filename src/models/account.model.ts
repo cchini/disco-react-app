@@ -1,13 +1,11 @@
+import { PagePlatform } from './public.model';
+
 export interface Page {
   id: string;
   accountPlatformId: string;
   pageId: string;
   pageName: string;
-  platform: {
-    name: string;
-    code: string;
-    enabled: boolean;
-  };
+  platform: PagePlatform;
 }
 
 export interface Platform {
