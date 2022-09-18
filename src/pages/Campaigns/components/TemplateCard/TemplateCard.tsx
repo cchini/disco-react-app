@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@components/index';
-import { TemplateMatrix } from '@models/creativeMatrix.model';
+import { TemplateCampaigns } from '@models/campaigns.model';
 import { DiscoPaths } from '@routes/models/path.model';
 
 interface TemplateCardProps {
-  data: TemplateMatrix[];
-  openModal: (value: TemplateMatrix) => void;
+  data: TemplateCampaigns[];
+  openModal: (value: TemplateCampaigns) => void;
 }
 
 const TemplateCard: FC<TemplateCardProps> = props => {

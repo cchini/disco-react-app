@@ -5,6 +5,7 @@ import TemplatePlatform from './TemplatePlatform';
 import { DiscoPaths } from '@routes/models/path.model';
 
 interface TemplateModalProps {
+  data?: any;
   openModal: (open: boolean) => void;
   activeModal: boolean;
 }
@@ -21,13 +22,13 @@ const TemplateModal: FC<TemplateModalProps> = props => {
         <header className="headerModal">
           <div>
             <p>Template</p>
-            <h3>{data?.title}</h3>
+            <h3>Title</h3>
           </div>
           <Button onClick={() => openModal(false)}>X</Button>
         </header>
       }>
       <section className="modalContent">
-        <TemplatePlatform data={data?.platforms} />
+        <TemplatePlatform />
       </section>
       <footer className="footerModal">
         <Button onClick={() => navigate(`/${DiscoPaths.NewMatrixStep2}`)}>

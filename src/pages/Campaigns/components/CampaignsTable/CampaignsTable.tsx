@@ -1,38 +1,39 @@
 import React, { FC } from 'react';
 import { Button } from '@components/index';
-import { CreativeMatrix } from '@models/creativeMatrix.model';
+import { Campaigns } from '@models/Campaigns.model';
 
 interface CampaignsTableProps {
-  data: CreativeMatrix[];
+  data?: Campaigns[];
 }
 
 const CampaignsTable: FC<CampaignsTableProps> = props => {
-  const { data } = props;
   return (
     <section className="table">
       <ul className="headerTable">
+        <li className="headerTable_item">Status</li>
+        <li className="headerTable_item">Actions</li>
         <li className="headerTable_item">ID</li>
         <li className="headerTable_item">Name</li>
         <li className="headerTable_item">Type</li>
-        <li className="headerTable_item">Status</li>
+        <li className="headerTable_item">Budget(USD)</li>
+        <li className="headerTable_item">Date Start - Date End</li>
         <li className="headerTable_item">Last update</li>
-        <li className="headerTable_item">Actions</li>
       </ul>
-      {data?.map(matrix => (
-        <ul key={matrix?.id} className="contentTable">
-          <li className="contentTable_item">{matrix?.id}</li>
-          <li className="contentTable_item">{matrix?.name}</li>
-          <li className="contentTable_item">
-            All channels (FB & IG, TikTok, SONA)
-          </li>
-          <li className="contentTable_item">{matrix?.status?.name}</li>
-          <li className="contentTable_item">{matrix?.modified?.toString()}</li>
-          <li className="contentTable_item">
-            <Button>Edit</Button>
-            <Button>Refresh</Button>
-          </li>
-        </ul>
-      ))}
+      <ul className="contentTable">
+        <li className="contentTable_item">status name</li>
+        <li className="contentTable_item">
+          <Button>Edit</Button>
+          <Button>Refresh</Button>
+          <Button>View</Button>
+          <Button>Publish</Button>
+        </li>
+        <li className="contentTable_item">Id</li>
+        <li className="contentTable_item">nombre</li>
+        <li className="contentTable_item">Type</li>
+        <li className="contentTable_item">$50.000</li>
+        <li className="contentTable_item">01/01/2022 - 30/09/2022</li>
+        <li className="contentTable_item">Last modified</li>
+      </ul>
     </section>
   );
 };

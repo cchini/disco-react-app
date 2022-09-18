@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Input } from '@components/index';
 import CampaignsTable from './components/CampaignsTable/CampaignsTable';
 import TemplateCard from './components/TemplateCard/TemplateCard';
-import TemplateModal from './components/TemplateModal/TemplateModal';
 import { DiscoPaths } from '@routes/models/path.model';
-import { data as dataTemplate } from '@mocks/templateMatrix.mock';
-import './creativeMatrix.scss';
+import { data as dataTemplate } from '@mocks/templateCampaigns.mock';
+import './campaigns.scss';
 
 const Campaigns = () => {
   const navigate = useNavigate();
@@ -15,14 +14,8 @@ const Campaigns = () => {
   return (
     <>
       {/* Modal detail: Template matrix selected */}
-
-        <TemplateModal
-          activeModal={open}
-          openModal={setOpen}
-        />
-
       <section>
-        <h1>Creative Matrix</h1>
+        <h1>Campaigns</h1>
         {/* Template section */}
         <section>
           <h2>Start with a Template</h2>
@@ -30,6 +23,7 @@ const Campaigns = () => {
             openModal={value => {
               setOpen(true);
             }}
+            data={dataTemplate}
           />
         </section>
         {/* Creative matrix section */}
@@ -39,11 +33,12 @@ const Campaigns = () => {
               <Input placeholder="Search" />
               <Button>Search</Button>
             </div>
-            <Button onClick={() => navigate(`/${DiscoPaths.NewCampaignsStep1}`)}>
+            <Button
+              onClick={() => navigate(`/${DiscoPaths.NewCampaignsStep1}`)}>
               New
             </Button>
           </div>
-          <CampaignsTable data={matrixList} />
+          <CampaignsTable />
         </section>
       </section>
     </>

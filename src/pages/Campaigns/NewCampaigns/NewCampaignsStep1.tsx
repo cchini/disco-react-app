@@ -114,123 +114,76 @@ const NewCampaignsStep1 = () => {
           <Button onClick={() => setOpen(false)}>Select</Button>
         </footer>
       </Modal>
-      <h1>Create a new Creative Matrix</h1>
+      <h1>Create a new Campaign</h1>
 
-      {/* Sección de cards de redes sociales */}
+      {/* Sección de cards de inputs */}
       <nav className="navMatrix">
-        <Input value="input" placeholder="Name" label="Name" />
-        <div className="contentEnabledDisabled">
-          <p>Enable/Disabled plataforms:</p>
-          <ul className="listOptions">
+        <Input value="input" placeholder="Name:" label="Name" />
+        <Input
+          value="input"
+          placeholder="dd/mm/AAAA"
+          label="Date start:"
+          type="date"
+        />
+        <Input
+          value="input"
+          placeholder="dd/mm/AAAA"
+          label="Date end:"
+          type="date"
+        />
+        <Input value="input" placeholder="Name" label="Budget($USD):" />
+
+        <Input value="input" placeholder="Name" label="KPI;" />
+
+        <Input value="input" placeholder="Name" label="Goal:" />
+      </nav>
+      <section className="rulesConfig">
+        <h2>priority group 1</h2>
+        <article className="cardRule">
+          <h3>Audience a morning | Weekdays</h3>
+          <span>Creative:10</span>
+          <ul>
             <li>
-              <Switch label="facebook" name="facebook" />
+              <Switch
+                label="Facebook Instagram Messenger"
+                name="Facebook Instagram Messenger"
+              />
             </li>
             <li>
-              <Switch label="Instragram" name="Instragram" />
-            </li>
-            <li>
-              <Switch label="Messenger" name="Messenger" />
-            </li>
-            <li>
-              <Switch label="Tiktok" name="Tiktok" />
+              <Switch label="tiktok" name="tiktok" />
             </li>
             <li>
               <Switch label="SONA" name="SONA" />
             </li>
           </ul>
-        </div>
-      </nav>
-      <section className="plataformsConfig">
-        <h2>Facebook, Instagram & Facebook Messenger</h2>
-        <h3>Select Placement</h3>
-        <ul>
-          <li>Facebook</li>
-          <li>
-            <Checkbox labelRight="Facebook feed" />
-          </li>
-          <li>
-            <Checkbox labelRight="Facebook instream video" />
-          </li>
-          <li>
-            <Checkbox labelRight="Facebook marketplace" />
-          </li>
-          <li>
-            <Checkbox labelRight="Facebook search" />
-          </li>
-          <li>
-            <Checkbox labelRight="Facebook story" />
-          </li>
-          <li>
-            <Checkbox labelRight="Facebook video feed" />
-          </li>
-        </ul>
-
-        <ul>
-          <li>Instragram</li>
-          <li>
-            <Checkbox labelRight="Instragram explore" />
-          </li>
-          <li>
-            <Checkbox labelRight="Instragram IGTV" />
-          </li>
-          <li>
-            <Checkbox labelRight="Instragram story" />
-          </li>
-          <li>
-            <Checkbox labelRight="Instragram stream" />
-          </li>
-        </ul>
-
-        <ul>
-          <li>Messenger</li>
-          <li>
-            <Checkbox labelRight="Messenger story" />
-          </li>
-        </ul>
-
-        <h3>Select formats</h3>
-        <ul>
-          <li>
-            <Checkbox labelRight="Image or video" />
-          </li>
-          <li>
-            <Checkbox labelRight="Carousel" />
-          </li>
-        </ul>
-        <Input value={5} label="Number of carousel images" />
+        </article>
+        <article className="cardRule">+ Add Rule</article>
       </section>
-      <section className="plataformsConfig">
-        <h2>SONA</h2>
-        <h3>Select Templates</h3>
-        <ul>
-          <li>Facebook</li>
-          <li>
-            <Checkbox labelRight="Facebook" />
-          </li>
-          <li>
-            <Checkbox labelRight="Instragram" />
-          </li>
-          <li>
-            <Checkbox labelRight="Story" />
-          </li>
-          <li>
-            <Checkbox labelRight="TikTok" />
-          </li>
-        </ul>
-
-        <h3>Select formats</h3>
-        <ul>
-          <li>
-            <Checkbox labelRight="Image or video" />
-          </li>
-          <li>
-            <Checkbox labelRight="Carousel" />
-          </li>
-        </ul>
-        <Input value={5} label="Number of carousel images" />
+      <section className="rulesConfig">
+        <h2>Default</h2>
+        <article className="cardRule">
+          <h3>Default rule</h3>
+          <span>Creative:10</span>
+          <ul>
+            <li>
+              <Switch
+                label="Facebook Instagram Messenger"
+                name="Facebook Instagram Messenger"
+              />
+            </li>
+            <li>
+              <Switch label="tiktok" name="tiktok" />
+            </li>
+            <li>
+              <Switch label="SONA" name="SONA" />
+            </li>
+          </ul>
+        </article>
+        <article className="cardRule">+ Add Rule</article>
       </section>
-      <footer>
+      <footer className="footerNewCampaign">
         <Button>Cancel</Button>
+        <Button>Save</Button>
         <Button
           onClick={() =>
             navigate({ pathname: `/${DiscoPaths.NewCampaignsStep1}` })
