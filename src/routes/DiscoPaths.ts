@@ -1,4 +1,4 @@
-import { DiscoPaths, DiscoPages } from './models/Paths';
+import { DiscoPaths, DiscoPages } from './models/path.model';
 import Home from '../pages/Home/Home';
 import AccountSetup from '../pages/AccountSetup/IntegratedAccount';
 import Campaigns from '../pages/Campaigns/Campaigns';

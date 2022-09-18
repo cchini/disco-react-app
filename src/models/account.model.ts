@@ -1,13 +1,11 @@
+import { PagePlatform } from './public.model';
+
 export interface Page {
   id: string;
   accountPlatformId: string;
   pageId: string;
   pageName: string;
-  platform: {
-    name: string;
-    code: string;
-    enabled: boolean;
-  };
+  platform: PagePlatform;
 }
 
 export interface Platform {
@@ -40,12 +38,6 @@ export interface Account {
 }
 
 export interface AccountOption {
-  account: Account[];
-  label: string;
-  value: string;
-}
-
-export interface AccountSelected {
   account: Account;
   label: string;
   value: string;
@@ -53,5 +45,5 @@ export interface AccountSelected {
 
 export interface ReduxAccount {
   accounts: AccountOption[];
-  account: AccountSelected;
+  account: AccountOption;
 }

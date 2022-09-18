@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { DiscoPaths } from '../../../routes/models/Paths';
+import { DiscoPaths } from '../../../routes/models/path.model';
 import { Button, Input, Modal, Switch, Checkbox } from '@components/index';
 import './newMatrix.scss';
 
