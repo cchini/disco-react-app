@@ -32,3 +32,9 @@ export enum InstagramPlacements {
   Stories = 'INSTAGRAM_STORIES',
   IGTV = 'INSTAGRAM_IGTV',
 }
+
+export interface Status {
+  id: string;
+  name: string;
+  code: string;
+}

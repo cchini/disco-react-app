@@ -5,15 +5,28 @@ import CampaignsTable from './components/CampaignsTable/CampaignsTable';
 import TemplateCard from './components/TemplateCard/TemplateCard';
 import { DiscoPaths } from '@routes/models/path.model';
 import { data as dataTemplate } from '@mocks/templateCampaigns.mock';
+import { Campaign } from '@models/campaigns.model';
+import useFetchAndLoad from '@hooks/useFetchAndLoad';
+import { getAllCampaigns } from '@services/campaigns.service';
+import { useAsync } from '@hooks/useAsyncAxios';
+import { allCampaignsAdapter } from '@adapters/campaign.adapter';
 import './campaigns.scss';
 
 const Campaigns = () => {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const [campaignList, setCampaignList] = useState<Campaign[]>([]);
+  const { loading, callEndpoint } = useFetchAndLoad();
+  const getApiData = async () => await callEndpoint(getAllCampaigns());
+  useAsync(
+    getApiData,
+    response => setCampaignList(allCampaignsAdapter(response)),
+    () => {},
+  );
+
+  if (loading) return <div>Loading</div>;
 
   return (
     <>
-      {/* Modal detail: Template matrix selected */}
       <section>
         <h1>Campaigns</h1>
         {/* Template section */}
@@ -21,7 +34,7 @@ const Campaigns = () => {
           <h2>Start with a Template</h2>
           <TemplateCard
             openModal={value => {
-              setOpen(true);
+              // setOpen(true);
             }}
             data={dataTemplate}
           />
@@ -38,7 +51,7 @@ const Campaigns = () => {
               New
             </Button>
           </div>
-          <CampaignsTable />
+          <CampaignsTable data={campaignList} />
         </section>
       </section>
     </>

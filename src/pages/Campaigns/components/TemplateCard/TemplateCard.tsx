@@ -6,7 +6,7 @@ import { DiscoPaths } from '@routes/models/path.model';
 
 interface TemplateCardProps {
   data: TemplateCampaigns[];
-  openModal: (value: TemplateCampaigns) => void;
+  openModal?: (value: TemplateCampaigns) => void;
 }
 
 const TemplateCard: FC<TemplateCardProps> = props => {
