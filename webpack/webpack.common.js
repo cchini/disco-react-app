@@ -3,7 +3,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 // .ENV variables
 const env = dotenv.config().parsed || {};
@@ -32,7 +32,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.scss', '.mjs', '.js', '.json', 'css'],
   },
   optimization: {
-    minimizer: [new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new CssMinimizerPlugin()],
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
