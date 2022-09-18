@@ -1,6 +1,8 @@
-export const data = [
+import { TemplateMatrix } from '@models/creativeMatrix.model';
+
+export const data: TemplateMatrix[] = [
   {
-    id: 1,
+    id: '1',
     title: 'All channels (FB & IG, TikTok, SONA)',
     platforms: [
       {
@@ -31,7 +33,7 @@ export const data = [
     ],
   },
   {
-    id: 2,
+    id: '2',
     title: 'Facebook & Instagram',
     platforms: [
       {
@@ -62,7 +64,7 @@ export const data = [
     ],
   },
   {
-    id: 3,
+    id: '3',
     title: 'SONA',
     platforms: [
       {
@@ -93,7 +95,7 @@ export const data = [
     ],
   },
   {
-    id: 4,
+    id: '4',
     title: 'TikTok',
     platforms: [
       {
@@ -124,7 +126,7 @@ export const data = [
     ],
   },
   {
-    id: 5,
+    id: '5',
     title: 'Facebook, Instagram & SONA',
     platforms: [
       {
