@@ -1,10 +1,4 @@
-import { PagePlatform } from '@models/public.model';
-
-export interface Status {
-  id: string;
-  name: string;
-  code: string;
-}
+import { PagePlatform, Status } from '@models/public.model';
 
 export interface CreativeMatrix {
   id: string;
@@ -15,6 +9,8 @@ export interface CreativeMatrix {
   deleted: boolean;
   created: Date;
   modified: Date;
+  value?: string;
+  label?: string;
 }
 
 export interface TemplateMatrix {

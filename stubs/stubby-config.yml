@@ -18,3 +18,12 @@
       headers:
         content-type: application/json
       file: ./creative-matrix/get-all-200.json
+- request:
+    url: /disco/api/campaign
+    method: GET
+  response:
+    - status: 200
+      latency: 500
+      headers:
+        content-type: application/json
+      file: ./campaign/get-all-200.json

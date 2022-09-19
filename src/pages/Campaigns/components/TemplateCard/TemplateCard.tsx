@@ -6,11 +6,10 @@ import { DiscoPaths } from '@routes/models/path.model';
 
 interface TemplateCardProps {
   data: TemplateCampaigns[];
-  openModal: (value: TemplateCampaigns) => void;
 }
 
 const TemplateCard: FC<TemplateCardProps> = props => {
-  const { data, openModal } = props;
+  const { data } = props;
   const navigate = useNavigate();
   return (
     <section className="cardsContent">
@@ -22,10 +21,11 @@ const TemplateCard: FC<TemplateCardProps> = props => {
             )}
           </ul>
           <div>
-            <Button onClick={() => navigate(`/${DiscoPaths.NewMatrixStep2}`)}>
+            <Button
+              onClick={() => navigate(`/${DiscoPaths.NewCampaignsStep2}`)}>
               Select
             </Button>
-            <Button onClick={() => openModal(template)}>Details</Button>
+            <Button>Details</Button>
           </div>
           <p>{template.title}</p>
         </article>

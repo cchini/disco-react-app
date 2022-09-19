@@ -1,9 +1,12 @@
 import { CreativeMatrix, TemplateMatrix } from '../models/creativeMatrix.model';
 
-export const allCreativeMatrixAdapter = (data: any): CreativeMatrix[] => {
+export const allCreativeMatrixAdapter = (
+  data: any,
+  isSelector: boolean = false,
+): CreativeMatrix[] => {
   const matrixList = data?.creativeMatrixList;
   const response = matrixList?.map(value => {
-    const matrix: CreativeMatrix = {
+    let matrix: CreativeMatrix = {
       id: value?.id,
       name: value?.name,
       statusId: value?.statusId,
@@ -13,6 +16,9 @@ export const allCreativeMatrixAdapter = (data: any): CreativeMatrix[] => {
       created: value?.created,
       modified: value?.modified,
     };
+    if (isSelector)
+      matrix = { ...matrix, label: value?.name, value: value?.id };
+
     return matrix;
   });
   return response;
