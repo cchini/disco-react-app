@@ -30,7 +30,7 @@ const Campaigns = () => {
             <Input placeholder="Search" />
             <Button>Search</Button>
           </div>
-          <Button onClick={() => navigate(`/${DiscoPaths.NewCampaignsStep1}`)}>
+          <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
             New
           </Button>
         </div>

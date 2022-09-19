@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
-import Select, { Props, } from 'react-select';
+import Select, { Props } from 'react-select';
 import cx from 'classnames';
 
 type SelectProps = Props & {
   disabled?: boolean;
   activeMaxHeight?: boolean;
   emptyOptionsText?: string;
+  label?: string;
 };
 
 const customStyles = {
@@ -45,31 +46,29 @@ const ReactSelect: FC<SelectProps> = ({
   activeMaxHeight = false,
   ...props
 }: SelectProps) => {
-  const {
-    options,
-    value,
-    className,
-    emptyOptionsText
-  } = props;
+  const { options, value, className, emptyOptionsText, label } = props;
 
   return (
-    <Select
-      styles={customStyles}
-      classNamePrefix="reactSelect"
-      className={cx(
-        'reactSelect',
-        activeMaxHeight && 'reactSelect__maxHeightMenu',
-        className && className
-      )}
-      value={value && value}
-      isDisabled={disabled && disabled}
-      options={options}
-      isClearable={isClearable}
-      noOptionsMessage={() =>
-        emptyOptionsText ? `${emptyOptionsText}` : null
-      }
-      {...props}
-    />
+    <>
+      <label>{label}</label>
+      <Select
+        styles={customStyles}
+        classNamePrefix="reactSelect"
+        className={cx(
+          'reactSelect',
+          activeMaxHeight && 'reactSelect__maxHeightMenu',
+          className && className,
+        )}
+        value={value && value}
+        isDisabled={disabled && disabled}
+        options={options}
+        isClearable={isClearable}
+        noOptionsMessage={() =>
+          emptyOptionsText ? `${emptyOptionsText}` : null
+        }
+        {...props}
+      />
+    </>
   );
 };
 

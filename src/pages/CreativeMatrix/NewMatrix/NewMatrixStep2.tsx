@@ -139,7 +139,11 @@ const NewMatrixStep2 = () => {
             <li className="contentTable_item">8760873748484849</li>
             <li className="contentTable_item">608774845484849</li>
             <li className="contentTable_item">608774846084849</li>
+
             <li className="contentTable_item">765404846084849</li>
+            <li className="contentTable_item">
+              <figure>IMG</figure>
+            </li>
             <li className="contentTable_item">
               <Button>remove</Button>
             </li>
@@ -154,6 +158,9 @@ const NewMatrixStep2 = () => {
             <li className="contentTable_item">608774845484849</li>
             <li className="contentTable_item">608774846084849</li>
             <li className="contentTable_item">765404846084849</li>
+            <li className="contentTable_item">
+              <figure>IMG</figure>
+            </li>
             <li className="contentTable_item">
               <Button>remove</Button>
             </li>
