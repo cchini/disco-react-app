@@ -1,0 +1,202 @@
+@import '../../../assets/scss/variables';
+/* Layout */
+
+.gralContent {
+  position: relative;
+  &.gralContent__openNav {
+    .headerLayout {
+      &_action {
+        &::before {
+          content: '\2715';
+        }
+      }
+    }
+
+    .wrapper {
+      .menu {
+        transform: translate3d(200px, 0, 0);
+        transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+        &:hover {
+          position: absolute;
+          left: -200px;
+        }
+      }
+      .contentPages {
+        background-color: #eee;
+        position: absolute;
+        transform: translate3d(200px, 0, 0);
+        width: calc(100% - 250px);
+        transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+      }
+    }
+  }
+
+  .headerLayout {
+    background: $blue;
+    display: flex;
+    align-items: center;
+    &_action {
+      position: relative;
+      display: block;
+      text-align: center;
+      padding: 1.125rem 0;
+      width: 50px;
+      height: 60px;
+      left: 0;
+      top: 0;
+      z-index: 1000;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:before {
+        content: '\2630'; /* hamburger icon */
+        display: block;
+        color: $white;
+        line-height: 2rem;
+        font-size: 1.5rem;
+      }
+    }
+    .navHeader {
+      flex: 1;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &_input {
+        margin: 0;
+      }
+      .context {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        &_select {
+          margin: 0 1rem 0 0;
+        }
+        &_options {
+          .btnNavLayout {
+            background: transparent;
+            font-size: 0.75rem;
+            color: $white;
+            margin: 0 0.75rem 0 0;
+            &:last-child {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Menu Styles */
+
+/* Content pages */
+.wrapper {
+  position: relative;
+
+  .menu {
+    position: absolute;
+    display: block;
+    left: -200px;
+    top: 0;
+    width: 250px;
+    transition: all 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+    margin-bottom: 3em;
+    z-index: 999;
+    height: 100vh;
+    overflow-y: auto;
+    background: rgb(2, 44, 109);
+    background: linear-gradient(
+      180deg,
+      rgba(2, 44, 109, 1) 0%,
+      rgba(68, 51, 147, 1) 100%
+    );
+
+    &:hover {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .optionList {
+      top: 0;
+      overflow-y: auto;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &_item {
+        color: $white;
+        position: relative;
+        .iconMenu {
+          color: #777;
+          position: absolute;
+          top: 12px;
+          right: 10px;
+          pointer-events: none;
+          width: 24px;
+          height: 24px;
+          color: #fff;
+        }
+        &:hover {
+          background: $white;
+          opacity: 0.4;
+          .iconMenu {
+            color: $blue;
+          }
+        }
+        .linkMenu {
+          display: block;
+          white-space: nowrap;
+          padding: 1em;
+          font-size: 14px;
+          &:hover {
+            color: #fff;
+          }
+          &:visited {
+            color: #aaa;
+            text-decoration: none !important;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+  .contentPages {
+    max-width: calc(100% - 50px);
+    padding: 2rem 1.5rem 2rem calc(50px + 1.5rem);
+    transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
+/* look and feel only, not needed for core menu*/
+
+@-webkit-keyframes grow {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  50% {
+    display: block;
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes grow {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  50% {
+    display: block;
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
