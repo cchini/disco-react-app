@@ -9,6 +9,8 @@ export interface CreativeMatrix {
   deleted: boolean;
   created: Date;
   modified: Date;
+  value?: string;
+  label?: string;
 }
 
 export interface TemplateMatrix {
