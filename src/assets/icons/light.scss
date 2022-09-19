@@ -1,0 +1,150 @@
+/*!
+ * Font Awesome Pro 5.11.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Commercial License)
+ */
+@import './_variables.scss';
+
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-light-300.eot');
+  src: url('#{$fa-font-path}/fa-light-300.eot?#iefix')
+      format('embedded-opentype'),
+    url('#{$fa-font-path}/fa-light-300.woff2') format('woff2'),
+    url('#{$fa-font-path}/fa-light-300.woff') format('woff'),
+    url('#{$fa-font-path}/fa-light-300.ttf') format('truetype'),
+    url('#{$fa-font-path}/fa-light-300.svg#fontawesome') format('svg');
+}
+
+.fal {
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 300;
+  &.fa-bell:before {
+    content: fa-content($fa-var-bell);
+  }
+
+  &.fa-border-none:before {
+    content: fa-content($fa-var-border-none);
+  }
+
+  &.fa-calendar:before {
+    content: fa-content($fa-var-calendar);
+  }
+  &.fa-calendar-alt:before {
+    content: fa-content($fa-var-calendar-alt);
+  }
+
+  &.fa-chart-pie:before {
+    content: fa-content($fa-var-chart-pie);
+  }
+
+  &.fa-chart-pie-alt:before {
+    content: fa-content($fa-var-chart-pie-alt);
+  }
+
+  &.fa-chevron-down:before {
+    content: fa-content($fa-var-chevron-down);
+  }
+
+  &.fa-chevron-left:before {
+    content: fa-content($fa-var-chevron-left);
+  }
+  &.fa-chevron-right:before {
+    content: fa-content($fa-var-chevron-right);
+  }
+  &.fa-chevron-up:before {
+    content: fa-content($fa-var-chevron-up);
+  }
+
+  &.fa-clock:before {
+    content: fa-content($fa-var-clock);
+  }
+
+  &.fa-cloud-upload:before {
+    content: fa-content($fa-var-cloud-upload);
+  }
+
+  &.fa-download:before {
+    content: fa-content($fa-var-download);
+  }
+
+  &.fa-edit:before {
+    content: fa-content($fa-var-edit);
+  }
+
+  &.fa-filter:before {
+    content: fa-content($fa-var-filter);
+  }
+  &.fa-folder:before {
+    content: fa-content($fa-var-folder);
+  }
+  &.fa-folders:before {
+    content: fa-content($fa-var-folders);
+  }
+
+  &.fa-home:before {
+    content: fa-content($fa-var-home);
+  }
+
+  &.fa-image:before {
+    content: fa-content($fa-var-image);
+  }
+
+  &.fa-images:before {
+    content: fa-content($fa-var-images);
+  }
+
+  &.fa-list:before {
+    content: fa-content($fa-var-list);
+  }
+
+  &.fa-map-marker-alt:before {
+    content: fa-content($fa-var-map-marked-alt);
+  }
+
+  &.fa-paper-plane:before {
+    content: fa-content($fa-var-paper-plane);
+  }
+
+  &.fa-plus:before {
+    content: fa-content($fa-var-plus);
+  }
+
+  &.fa-power-off:before {
+    content: fa-content($fa-var-power-off);
+  }
+
+  &.fa-question-circle:before {
+    content: fa-content($fa-var-question-circle);
+  }
+
+  &.fa-search:before {
+    content: fa-content($fa-var-search);
+  }
+
+  &.fa-times:before {
+    content: fa-content($fa-var-times);
+  }
+
+  &.fa-trash-alt:before {
+    content: fa-content($fa-var-trash-alt);
+  }
+
+  &.fa-upload:before {
+    content: fa-content($fa-var-upload);
+  }
+
+  &.fa-user-circle:before {
+    content: fa-content($fa-var-user-circle);
+  }
+
+  &.fa-users:before {
+    content: fa-content($fa-var-users);
+  }
+
+  &.fa-video:before {
+    content: fa-content($fa-var-video);
+  }
+}
