@@ -8,7 +8,7 @@ module.exports = merge(common, {
   output: {
     filename: 'js/[name].js',
     path: path.resolve(__dirname, '../public'),
-    publicPath: '/',
+    // publicPath: '/',
   },
   devtool: 'eval',
   devServer: {
