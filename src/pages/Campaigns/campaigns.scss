@@ -17,6 +17,7 @@
   .cardsTamplatesCampaigns {
     margin: 0 0 2rem;
     display: flex;
+    overflow-x: scroll;
     .cardsTemplates {
       width: 200px;
       height: 100px;
@@ -54,52 +55,71 @@
       }
     }
   }
-}
-
-.navTable {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 0 1.5rem;
-}
-.table {
-  border: 1px solid red;
-
-  .headerTable {
-    background: black;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    &_item {
-      color: white;
-      border-right: 1px solid white;
-      padding: 0.25rem 0.75rem;
-      flex-basis: 100%;
-      &:last-child {
-        border: none;
-      }
-    }
-  }
-  .contentTable {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    background: white;
-    &_item {
-      color: black;
-      border-right: 1px solid white;
-      padding: 0.25rem 0.75rem;
-      flex-basis: 100%;
-      &:last-child {
-        border: none;
-      }
-      &:nth-child(odd) {
-        background: lightgrey;
+  .contentTableCampaigns {
+    overflow-x: scroll;
+    position: relative;
+    .navTable {
+      display: flex;
+      justify-content: space-between;
+      top: 0;
+      left: 0;
+      right: 0;
+      position: sticky;
+      margin: 0 0 1rem;
+      .cntSearchTableCampaigns {
+        display: flex;
+        &_input {
+          border-radius: 0.25rem 0 0 0.25rem;
+        }
+        &_btn {
+          border-radius: 0 0.25rem 0.25rem 0;
+          min-width: 30px;
+          min-height: 28px;
+        }
       }
     }
   }
 }
+
+// .table {
+//   border: 1px solid red;
+
+//   .headerTable {
+//     background: black;
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
+//     display: flex;
+//     &_item {
+//       color: white;
+//       border-right: 1px solid white;
+//       padding: 0.25rem 0.75rem;
+//       flex-basis: 100%;
+//       &:last-child {
+//         border: none;
+//       }
+//     }
+//   }
+//   .contentTable {
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
+//     display: flex;
+//     background: white;
+//     &_item {
+//       color: black;
+//       border-right: 1px solid white;
+//       padding: 0.25rem 0.75rem;
+//       flex-basis: 100%;
+//       &:last-child {
+//         border: none;
+//       }
+//       &:nth-child(odd) {
+//         background: lightgrey;
+//       }
+//     }
+//   }
+// }
 
 .modalDetails {
   padding: 1.5rem 1rem;

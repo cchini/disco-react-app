@@ -26,11 +26,16 @@ const Campaigns = () => {
         <h2 className="templateTypes_title">Start with a Template</h2>
         <TemplateCard data={dataTemplate} />
       </section>
-      <section>
+      <section className="contentTableCampaigns">
         <div className="navTable">
-          <div>
-            <Input placeholder="Search" />
-            <Button>Search</Button>
+          <div className="cntSearchTableCampaigns">
+            <Input
+              placeholder="Search"
+              className="cntSearchTableCampaigns_input"
+            />
+            <Button className="cntSearchTableCampaigns_btn">
+              <span className="iconXaxis iconXaxis-search" />
+            </Button>
           </div>
           <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
             New

@@ -18,6 +18,7 @@ const Input: FC<InputProps> = props => {
     <div className={cx('cntInput', className && className)}>
       {label && <label className="cntInput_label">{label}</label>}
       <input
+        {...props}
         className={cx('cntInput_field', className && className)}
         type={type}
         disabled={disabled}
