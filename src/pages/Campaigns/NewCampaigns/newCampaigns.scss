@@ -111,28 +111,48 @@
       }
     }
   }
+  .footerNewCampaign {
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
 }
 
 .modalCampaigns {
-  padding: 1.5rem 1rem;
+  padding: 2rem 1.25rem;
   width: 700px;
   height: 100%;
   max-height: 550px;
   overflow-y: hidden;
+  .modal_header {
+    padding: 0 !important;
+  }
   .headerModalCampaigns {
     display: flex;
     justify-content: space-between;
     padding: 0 0 1rem;
-    border-bottom: 1px solid gray;
-    > div {
-      > p {
+    border-bottom: 1px solid lighten($lightGray, 20%);
+    .headerModalCampaignsTitle {
+      &_detail {
         margin: 0;
-        padding: 0 0 0.75rem;
+        padding: 0 0 0.25rem;
+        color: $blue;
+        text-transform: uppercase;
+        font-size: 0.75rem;
       }
-      > h3 {
+      &_context {
         text-transform: uppercase;
         margin: 0;
+        color: $blue;
       }
+    }
+    &_btn {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 50%;
+      padding: 0.25rem;
     }
   }
   .modalCampaignsContent {
@@ -140,80 +160,51 @@
     overflow-y: scroll;
     max-height: 350px;
     flex-wrap: wrap;
+    padding: 1rem 0 0;
     &_text {
       width: 100%;
+      color: $lightGray;
+      font-size: 0.75rem;
     }
     .searchOptions {
       width: 100%;
       display: flex;
-      > Input {
-        margin: 0 1rem 0 0;
+      padding: 1rem 0;
+      gap: 1rem;
+      &_field {
+        flex-grow: 1;
+        // margin: 0 1rem 0 0;
       }
     }
-  }
-}
-
-.footerNewCampaign {
-  padding: 1.5rem 1rem;
-  display: flex;
-  justify-content: flex-end;
-  > Button {
-    margin: 0 0 0 0.75rem;
-    &:first-child {
-      margin: 0;
-    }
-  }
-}
-
-.rulesSection {
-  width: 100%;
-  border: 1px solid grey;
-  > details {
-    &[open] {
-      border-bottom: 1px solid grey;
-      &:last-child {
-        border: none;
-      }
-    }
-
-    > summary {
-      font-weight: bold;
-      border-bottom: 1px solid grey;
-      padding: 0.5rem 0.875rem;
-      cursor: pointer;
-    }
-    > article {
-      padding: 0.75rem;
-      > header {
-        > ul {
-          display: flex;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          > li {
-            flex: 1;
-            padding: 0.5rem 0;
+    .rulesSection {
+      width: 100%;
+      .accordion {
+        border: 1px solid lighten($lightGray, 20%);
+        border-radius: 0.25rem;
+        background: lighten($lightGray, 40%);
+        margin: 0 0 1.25rem;
+        &_title {
+          color: $blue;
+          position: relative;
+          background: $white;
+          padding: 0.5rem 1rem;
+          border-radius: calc(0.25rem - 1px);
+          &::marker,
+          &::-webkit-details-marker {
+            font-family: 'icomoon';
+            color: red;
+            position: absolute;
+            content: '\e91f';
+            right: 0;
           }
-        }
-      }
-      .listCreateRule {
-        display: flex;
-        flex-wrap: wrap;
-        .listSelect {
-          display: flex;
-          list-style: none;
-          margin: 0 0 0.75rem;
-          padding: 0;
-          width: 100%;
-          > li {
-            flex: 1;
-            padding: 0.5rem 0;
+          &[open] {
+            border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+            &::marker,
+            &::-webkit-details-marker {
+              content: '\e91c';
+              color: green;
+            }
           }
-        }
-        > div {
-          width: 100%;
-          display: flex;
-          justify-content: flex-end;
         }
       }
     }

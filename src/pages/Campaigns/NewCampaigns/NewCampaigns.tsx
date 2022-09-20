@@ -20,11 +20,18 @@ const NewCampaignsStep1 = () => {
         onClose={() => setOpen(false)}
         header={
           <header className="headerModalCampaigns">
-            <div>
-              <p>Edit</p>
-              <h3>Audience a Morning | Weedkays</h3>
+            <div className="headerModalCampaignsTitle">
+              <p className="headerModalCampaignsTitle_detail">Edit</p>
+              <h3 className="headerModalCampaignsTitle_context">
+                Audience a Morning | Weedkays
+              </h3>
             </div>
-            <Button onClick={() => setOpen(false)}>X</Button>
+            <Button
+              onClick={() => setOpen(false)}
+              className="headerModalCampaigns_btn"
+              hierarchy="secondary">
+              X
+            </Button>
           </header>
         }>
         <section className="modalCampaignsContent">
@@ -35,8 +42,9 @@ const NewCampaignsStep1 = () => {
             itaque beatae. Quia?
           </p>
           <nav className="searchOptions">
-            <Input label="Rule name:" />
+            <Input label="Rule name:" className="searchOptions_field" />
             <Select
+              className="searchOptions_field"
               label="Creative Matrix"
               options={[
                 { label: 'option A', value: 'option A' },
@@ -46,8 +54,8 @@ const NewCampaignsStep1 = () => {
             />
           </nav>
           <section className="rulesSection">
-            <details>
-              <summary>Rules</summary>
+            <details className="accordion">
+              <summary className="accordion_title">Rules</summary>
               <article>
                 <header>
                   <ul>
@@ -175,8 +183,8 @@ const NewCampaignsStep1 = () => {
                 <Button>And</Button>
               </article>
             </details>
-            <details>
-              <summary>Assign creatives</summary>
+            <details className="accordion">
+              <summary className="accordion_title">Assign creatives</summary>
               <article>
                 <section className="table">
                   <ul className="headerTable">
@@ -213,8 +221,10 @@ const NewCampaignsStep1 = () => {
                 <Button>+</Button>
               </article>
             </details>
-            <details>
-              <summary>Select the channels wherethe this rule apply</summary>
+            <details className="accordion">
+              <summary className="accordion_title">
+                Select the channels wherethe this rule apply
+              </summary>
               <article>
                 <ul>
                   <Switch label="Facebook - Instagram - Messenger" name="FIM" />
@@ -363,10 +373,13 @@ const NewCampaignsStep1 = () => {
         </section>
       </section>
       <footer className="footerNewCampaign">
-        <Button hierarchy="secondary">Cancel</Button>
-        <Button>Save</Button>
+        <Button hierarchy="secondary" className="footerNewCampaign_btn">
+          Cancel
+        </Button>
+        <Button className="footerNewCampaign_btn">Save</Button>
         <Button
-          onClick={() => navigate({ pathname: `/${DiscoPaths.NewCampaigns}` })}>
+          onClick={() => navigate({ pathname: `/${DiscoPaths.NewCampaigns}` })}
+          className="footerNewCampaign_btn">
           Next
         </Button>
       </footer>
