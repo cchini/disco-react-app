@@ -31,6 +31,8 @@
       }
       .listIconsTemplates {
         width: 100%;
+        display: flex;
+        justify-content: space-around;
         &_item {
           color: $lightGray;
         }

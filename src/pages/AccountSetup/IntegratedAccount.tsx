@@ -1,30 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppStore } from '@redux/store';
+import cx from 'classnames';
 import { Select, Input } from '@components/index';
 import Layout from '../common/Layout/Layout';
-import cx from 'classnames';
+import { iconByPlatform } from '@utilities/common.utility';
 import './accountSetup.scss';
 
 const IntegratedAccount = () => {
   const store = useSelector((store: AppStore) => store.account);
   const account = store?.account?.account;
-
-  const iconByPlatform = platform => {
-    const baseIcon = 'iconXaxis iconXaxis-';
-    switch (platform) {
-      case 'FACEBOOK':
-        return `${baseIcon}facebook-f`;
-      case 'INSTAGRAM':
-        return `${baseIcon}instagram`;
-      case 'MESSENGER':
-        return `${baseIcon}facebook-messenger`;
-      case 'TIKTOK':
-        return `${baseIcon}tiktok`;
-      case 'SONA':
-        return `${baseIcon}tiktok`;
-    }
-  };
 
   const iconByPlatformOwner = platform => {
     const baseClass = 'headerCardPlatform_icon';
