@@ -33,7 +33,18 @@
               "platform": {
                 "name": "Instragram",
                 "code": "INSTAGRAM",
-                "enabled": "true"
+                "enabled": true
+              }
+            },
+            {
+              "id": 4,
+              "accountPlatformId": 2,
+              "pageId": "asdasd545D242",
+              "pageName": "Getir UK",
+              "platform": {
+                "name": "Facebook",
+                "code": "FACEBOOK",
+                "enabled": true
               }
             }
           ]
