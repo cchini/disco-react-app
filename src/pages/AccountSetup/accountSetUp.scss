@@ -59,13 +59,20 @@
       border-radius: 0.25rem 0.25rem 0 0;
       &_icon {
         color: $white;
+        margin: 0 1rem 0 0;
+        &:last-child {
+          margin: 0;
+        }
       }
       &_status {
         color: white;
         font-size: 0.875rem;
         font-weight: map-get($fonts, medium);
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
+        align-items: center;
+        flex-grow: 1;
+
         .iconStatus {
           width: 10px;
           height: 10px;
