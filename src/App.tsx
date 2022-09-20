@@ -22,7 +22,7 @@ const App = () => {
     () => {},
   );
 
-  if (loading) return <div>Loading</div>;
+  /* if (loading) return <div>Loading</div>; */
 
   store.dispatch(modifyListAccounts(accounts));
   if (storageAccount && accounts?.length > 0) {

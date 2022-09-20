@@ -34,8 +34,6 @@ const CreativeMatrix = () => {
     () => {},
   );
 
-  if (loading) return <div>Loading</div>;
-
   return (
     <Layout className="creativeMatrixPage">
       {/* Modal detail: Template matrix selected */}
@@ -46,37 +44,42 @@ const CreativeMatrix = () => {
           data={templateSelected}
         />
       )}
-
-      <h1 className="creativeMatrixPage_title">Creative Matrix</h1>
-      {/* Template section */}
-      <section className="templateTypes">
-        <h2 className="templateTypes_title">Start with a Template</h2>
-        <TemplateCard
-          data={templateListAdapter(dataTemplate)}
-          openModal={value => {
-            setTempleteSelected(value);
-            setOpen(true);
-          }}
-        />
-      </section>
-      {/* Creative matrix section */}
-      <section className="contentTableCreativeMatrix">
-        <div className="navTable">
-          <div className="cntSearchTableCreativeMatrix">
-            <Input
-              placeholder="Search"
-              className="cntSearchTableCreativeMatrix_input"
+      {loading ? (
+        <div>Loading</div>
+      ) : (
+        <>
+          <h1 className="creativeMatrixPage_title">Creative Matrix</h1>
+          {/* Template section */}
+          <section className="templateTypes">
+            <h2 className="templateTypes_title">Start with a Template</h2>
+            <TemplateCard
+              data={templateListAdapter(dataTemplate)}
+              openModal={value => {
+                setTempleteSelected(value);
+                setOpen(true);
+              }}
             />
-            <Button className="cntSearchTableCreativeMatrix_btn">
-              <span className="iconXaxis iconXaxis-search" />
-            </Button>
-          </div>
-          <Button onClick={() => navigate(`/${DiscoPaths.NewMatrixStep1}`)}>
-            New
-          </Button>
-        </div>
-        <MatrixTable data={matrixList} />
-      </section>
+          </section>
+          {/* Creative matrix section */}
+          <section className="contentTableCreativeMatrix">
+            <div className="navTable">
+              <div className="cntSearchTableCreativeMatrix">
+                <Input
+                  placeholder="Search"
+                  className="cntSearchTableCreativeMatrix_input"
+                />
+                <Button className="cntSearchTableCreativeMatrix_btn">
+                  <span className="iconXaxis iconXaxis-search" />
+                </Button>
+              </div>
+              <Button onClick={() => navigate(`/${DiscoPaths.NewMatrixStep1}`)}>
+                New
+              </Button>
+            </div>
+            <MatrixTable data={matrixList} />
+          </section>
+        </>
+      )}
     </Layout>
   );
 };
