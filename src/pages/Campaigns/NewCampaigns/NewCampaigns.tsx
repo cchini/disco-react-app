@@ -56,17 +56,17 @@ const NewCampaignsStep1 = () => {
           <section className="rulesSection">
             <details className="accordion">
               <summary className="accordion_title">Rules</summary>
-              <article>
-                <header>
-                  <ul>
-                    <li>Tigger Type</li>
-                    <li>Condition</li>
-                    <li>Value</li>
+              <article className="cntItemAccordion cntItemAccordion_first">
+                <header className="headerFieldsColumn">
+                  <ul className="list">
+                    <li className="list_item">Tigger Type</li>
+                    <li className="list_item">Condition</li>
+                    <li className="list_item">Value</li>
                   </ul>
                 </header>
                 <section className="listCreateRule">
                   <ul className="listSelect">
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="KPI"
                         options={[
@@ -74,9 +74,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Equal to ( ===)"
                         options={[
@@ -84,9 +85,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Awarees"
                         options={[
@@ -94,20 +96,23 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
-                      <Button>Remove</Button>
+                    <li className="listSelect_item">
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash-alt"></span>
+                      </button>
                     </li>
                   </ul>
                   <div>
-                    <Button>Or+ </Button>
+                    <Button hierarchy="secondary">Or+ </Button>
                   </div>
                 </section>
                 <div>And</div>
                 <section className="listCreateRule">
                   <ul className="listSelect">
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="KPI"
                         options={[
@@ -115,9 +120,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Equal to ( ===)"
                         options={[
@@ -125,9 +131,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Awarees"
                         options={[
@@ -135,14 +142,17 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
-                      <Button>Remove</Button>
+                    <li className="listSelect_item">
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash-alt"></span>
+                      </button>
                     </li>
                   </ul>
                   <ul className="listSelect">
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="KPI"
                         options={[
@@ -150,9 +160,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Equal to ( ===)"
                         options={[
@@ -160,9 +171,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Awarees"
                         options={[
@@ -170,14 +182,17 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
                     <li>
-                      <Button>Remove</Button>
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash"></span>
+                      </button>
                     </li>
                   </ul>
                   <div>
-                    <Button>Or+ </Button>
+                    <Button hierarchy="secondary">Or+ </Button>
                   </div>
                 </section>
                 <Button>And</Button>

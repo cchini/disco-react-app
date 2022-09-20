@@ -204,9 +204,64 @@
             font-size: 0.875rem;
           }
         }
+        .cntItemAccordion {
+          &.cntItemAccordion_first {
+            .headerFieldsColumn {
+              background: $white;
+              padding: 0.75rem 1rem;
+              .list {
+                display: flex;
+                gap: 0.75rem;
+                &_item {
+                  flex-grow: 1;
+                  color: $darkGray;
+                  font-size: 0.75rem;
+                  max-width: 150px;
+                }
+              }
+            }
+            .listCreateRule {
+              padding: 0.75rem 1rem;
+              .listSelect {
+                display: flex;
+                gap: 0.75rem;
+                align-items: center;
+                &_item {
+                  flex-grow: 1;
+                  max-width: 150px;
+                  .selectRule {
+                    .reactSelect__control {
+                      max-width: 100%;
+                      min-width: 100%;
+                      width: 100%;
+                    }
+                  }
+                  .btnRemoveRow {
+                    background: $pink;
+                    padding: 0.25rem 0.375rem;
+                    color: $white;
+                    font-size: 0.875rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 0.125rem;
+                    &:hover {
+                      background: lighten($pink, 20%);
+                    }
+                    &:active {
+                      transform: scale(0.95);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         &[open] {
-          border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
           .accordion_title {
+            border-bottom: 1px solid lighten($lightGray, 20%);
+            border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+
             &::after {
               content: '\e91c';
             }
