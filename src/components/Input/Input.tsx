@@ -1,5 +1,6 @@
 import React, { FC, DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import cx from 'classnames';
+import './input.scss';
 
 export interface InputProps
   extends DetailedHTMLProps<
@@ -9,19 +10,28 @@ export interface InputProps
   className?: string;
   disabled?: boolean;
   label?: string;
+  value?: string;
 }
 
 const Input: FC<InputProps> = props => {
-  const { type = 'text', label = '', disabled = false, className } = props;
+  const {
+    type = 'text',
+    label = '',
+    disabled = false,
+    className,
+    onChange = () => {},
+  } = props;
   return (
-    <>
-      <label>{label}</label>
+    <div className={cx('cntInput', className && className)}>
+      <label className="cntInput_label">{label}</label>
       <input
-        className={cx('inputclassname', className && className)}
+        className={cx('cntInput_field', className && className)}
         type={type}
         disabled={disabled}
+        onChange={onChange}
+        {...props}
       />
-    </>
+    </div>
   );
 };
 

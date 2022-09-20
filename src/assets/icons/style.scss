@@ -1,0 +1,223 @@
+@import './variables';
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?yuy3yx');
+  src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?yuy3yx#iefix')
+      format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?yuy3yx')
+      format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?yuy3yx')
+      format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?yuy3yx##{$icomoon-font-family}')
+      format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.iconXasis {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconXasis-tiktok {
+  &:before {
+    content: $iconXasis-tiktok;
+  }
+}
+.iconXasis-instagram {
+  &:before {
+    content: $iconXasis-instagram;
+  }
+}
+.iconXasis-facebook-messenger {
+  &:before {
+    content: $iconXasis-facebook-messenger;
+  }
+}
+.iconXasis-facebook-f {
+  &:before {
+    content: $iconXasis-facebook-f;
+  }
+}
+.iconXasis-facebook {
+  &:before {
+    content: $iconXasis-facebook;
+  }
+}
+.iconXasis-video {
+  &:before {
+    content: $iconXasis-video;
+  }
+}
+.iconXasis-users {
+  &:before {
+    content: $iconXasis-users;
+  }
+}
+.iconXasis-user-circle {
+  &:before {
+    content: $iconXasis-user-circle;
+  }
+}
+.iconXasis-upload {
+  &:before {
+    content: $iconXasis-upload;
+  }
+}
+.iconXasis-trash-alt {
+  &:before {
+    content: $iconXasis-trash-alt;
+  }
+}
+.iconXasis-times {
+  &:before {
+    content: $iconXasis-times;
+  }
+}
+.iconXasis-search {
+  &:before {
+    content: $iconXasis-search;
+  }
+}
+.iconXasis-question-circle {
+  &:before {
+    content: $iconXasis-question-circle;
+  }
+}
+.iconXasis-power-off {
+  &:before {
+    content: $iconXasis-power-off;
+  }
+}
+.iconXasis-plus {
+  &:before {
+    content: $iconXasis-plus;
+  }
+}
+.iconXasis-paper-plane {
+  &:before {
+    content: $iconXasis-paper-plane;
+  }
+}
+.iconXasis-map-marked-alt {
+  &:before {
+    content: $iconXasis-map-marked-alt;
+  }
+}
+.iconXasis-list {
+  &:before {
+    content: $iconXasis-list;
+  }
+}
+.iconXasis-images {
+  &:before {
+    content: $iconXasis-images;
+  }
+}
+.iconXasis-image {
+  &:before {
+    content: $iconXasis-image;
+  }
+}
+.iconXasis-home {
+  &:before {
+    content: $iconXasis-home;
+  }
+}
+.iconXasis-folder {
+  &:before {
+    content: $iconXasis-folder;
+  }
+}
+.iconXasis-folders {
+  &:before {
+    content: $iconXasis-folders;
+  }
+}
+.iconXasis-filter {
+  &:before {
+    content: $iconXasis-filter;
+  }
+}
+.iconXasis-edit {
+  &:before {
+    content: $iconXasis-edit;
+  }
+}
+.iconXasis-download {
+  &:before {
+    content: $iconXasis-download;
+  }
+}
+.iconXasis-cloud-upload {
+  &:before {
+    content: $iconXasis-cloud-upload;
+  }
+}
+.iconXasis-clock {
+  &:before {
+    content: $iconXasis-clock;
+  }
+}
+.iconXasis-chevron-down {
+  &:before {
+    content: $iconXasis-chevron-down;
+  }
+}
+.iconXasis-chevron-left {
+  &:before {
+    content: $iconXasis-chevron-left;
+  }
+}
+.iconXasis-chevron-right {
+  &:before {
+    content: $iconXasis-chevron-right;
+  }
+}
+.iconXasis-chevron-up {
+  &:before {
+    content: $iconXasis-chevron-up;
+  }
+}
+.iconXasis-chart-pie-alt {
+  &:before {
+    content: $iconXasis-chart-pie-alt;
+  }
+}
+.iconXasis-chart-pie {
+  &:before {
+    content: $iconXasis-chart-pie;
+  }
+}
+.iconXasis-bell {
+  &:before {
+    content: $iconXasis-bell;
+  }
+}
+.iconXasis-calendar-alt {
+  &:before {
+    content: $iconXasis-calendar-alt;
+  }
+}
+.iconXasis-calendar {
+  &:before {
+    content: $iconXasis-calendar;
+  }
+}
+.iconXasis-border-none {
+  &:before {
+    content: $iconXasis-border-none;
+  }
+}

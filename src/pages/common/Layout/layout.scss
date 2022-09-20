@@ -3,6 +3,8 @@
 
 .gralContent {
   position: relative;
+  background: $bg;
+  min-height: 100vh;
   &.gralContent__openNav {
     .headerLayout {
       &_action {
@@ -107,7 +109,7 @@
     transition: all 0.45s cubic-bezier(0.77, 0, 0.175, 1);
     margin-bottom: 3em;
     z-index: 999;
-    height: 100vh;
+    min-height: calc(100vh - 60px);
     overflow-y: auto;
     background: rgb(2, 44, 109);
     background: linear-gradient(
@@ -153,6 +155,7 @@
           white-space: nowrap;
           padding: 1em;
           font-size: 14px;
+          color: #fff;
           &:hover {
             color: #fff;
           }
@@ -166,7 +169,6 @@
     }
   }
   .contentPages {
-    max-width: calc(100% - 50px);
     padding: 2rem 1.5rem 2rem calc(50px + 1.5rem);
     transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
   }
