@@ -63,7 +63,6 @@ const IntegratedAccount = () => {
           options={store?.accounts}
           onChange={handleSelectAccount}
           value={store?.account}
-          disabled={true}
         />
         <div className="accountRrss">
           <label className="accountRrss_label">Country</label>
