@@ -4,7 +4,6 @@ import { AppStore } from '@redux/store';
 import { Select, Input } from '@components/index';
 import Layout from '../common/Layout/Layout';
 import cx from 'classnames';
-
 import './accountSetup.scss';
 
 const IntegratedAccount = () => {
@@ -73,7 +72,7 @@ const IntegratedAccount = () => {
                           className={`listRrss_item ${iconByPlatform(
                             available?.platform?.code,
                           )}`}></li>
-                      )}{' '}
+                      )}
                     </>
                   ))}
                 </>

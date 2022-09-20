@@ -13,36 +13,40 @@ const Campaigns = () => {
   const navigate = useNavigate();
   const [campaignList, matrixList, loading] = useDataCampaigns();
 
-  if (loading) return <div>Loading</div>;
-
   // options modal - creative matrix selector
   console.debug(matrixList);
   console.debug('dataTemplate: ', dataTemplate);
 
   return (
     <Layout className="campaignsPage">
-      <h1 className="campaignsPage_title">Campaigns</h1>
-      <section className="templateTypes">
-        <h2 className="templateTypes_title">Start with a Template</h2>
-        <TemplateCard data={dataTemplate} />
-      </section>
-      <section className="contentTableCampaigns">
-        <div className="navTable">
-          <div className="cntSearchTableCampaigns">
-            <Input
-              placeholder="Search"
-              className="cntSearchTableCampaigns_input"
-            />
-            <Button className="cntSearchTableCampaigns_btn">
-              <span className="iconXaxis iconXaxis-search" />
-            </Button>
-          </div>
-          <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
-            New
-          </Button>
-        </div>
-        <CampaignsTable data={campaignList} />
-      </section>
+      {loading ? (
+        <div>Loading</div>
+      ) : (
+        <>
+          <h1 className="campaignsPage_title">Campaigns</h1>
+          <section className="templateTypes">
+            <h2 className="templateTypes_title">Start with a Template</h2>
+            <TemplateCard data={dataTemplate} />
+          </section>
+          <section className="contentTableCampaigns">
+            <div className="navTable">
+              <div className="cntSearchTableCampaigns">
+                <Input
+                  placeholder="Search"
+                  className="cntSearchTableCampaigns_input"
+                />
+                <Button className="cntSearchTableCampaigns_btn">
+                  <span className="iconXaxis iconXaxis-search" />
+                </Button>
+              </div>
+              <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
+                New
+              </Button>
+            </div>
+            <CampaignsTable data={campaignList} />
+          </section>
+        </>
+      )}
     </Layout>
   );
 };

@@ -14,22 +14,18 @@ const TemplateCard: FC<TemplateCardProps> = props => {
   const navigate = useNavigate();
 
   const iconsPlataform = plataform => {
-    console.log('platform: ', plataform);
-    const stringIcon = 'iconXaxis iconXaxis-';
-    if (plataform === 'KPI') {
-      return `${stringIcon}filter`;
-    }
-    if (plataform === 'Audiences') {
-      return `${stringIcon}users`;
-    }
-    if (plataform === 'Location') {
-      return `${stringIcon}map-marked-alt`;
-    }
-    if (plataform === 'Week days') {
-      return `${stringIcon}calendar`;
-    }
-    if (plataform === 'Days part') {
-      return `${stringIcon}clock`;
+    const baseClass = 'iconXaxis iconXaxis-';
+    switch (plataform) {
+      case 'KPI':
+        return `${baseClass}filter`;
+      case 'Audiences':
+        return `${baseClass}users`;
+      case 'Location':
+        return `${baseClass}map-marked-alt`;
+      case 'Week days':
+        return `${baseClass}calendar`;
+      case 'Days part':
+        return `${baseClass}clock`;
     }
   };
   return (
@@ -37,14 +33,16 @@ const TemplateCard: FC<TemplateCardProps> = props => {
       {data?.map(template => (
         <article className="cardsTemplates">
           <ul className="listIconsTemplates">
-            {template.platforms.map(
-              platform =>
-                platform.enabled ?? (
+            {template.platforms?.map(platform => {
+              if (platform?.enabled) {
+                return (
                   <li className="listIconsTemplates_item">
-                    <span className={cx(iconsPlataform(platform?.code))}></span>
+                    <span
+                      className={`${iconsPlataform(platform?.code)}`}></span>
                   </li>
-                ),
-            )}
+                );
+              }
+            })}
           </ul>
           <div className="optionsTemplate">
             <Button
