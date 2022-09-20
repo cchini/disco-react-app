@@ -6,6 +6,7 @@ import TemplateCard from './components/TemplateCard/TemplateCard';
 import { DiscoPaths } from '@routes/models/path.model';
 import { data as dataTemplate } from '@mocks/templateCampaigns.mock';
 import useDataCampaigns from './hooks/useDataCampaigns';
+import Layout from '../common/Layout/Layout';
 import './campaigns.scss';
 
 const Campaigns = () => {
@@ -18,10 +19,10 @@ const Campaigns = () => {
   console.debug(matrixList);
 
   return (
-    <section>
-      <h1>Campaigns</h1>
-      <section>
-        <h2>Start with a Template</h2>
+    <Layout className="campaignsPage">
+      <h1 className="campaignsPage_title">Campaigns</h1>
+      <section className="templateTypes">
+        <h2 className="templateTypes_title">Start with a Template</h2>
         <TemplateCard data={dataTemplate} />
       </section>
       <section>
@@ -36,7 +37,7 @@ const Campaigns = () => {
         </div>
         <CampaignsTable data={campaignList} />
       </section>
-    </section>
+    </Layout>
   );
 };
 
