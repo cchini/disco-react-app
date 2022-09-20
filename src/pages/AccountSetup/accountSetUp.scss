@@ -56,7 +56,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-radius: 0.25rem 0.25rem 0 0;
+      border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
       &_icon {
         color: $white;
         margin: 0 1rem 0 0;

@@ -20,7 +20,7 @@ const Switch: React.FC<ISwitch> = ({ label = '', ...props }: ISwitch) => {
   const { className, ref, name } = props;
   return (
     <div className={cx(className)}>
-      {label ?? <span>{label}</span>}
+      {typeof label === 'string' ? <span>{label}</span> : label}
       <input className="checkSwitch" id={name} type="checkbox" ref={ref} />
       <label htmlFor={name} className="check-trail">
         <span className="check-handler"></span>

@@ -115,9 +115,9 @@
     top: 0;
     width: 250px;
     transition: all 0.45s cubic-bezier(0.77, 0, 0.175, 1);
-    margin-bottom: 3em;
     z-index: 999;
     min-height: calc(100vh - 60px);
+    height: 100%;
     overflow-y: auto;
     background: rgb(2, 44, 109);
     background: linear-gradient(

@@ -1,8 +1,7 @@
-$clouds: #ecf0f1;
-$turquoise: #1abc9c;
-$greensea: #16a085;
+@import '../../assets/scss/variables';
+
 $night: #34495e;
-$midnight: #2c3e50;
+
 $transition: all 0.5s ease;
 
 /* Hide the input */
@@ -14,36 +13,36 @@ $transition: all 0.5s ease;
 .check-trail {
   display: flex;
   align-items: center;
-  width: 60px;
-  height: 30px;
-  background: $midnight;
-  border-radius: 15px;
+  width: 40px;
+  height: 24px;
+  background: $blue;
+  border-radius: 12px;
   transition: $transition;
   cursor: pointer;
 }
 .check-handler {
   display: flex;
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
-  background: white;
+  width: 16px;
+  height: 16px;
+  background: $white;
   border-radius: 50%;
   transition: $transition;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   &:before {
     content: 'OFF';
-    color: $night;
-    font-size: 0.5rem;
-    font-weight: bold;
+    color: $blue;
+    font-size: 0.375rem;
+    font-weight: map-get($fonts, medium);
   }
 }
 .checkSwitch[type='checkbox']:checked + .check-trail {
-  background: $greensea;
+  background: $pink;
   .check-handler {
     margin-left: 50%;
-    color: $turquoise;
+    color: $pink;
     &::before {
       content: 'ON';
     }
