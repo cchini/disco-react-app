@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
 import { DiscoPaths } from '../../../routes/models/path.model';
 import { Button, Input, Modal, Switch, Select } from '@components/index';
+import Layout from '../../common/Layout/Layout';
+// import 'react-datepicker/dist/react-datepicker.css';
 import './newCampaigns.scss';
 
 const NewCampaignsStep1 = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <section>
+    <Layout className="campaignsNewPage">
       <Modal
         className="modalCampaigns"
         active={open}
@@ -227,84 +231,146 @@ const NewCampaignsStep1 = () => {
         </footer>
       </Modal>
 
-      <h1>Create a new Campaign</h1>
+      <h1 className="campaignsNewPage_title">Create a new Campaign</h1>
 
       {/* Sección de cards de inputs */}
-      <nav className="navMatrix">
-        <Input value="input" placeholder="Name:" label="Name" />
+      <nav className="filtersNewCampaigns">
+        <Input placeholder="Name" label="Name" />
+        <div className="filtersNewCampaigns_field">
+          <label className="labelDatePicker">Date start</label>
+          <DatePicker
+            selected={startDate}
+            onChange={date => setStartDate(date)}
+            placeholder="dd/mm/AAAA"
+          />
+        </div>
+        <div className="filtersNewCampaigns_field">
+          <label className="labelDatePicker">Date end</label>
+          <DatePicker
+            selected={startDate}
+            onChange={date => setStartDate(date)}
+            placeholder="dd/mm/AAAA"
+          />
+        </div>
         <Input
-          value="input"
-          placeholder="dd/mm/AAAA"
-          label="Date start:"
-          type="date"
+          placeholder="$50.000"
+          label="Budget($USD)"
+          className="filtersNewCampaigns_field"
         />
+
         <Input
-          value="input"
-          placeholder="dd/mm/AAAA"
-          label="Date end:"
-          type="date"
+          placeholder="KPI"
+          label="KPI"
+          className="filtersNewCampaigns_field"
         />
-        <Input value="input" placeholder="Name" label="Budget($USD):" />
 
-        <Input value="input" placeholder="Name" label="KPI;" />
-
-        <Input value="input" placeholder="Name" label="Goal:" />
+        <Input
+          placeholder="Goal"
+          label="Goal"
+          className="filtersNewCampaigns_field"
+        />
       </nav>
       <section className="rulesConfig">
-        <h2>priority group 1</h2>
-        <article className="cardRule">
-          <h3>Audience a morning | Weekdays</h3>
-          <span>Creative:10</span>
-          <ul>
-            <li>
-              <Switch
-                label="Facebook Instagram Messenger"
-                name="Facebook Instagram Messenger"
-              />
-            </li>
-            <li>
-              <Switch label="tiktok" name="tiktok" />
-            </li>
-            <li>
-              <Switch label="SONA" name="SONA" />
-            </li>
-          </ul>
-        </article>
-        <article className="cardRule" onClick={() => setOpen(true)}>
-          + Add Rule
-        </article>
+        <h2 className="rulesConfig_title">priority group 1</h2>
+        <section className="cntCardsRules">
+          <article className="cardRule">
+            <h3 className="cardRule_title">Audience a morning | Weekdays</h3>
+            <span className="cardRule_detail">Creative: 10</span>
+            <ul className="listSwitchRules">
+              <li className="listSwitchRules_item">
+                <Switch
+                  className="swicthRule"
+                  name="META-Audience"
+                  label={
+                    <div className="labelsIcons">
+                      <span className="iconXaxis  iconXaxis-facebook-f"></span>
+                      <span className="iconXaxis  iconXaxis-instagram"></span>
+                      <span className="iconXaxis  iconXaxis-facebook-messenger"></span>
+                    </div>
+                  }
+                />
+              </li>
+              <li className="listSwitchRules_item">
+                <Switch
+                  label={
+                    <div className="labelsIcons">
+                      <span className="iconXaxis  iconXaxis-tiktok"></span>
+                    </div>
+                  }
+                  name="tiktok-Audience"
+                  className="swicthRule"
+                />
+              </li>
+              <li className="listSwitchRules_item">
+                <Switch
+                  label="SONA"
+                  name="SONA-Audience"
+                  className="swicthRule"
+                />
+              </li>
+            </ul>
+          </article>
+          <article
+            className="cardRule cardRule__center"
+            onClick={() => setOpen(true)}>
+            <span className="cardRule_icon iconXaxis iconXaxis-plus"></span>
+            <p className="cardRule_text"> Add Rule</p>
+          </article>
+        </section>
       </section>
       <section className="rulesConfig">
-        <h2>Default</h2>
-        <article className="cardRule">
-          <h3>Default rule</h3>
-          <span>Creative:10</span>
-          <ul>
-            <li>
-              <Switch
-                label="Facebook Instagram Messenger"
-                name="Facebook Instagram Messenger"
-              />
-            </li>
-            <li>
-              <Switch label="tiktok" name="tiktok" />
-            </li>
-            <li>
-              <Switch label="SONA" name="SONA" />
-            </li>
-          </ul>
-        </article>
-        <article className="cardRule">+ Add Rule</article>
+        <h2 className="rulesConfig_title">Default</h2>
+        <section className="cntCardsRules">
+          <article className="cardRule">
+            <h3 className="cardRule_title">Default rule</h3>
+            <span className="cardRule_detail">Creative: 10</span>
+            <ul className="listSwitchRules">
+              <li className="listSwitchRules_item">
+                <Switch
+                  name="META"
+                  className="swicthRule"
+                  label={
+                    <div className="labelsIcons">
+                      <span className="iconXaxis  iconXaxis-facebook-f"></span>
+                      <span className="iconXaxis  iconXaxis-instagram"></span>
+                      <span className="iconXaxis  iconXaxis-facebook-messenger"></span>
+                    </div>
+                  }
+                />
+              </li>
+              <li className="listSwitchRules_item">
+                <Switch
+                  name="TikTok"
+                  className="swicthRule"
+                  label={
+                    <div className="labelsIcons">
+                      <span className="iconXaxis  iconXaxis-tiktok"></span>
+                    </div>
+                  }
+                />
+              </li>
+              <li className="listSwitchRules_item">
+                <Switch label="SONA" name="SONA" className="swicthRule" />
+              </li>
+            </ul>
+          </article>
+          <article
+            className="cardRule cardRule__center"
+            onClick={() => setOpen(true)}>
+            <span className="cardRule_icon iconXaxis iconXaxis-plus"></span>
+            <p className="cardRule_text"> Add Rule</p>
+          </article>
+        </section>
       </section>
       <footer className="footerNewCampaign">
-        <Button>Cancel</Button>
+        <Button hierarchy="secondary">Cancel</Button>
         <Button>Save</Button>
         <Button
           onClick={() => navigate({ pathname: `/${DiscoPaths.NewCampaigns}` })}>
           Next
         </Button>
       </footer>
-    </section>
+    </Layout>
   );
 };
 
