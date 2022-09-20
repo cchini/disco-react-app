@@ -1,24 +1,15 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { AppStore } from '@redux/store';
 import { Select, Input } from '@components/index';
-import { modifyAccount } from '@redux/states/account.state';
-import { setAccountStorage } from '@utilities/localstorage.utility';
-import { AccountOption } from '@models/account.model';
 import Layout from '../common/Layout/Layout';
 import cx from 'classnames';
 
 import './accountSetup.scss';
 
 const IntegratedAccount = () => {
-  const dispatch = useDispatch();
   const store = useSelector((store: AppStore) => store.account);
   const account = store?.account?.account;
-
-  const handleSelectAccount = (value: AccountOption) => {
-    setAccountStorage(value?.value);
-    dispatch(modifyAccount(value));
-  };
 
   const iconByPlatform = platform => {
     const baseIcon = 'iconXasis iconXasis-';
@@ -56,38 +47,41 @@ const IntegratedAccount = () => {
   return (
     <Layout className="accountPage">
       <h1 className="accountPage_title">Account Set Up</h1>
-      <header className="accountPage_header">
-        <Select
-          className="selectAccount"
-          label="Account name"
-          options={store?.accounts}
-          onChange={handleSelectAccount}
-          value={store?.account}
-        />
-        <div className="accountRrss">
-          <label className="accountRrss_label">Country</label>
-          <p className="accountRrss_country">{account?.countryName}</p>
-        </div>
-        <div className="accountRrss">
-          <label className="accountRrss_label">Available plataforms</label>
-          <ul className="listRrss">
-            {account?.platforms?.map(plat => (
-              <>
-                {plat?.pages?.map(available => (
-                  <>
-                    {available?.platform?.enabled && (
-                      <li
-                        className={`listRrss_item ${iconByPlatform(
-                          available?.platform?.code,
-                        )}`}></li>
-                    )}{' '}
-                  </>
-                ))}
-              </>
-            ))}
-          </ul>
-        </div>
-      </header>
+      {account && (
+        <header className="accountPage_header">
+          <Select
+            className="selectAccount"
+            label="Account name"
+            options={store?.accounts}
+            value={store?.account}
+            disabled={true}
+            isClearable={false}
+          />
+          <div className="accountRrss">
+            <label className="accountRrss_label">Country</label>
+            <p className="accountRrss_country">{account?.countryName}</p>
+          </div>
+          <div className="accountRrss">
+            <label className="accountRrss_label">Available plataforms</label>
+            <ul className="listRrss">
+              {account?.platforms?.map(plat => (
+                <>
+                  {plat?.pages?.map(available => (
+                    <>
+                      {available?.platform?.enabled && (
+                        <li
+                          className={`listRrss_item ${iconByPlatform(
+                            available?.platform?.code,
+                          )}`}></li>
+                      )}{' '}
+                    </>
+                  ))}
+                </>
+              ))}
+            </ul>
+          </div>
+        </header>
+      )}
 
       {account?.platforms?.map((platform, index) => (
         <article
