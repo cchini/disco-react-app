@@ -13,8 +13,6 @@ const TemplateCard: FC<TemplateCardProps> = props => {
   const { data } = props;
   const navigate = useNavigate();
 
-  console.log('datadata: ', data);
-
   const iconsPlataform = plataform => {
     console.log('platform: ', plataform);
     const stringIcon = 'iconXaxis iconXaxis-';
