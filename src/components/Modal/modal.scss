@@ -18,10 +18,10 @@
   .modal_content {
     position: relative;
     top: 0;
-    background: #ffff;
+    background: $white;
     .modal_header {
       padding: 1rem;
-      background-color: #ffff;
+      background-color: $white;
     }
   }
 }

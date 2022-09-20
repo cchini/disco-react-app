@@ -1,5 +1,10 @@
 import React, { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppStore } from '@redux/store';
+import { modifyAccount } from '@redux/states/account.state';
+import { setAccountStorage } from '@utilities/localstorage.utility';
+import { AccountOption } from '@models/account.model';
+import { Link, useNavigate } from 'react-router-dom';
 import { Input, Button, Select } from '@components/index';
 import { DiscoPaths } from '@routes/models/path.model';
 import cx from 'classnames';
@@ -15,6 +20,13 @@ const Layout: FC<ILayout> = props => {
   const { className, children } = props;
   const [openMenu, setOpenMenu] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const store = useSelector((store: AppStore) => store.account);
+
+  const handleSelectAccount = (value: AccountOption) => {
+    setAccountStorage(value?.value);
+    dispatch(modifyAccount(value));
+  };
   return (
     <section
       className={cx('gralContent', openMenu ? 'gralContent__openNav' : '')}>
@@ -35,12 +47,12 @@ const Layout: FC<ILayout> = props => {
           <div className="context">
             <Select
               className="context_select"
-              options={[
-                { label: 'option A', value: 'option A' },
-                { label: 'option B', value: 'option B' },
-                { label: 'option C', value: 'option C' },
-              ]}
+              options={store?.accounts}
+              onChange={handleSelectAccount}
+              value={store?.account}
+              isClearable={false}
             />
+
             <div className="context_options">
               <button className="btnNavLayout">
                 <span className="iconXaxis iconXaxis-question-circle" />
@@ -62,38 +74,48 @@ const Layout: FC<ILayout> = props => {
           <ul className="optionList">
             <li className="optionList_item">
               <span className="iconMenu iconXaxis iconXaxis-home "></span>
-              <a
-                className="linkMenu"
-                onClick={() => navigate(DiscoPaths.AccountSetup)}>
+              <Link className="linkMenu" to={`/${DiscoPaths.Home}`}>
                 Home
-              </a>
+              </Link>
             </li>
 
             <li className="optionList_item">
               <span className="iconMenu iconXaxis iconXaxis-home "></span>
-              <a className="linkMenu">Account Set Up</a>
+              <Link className="linkMenu" to={`/${DiscoPaths.AccountSetup}`}>
+                Account Set Up
+              </Link>
             </li>
 
             <li className="optionList_item">
               <span className="iconMenu iconXaxis iconXaxis-home "></span>
-              <a className="linkMenu">Campaigns</a>
+              <Link className="linkMenu" to={`/${DiscoPaths.Campaigns}`}>
+                Campaigns
+              </Link>
             </li>
 
             <li className="optionList_item">
               <span className="iconMenu iconXaxis iconXaxis-home "></span>
-              <a className="linkMenu">Creatives</a>
+              <Link className="linkMenu" to="#">
+                Creatives
+              </Link>
             </li>
             <li className="optionList_item">
               <span className="iconMenu iconXaxis iconXaxis-home "></span>
-              <a className="linkMenu">Asset Library</a>
+              <Link className="linkMenu" to="#">
+                Asset Library
+              </Link>
             </li>
             <li className="optionList_item">
               <span className="iconMenu iconXaxis iconXaxis-home "></span>
-              <a className="linkMenu">Creative Matrix</a>
+              <Link className="linkMenu" to={`/${DiscoPaths.CreativeMatrix}`}>
+                Creative Matrix
+              </Link>
             </li>
             <li className="optionList_item">
               <span className="iconMenu iconXaxis iconXaxis-home "></span>
-              <a className="linkMenu">Reports</a>
+              <Link className="linkMenu" to="#">
+                Reports
+              </Link>
             </li>
           </ul>
           {/* </div> */}

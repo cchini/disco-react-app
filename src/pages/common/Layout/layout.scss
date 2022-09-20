@@ -149,7 +149,7 @@
           pointer-events: none;
           width: 24px;
           height: 24px;
-          color: #fff;
+          color: $white;
         }
         &:hover {
           background: $white;
@@ -163,8 +163,9 @@
           white-space: nowrap;
           padding: 1em;
           font-size: 14px;
+          color: $white;
           &:hover {
-            color: #fff;
+            color: $white;
           }
           &:visited {
             color: #aaa;
