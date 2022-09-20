@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Select, { Props } from 'react-select';
 import cx from 'classnames';
+import './select.scss';
 
 type SelectProps = Props & {
   disabled?: boolean;
@@ -25,12 +26,12 @@ const customStyles = {
 
   option: (values: any) => ({
     ...values,
-    padding: '.375rem .625rem',
+    padding: '.25rem .5rem',
     backgroundColor: '#fff',
   }),
   placeholder: (values: any) => ({
     ...values,
-    fontSize: '.875rem',
+    fontSize: '.75rem',
     color: '#c5c8cd',
   }),
   indicatorSeparator: (values: any) => ({
@@ -49,15 +50,14 @@ const ReactSelect: FC<SelectProps> = ({
   const { options, value, className, emptyOptionsText, label } = props;
 
   return (
-    <>
-      <label>{label}</label>
+    <div className={cx('cntSelect', className && className)}>
+      <label className="cntSelect_label">{label}</label>
       <Select
         styles={customStyles}
         classNamePrefix="reactSelect"
         className={cx(
           'reactSelect',
           activeMaxHeight && 'reactSelect__maxHeightMenu',
-          className && className,
         )}
         value={value && value}
         isDisabled={disabled && disabled}
@@ -68,7 +68,7 @@ const ReactSelect: FC<SelectProps> = ({
         }
         {...props}
       />
-    </>
+    </div>
   );
 };
 
