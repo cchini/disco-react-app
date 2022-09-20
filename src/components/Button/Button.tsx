@@ -1,5 +1,6 @@
 import React, { FC, DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
 import cx from 'classnames';
+
 import './button.scss';
 
 interface ButtonProps
@@ -21,16 +22,17 @@ const Button: FC<ButtonProps> = props => {
     type,
     hierarchy = 'primary',
   } = props;
+
   return (
     <button
+      {...props}
       className={cx(
         'btnXaxis',
         hierarchy === 'primary' ? 'btnXaxis__primary' : 'btnXaxis__secondary',
         className && className,
       )}
       disabled={disabled}
-      type={type || 'button'}
-      {...props}>
+      type={type || 'button'}>
       {children}
     </button>
   );

@@ -17,6 +17,7 @@ const Campaigns = () => {
 
   // options modal - creative matrix selector
   console.debug(matrixList);
+  console.debug('dataTemplate: ', dataTemplate);
 
   return (
     <Layout className="campaignsPage">

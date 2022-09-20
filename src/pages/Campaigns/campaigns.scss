@@ -17,7 +17,7 @@
   .cardsTamplatesCampaigns {
     margin: 0 0 2rem;
     display: flex;
-    .cardRrss {
+    .cardsTemplates {
       width: 200px;
       height: 100px;
       background: $white;
@@ -27,6 +27,30 @@
       margin: 0 1rem 0 0;
       &:last-child {
         margin: 0;
+      }
+      .listIconsTemplates {
+        width: 100%;
+        &_item {
+          color: $lightGray;
+        }
+      }
+      .optionsTemplate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0 0 0.75rem;
+        margin: 0 0 0.75rem;
+        border-bottom: 1px solid $lightGray;
+        &_btn {
+          min-width: 60px;
+        }
+      }
+      &_title {
+        color: $darkGray;
+        font-size: 0.75rem;
+        font-weight: map-get($fonts, regular);
+        text-align: center;
       }
     }
   }

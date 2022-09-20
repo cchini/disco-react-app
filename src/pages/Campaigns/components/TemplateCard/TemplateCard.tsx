@@ -13,11 +13,13 @@ const TemplateCard: FC<TemplateCardProps> = props => {
   const { data } = props;
   const navigate = useNavigate();
 
+  console.log('datadata: ', data);
+
   const iconsPlataform = plataform => {
+    console.log('platform: ', plataform);
     const stringIcon = 'iconXaxis iconXaxis-';
     if (plataform === 'KPI') {
-      return;
-      `${stringIcon}filter`;
+      return `${stringIcon}filter`;
     }
     if (plataform === 'Audiences') {
       return `${stringIcon}users`;
@@ -25,39 +27,38 @@ const TemplateCard: FC<TemplateCardProps> = props => {
     if (plataform === 'Location') {
       return `${stringIcon}map-marked-alt`;
     }
-    if (plataform === 'WeekDays') {
+    if (plataform === 'Week days') {
       return `${stringIcon}calendar`;
     }
-    if (plataform === 'DayPart') {
+    if (plataform === 'Days part') {
       return `${stringIcon}clock`;
     }
   };
   return (
     <section className="cardsContent cardsTamplatesCampaigns">
       {data?.map(template => (
-        <article className="cardRrss">
-          <ul>
+        <article className="cardsTemplates">
+          <ul className="listIconsTemplates">
             {template.platforms.map(
               platform =>
                 platform.enabled ?? (
-                  <li>
-                    <span className={cx(iconsPlataform(platform.name))} />
+                  <li className="listIconsTemplates_item">
+                    <span className={cx(iconsPlataform(platform?.code))}></span>
                   </li>
                 ),
             )}
           </ul>
-          <ul>
-            {template.platforms.map(
-              platform => platform.enabled ?? <li>{platform.name}</li>,
-            )}
-          </ul>
-          <div>
-            <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
+          <div className="optionsTemplate">
+            <Button
+              onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}
+              className="optionsTemplate_btn">
               Select
             </Button>
-            <Button>Details</Button>
+            <Button hierarchy="secondary" className="optionsTemplate_btn">
+              Details
+            </Button>
           </div>
-          <p>{template.title}</p>
+          <h3 className="cardsTemplates_title">{template.title}</h3>
         </article>
       ))}
     </section>
