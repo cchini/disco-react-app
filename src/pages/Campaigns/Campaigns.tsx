@@ -6,6 +6,7 @@ import TemplateCard from './components/TemplateCard/TemplateCard';
 import { DiscoPaths } from '@routes/models/path.model';
 import { data as dataTemplate } from '@mocks/templateCampaigns.mock';
 import useDataCampaigns from './hooks/useDataCampaigns';
+import Layout from '../common/Layout/Layout';
 import './campaigns.scss';
 
 const Campaigns = () => {
@@ -16,19 +17,25 @@ const Campaigns = () => {
 
   // options modal - creative matrix selector
   console.debug(matrixList);
+  console.debug('dataTemplate: ', dataTemplate);
 
   return (
-    <section>
-      <h1>Campaigns</h1>
-      <section>
-        <h2>Start with a Template</h2>
+    <Layout className="campaignsPage">
+      <h1 className="campaignsPage_title">Campaigns</h1>
+      <section className="templateTypes">
+        <h2 className="templateTypes_title">Start with a Template</h2>
         <TemplateCard data={dataTemplate} />
       </section>
-      <section>
+      <section className="contentTableCampaigns">
         <div className="navTable">
-          <div>
-            <Input placeholder="Search" />
-            <Button>Search</Button>
+          <div className="cntSearchTableCampaigns">
+            <Input
+              placeholder="Search"
+              className="cntSearchTableCampaigns_input"
+            />
+            <Button className="cntSearchTableCampaigns_btn">
+              <span className="iconXaxis iconXaxis-search" />
+            </Button>
           </div>
           <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
             New
@@ -36,7 +43,7 @@ const Campaigns = () => {
         </div>
         <CampaignsTable data={campaignList} />
       </section>
-    </section>
+    </Layout>
   );
 };
 

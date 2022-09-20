@@ -12,7 +12,7 @@ const IntegratedAccount = () => {
   const account = store?.account?.account;
 
   const iconByPlatform = platform => {
-    const baseIcon = 'iconXasis iconXasis-';
+    const baseIcon = 'iconXaxis iconXaxis-';
     switch (platform) {
       case 'FACEBOOK':
         return `${baseIcon}facebook-f`;

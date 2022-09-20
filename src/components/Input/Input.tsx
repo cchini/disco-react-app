@@ -23,13 +23,13 @@ const Input: FC<InputProps> = props => {
   } = props;
   return (
     <div className={cx('cntInput', className && className)}>
-      <label className="cntInput_label">{label}</label>
+      {label && <label className="cntInput_label">{label}</label>}
       <input
+        {...props}
         className={cx('cntInput_field', className && className)}
         type={type}
         disabled={disabled}
         onChange={onChange}
-        {...props}
       />
     </div>
   );

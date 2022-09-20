@@ -16,7 +16,7 @@ const MatrixTable: FC<MatrixTableProps> = props => {
         <li className="headerTable_item">Type</li>
         <li className="headerTable_item">Status</li>
         <li className="headerTable_item">Last update</li>
-        <li className="headerTable_item">Actions</li>
+        <li className="headerTable_item headerTable_item__actions">Actions</li>
       </ul>
       {data?.map(matrix => (
         <ul key={matrix?.id} className="contentTable">
@@ -27,9 +27,19 @@ const MatrixTable: FC<MatrixTableProps> = props => {
           </li>
           <li className="contentTable_item">{matrix?.status?.name}</li>
           <li className="contentTable_item">{matrix?.modified?.toString()}</li>
-          <li className="contentTable_item">
-            <Button>Edit</Button>
-            <Button>Refresh</Button>
+          <li className="contentTable_item contentTable_item__actions">
+            <button className="iconActionsCreativeMatrix">
+              <span className="iconXaxis iconXaxis-edit"></span>
+              Edit
+            </button>
+            <button className="iconActionsCreativeMatrix">
+              <span className="iconXaxis iconXaxis-edit"></span>
+              Refresh
+            </button>
+            <button className="iconActionsCreativeMatrix">
+              <span className="iconXaxis iconXaxis-edit"></span>
+              Publish
+            </button>
           </li>
         </ul>
       ))}

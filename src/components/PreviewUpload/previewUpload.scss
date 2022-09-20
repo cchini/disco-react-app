@@ -1,3 +1,5 @@
+@import '../../assets/scss/variables';
+
 .fileUploadContainer {
   position: relative;
   margin: 25px 0 15px;
@@ -106,7 +108,7 @@
   }
 
   &:hover {
-    color: #fff;
+    color: $white;
     outline: 0;
     background: transparent;
 

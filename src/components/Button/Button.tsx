@@ -1,5 +1,7 @@
-import React, { FC, DetailedHTMLProps, ButtonHTMLAttributes } from "react";
-import cx from "classnames";
+import React, { FC, DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
+import cx from 'classnames';
+
+import './button.scss';
 
 interface ButtonProps
   extends DetailedHTMLProps<
@@ -9,17 +11,28 @@ interface ButtonProps
   children: React.ReactNode | string;
   className?: string;
   disabled?: boolean;
+  hierarchy?: 'primary' | 'secondary';
 }
 
-const Button: FC<ButtonProps> = (props) => {
-  const { children, className, disabled = false, type } = props;
+const Button: FC<ButtonProps> = props => {
+  const {
+    children,
+    className,
+    disabled = false,
+    type,
+    hierarchy = 'primary',
+  } = props;
+
   return (
     <button
-      className={cx("btnclass", className && className)}
-      disabled={disabled}
-      type={type || "button"}
       {...props}
-    >
+      className={cx(
+        'btnXaxis',
+        hierarchy === 'primary' ? 'btnXaxis__primary' : 'btnXaxis__secondary',
+        className && className,
+      )}
+      disabled={disabled}
+      type={type || 'button'}>
       {children}
     </button>
   );

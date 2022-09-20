@@ -16,7 +16,7 @@
   font-display: block;
 }
 
-.iconXasis {
+.iconXaxis {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: '#{$icomoon-font-family}' !important;
   speak: never;
@@ -31,193 +31,193 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.iconXasis-tiktok {
+.iconXaxis-tiktok {
   &:before {
-    content: $iconXasis-tiktok;
+    content: $iconXaxis-tiktok;
   }
 }
-.iconXasis-instagram {
+.iconXaxis-instagram {
   &:before {
-    content: $iconXasis-instagram;
+    content: $iconXaxis-instagram;
   }
 }
-.iconXasis-facebook-messenger {
+.iconXaxis-facebook-messenger {
   &:before {
-    content: $iconXasis-facebook-messenger;
+    content: $iconXaxis-facebook-messenger;
   }
 }
-.iconXasis-facebook-f {
+.iconXaxis-facebook-f {
   &:before {
-    content: $iconXasis-facebook-f;
+    content: $iconXaxis-facebook-f;
   }
 }
-.iconXasis-facebook {
+.iconXaxis-facebook {
   &:before {
-    content: $iconXasis-facebook;
+    content: $iconXaxis-facebook;
   }
 }
-.iconXasis-video {
+.iconXaxis-video {
   &:before {
-    content: $iconXasis-video;
+    content: $iconXaxis-video;
   }
 }
-.iconXasis-users {
+.iconXaxis-users {
   &:before {
-    content: $iconXasis-users;
+    content: $iconXaxis-users;
   }
 }
-.iconXasis-user-circle {
+.iconXaxis-user-circle {
   &:before {
-    content: $iconXasis-user-circle;
+    content: $iconXaxis-user-circle;
   }
 }
-.iconXasis-upload {
+.iconXaxis-upload {
   &:before {
-    content: $iconXasis-upload;
+    content: $iconXaxis-upload;
   }
 }
-.iconXasis-trash-alt {
+.iconXaxis-trash-alt {
   &:before {
-    content: $iconXasis-trash-alt;
+    content: $iconXaxis-trash-alt;
   }
 }
-.iconXasis-times {
+.iconXaxis-times {
   &:before {
-    content: $iconXasis-times;
+    content: $iconXaxis-times;
   }
 }
-.iconXasis-search {
+.iconXaxis-search {
   &:before {
-    content: $iconXasis-search;
+    content: $iconXaxis-search;
   }
 }
-.iconXasis-question-circle {
+.iconXaxis-question-circle {
   &:before {
-    content: $iconXasis-question-circle;
+    content: $iconXaxis-question-circle;
   }
 }
-.iconXasis-power-off {
+.iconXaxis-power-off {
   &:before {
-    content: $iconXasis-power-off;
+    content: $iconXaxis-power-off;
   }
 }
-.iconXasis-plus {
+.iconXaxis-plus {
   &:before {
-    content: $iconXasis-plus;
+    content: $iconXaxis-plus;
   }
 }
-.iconXasis-paper-plane {
+.iconXaxis-paper-plane {
   &:before {
-    content: $iconXasis-paper-plane;
+    content: $iconXaxis-paper-plane;
   }
 }
-.iconXasis-map-marked-alt {
+.iconXaxis-map-marked-alt {
   &:before {
-    content: $iconXasis-map-marked-alt;
+    content: $iconXaxis-map-marked-alt;
   }
 }
-.iconXasis-list {
+.iconXaxis-list {
   &:before {
-    content: $iconXasis-list;
+    content: $iconXaxis-list;
   }
 }
-.iconXasis-images {
+.iconXaxis-images {
   &:before {
-    content: $iconXasis-images;
+    content: $iconXaxis-images;
   }
 }
-.iconXasis-image {
+.iconXaxis-image {
   &:before {
-    content: $iconXasis-image;
+    content: $iconXaxis-image;
   }
 }
-.iconXasis-home {
+.iconXaxis-home {
   &:before {
-    content: $iconXasis-home;
+    content: $iconXaxis-home;
   }
 }
-.iconXasis-folder {
+.iconXaxis-folder {
   &:before {
-    content: $iconXasis-folder;
+    content: $iconXaxis-folder;
   }
 }
-.iconXasis-folders {
+.iconXaxis-folders {
   &:before {
-    content: $iconXasis-folders;
+    content: $iconXaxis-folders;
   }
 }
-.iconXasis-filter {
+.iconXaxis-filter {
   &:before {
-    content: $iconXasis-filter;
+    content: $iconXaxis-filter;
   }
 }
-.iconXasis-edit {
+.iconXaxis-edit {
   &:before {
-    content: $iconXasis-edit;
+    content: $iconXaxis-edit;
   }
 }
-.iconXasis-download {
+.iconXaxis-download {
   &:before {
-    content: $iconXasis-download;
+    content: $iconXaxis-download;
   }
 }
-.iconXasis-cloud-upload {
+.iconXaxis-cloud-upload {
   &:before {
-    content: $iconXasis-cloud-upload;
+    content: $iconXaxis-cloud-upload;
   }
 }
-.iconXasis-clock {
+.iconXaxis-clock {
   &:before {
-    content: $iconXasis-clock;
+    content: $iconXaxis-clock;
   }
 }
-.iconXasis-chevron-down {
+.iconXaxis-chevron-down {
   &:before {
-    content: $iconXasis-chevron-down;
+    content: $iconXaxis-chevron-down;
   }
 }
-.iconXasis-chevron-left {
+.iconXaxis-chevron-left {
   &:before {
-    content: $iconXasis-chevron-left;
+    content: $iconXaxis-chevron-left;
   }
 }
-.iconXasis-chevron-right {
+.iconXaxis-chevron-right {
   &:before {
-    content: $iconXasis-chevron-right;
+    content: $iconXaxis-chevron-right;
   }
 }
-.iconXasis-chevron-up {
+.iconXaxis-chevron-up {
   &:before {
-    content: $iconXasis-chevron-up;
+    content: $iconXaxis-chevron-up;
   }
 }
-.iconXasis-chart-pie-alt {
+.iconXaxis-chart-pie-alt {
   &:before {
-    content: $iconXasis-chart-pie-alt;
+    content: $iconXaxis-chart-pie-alt;
   }
 }
-.iconXasis-chart-pie {
+.iconXaxis-chart-pie {
   &:before {
-    content: $iconXasis-chart-pie;
+    content: $iconXaxis-chart-pie;
   }
 }
-.iconXasis-bell {
+.iconXaxis-bell {
   &:before {
-    content: $iconXasis-bell;
+    content: $iconXaxis-bell;
   }
 }
-.iconXasis-calendar-alt {
+.iconXaxis-calendar-alt {
   &:before {
-    content: $iconXasis-calendar-alt;
+    content: $iconXaxis-calendar-alt;
   }
 }
-.iconXasis-calendar {
+.iconXaxis-calendar {
   &:before {
-    content: $iconXasis-calendar;
+    content: $iconXaxis-calendar;
   }
 }
-.iconXasis-border-none {
+.iconXaxis-border-none {
   &:before {
-    content: $iconXasis-border-none;
+    content: $iconXaxis-border-none;
   }
 }

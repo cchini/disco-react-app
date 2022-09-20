@@ -42,7 +42,7 @@ const Layout: FC<ILayout> = props => {
         <nav className="navHeader">
           <Input placeholder="Search" className="navHeader_input" />
           <Button className="navHeader_btn">
-            <span className="iconXasis iconXasis-search" />
+            <span className="iconXaxis iconXaxis-search" />
           </Button>
           <div className="context">
             <Select
@@ -55,13 +55,13 @@ const Layout: FC<ILayout> = props => {
 
             <div className="context_options">
               <button className="btnNavLayout">
-                <span className="iconXasis iconXasis-question-circle" />
+                <span className="iconXaxis iconXaxis-question-circle" />
               </button>
               <button className="btnNavLayout">
-                <span className="iconXasis iconXasis-bell" />
+                <span className="iconXaxis iconXaxis-bell" />
               </button>
               <button className="btnNavLayout">
-                <span className="iconXasis iconXasis-user-circle" />
+                <span className="iconXaxis iconXaxis-user-circle" />
               </button>
             </div>
           </div>
@@ -73,46 +73,46 @@ const Layout: FC<ILayout> = props => {
           {/* <div className="overflow-container"> */}
           <ul className="optionList">
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <Link className="linkMenu" to={`/${DiscoPaths.Home}`}>
                 Home
               </Link>
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <Link className="linkMenu" to={`/${DiscoPaths.AccountSetup}`}>
                 Account Set Up
               </Link>
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <Link className="linkMenu" to={`/${DiscoPaths.Campaigns}`}>
                 Campaigns
               </Link>
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <Link className="linkMenu" to="#">
                 Creatives
               </Link>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <Link className="linkMenu" to="#">
                 Asset Library
               </Link>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <Link className="linkMenu" to={`/${DiscoPaths.CreativeMatrix}`}>
                 Creative Matrix
               </Link>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <Link className="linkMenu" to="#">
                 Reports
               </Link>
