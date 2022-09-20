@@ -183,26 +183,32 @@
         border-radius: 0.25rem;
         background: lighten($lightGray, 40%);
         margin: 0 0 1.25rem;
+        transition: 0.35s all ease-in;
         &_title {
           color: $blue;
           position: relative;
           background: $white;
           padding: 0.5rem 1rem;
           border-radius: calc(0.25rem - 1px);
+          list-style: none;
           &::marker,
           &::-webkit-details-marker {
+            display: none;
+          }
+          &::after {
             font-family: 'icomoon';
-            color: red;
+            color: $blue;
             position: absolute;
             content: '\e91f';
-            right: 0;
+            right: 1rem;
+            font-size: 0.875rem;
           }
-          &[open] {
-            border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
-            &::marker,
-            &::-webkit-details-marker {
+        }
+        &[open] {
+          border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+          .accordion_title {
+            &::after {
               content: '\e91c';
-              color: green;
             }
           }
         }
