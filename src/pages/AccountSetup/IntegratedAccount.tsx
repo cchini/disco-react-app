@@ -21,7 +21,7 @@ const IntegratedAccount = () => {
   };
 
   const selectIcon = plataform => {
-    const stringIcon = 'iconXasis iconXasis-';
+    const stringIcon = 'iconXaxis iconXaxis-';
     if (plataform === 'META') {
       return [
         `${stringIcon}facebook-f`,
@@ -56,11 +56,11 @@ const IntegratedAccount = () => {
         <div className="accountRrss">
           <label className="accountRrss_label">Available plataforms</label>
           <ul className="listRrss">
-            <li className="listRrss_item iconXasis iconXasis-facebook-f"></li>
-            <li className="listRrss_item iconXasis iconXasis-instagram"></li>
-            <li className="listRrss_item iconXasis iconXasis-facebook-messenger"></li>
-            <li className="listRrss_item iconXasis iconXasis-tiktok"></li>
-            <li className="listRrss_item iconXasis iconXasis-tiktok"></li>
+            <li className="listRrss_item iconXaxis iconXaxis-facebook-f"></li>
+            <li className="listRrss_item iconXaxis iconXaxis-instagram"></li>
+            <li className="listRrss_item iconXaxis iconXaxis-facebook-messenger"></li>
+            <li className="listRrss_item iconXaxis iconXaxis-tiktok"></li>
+            <li className="listRrss_item iconXaxis iconXaxis-tiktok"></li>
           </ul>
         </div>
       </header>
@@ -74,7 +74,7 @@ const IntegratedAccount = () => {
             <span
               className={cx(
                 'headerCardPlatform_icon',
-                `iconXasis iconXasis-${selectIcon(platform?.platformOwner)}`,
+                `iconXaxis iconXaxis-${selectIcon(platform?.platformOwner)}`,
               )}
             />
             <p className="headerCardPlatform_status">

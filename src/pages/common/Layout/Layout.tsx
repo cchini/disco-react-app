@@ -30,7 +30,7 @@ const Layout: FC<ILayout> = props => {
         <nav className="navHeader">
           <Input placeholder="Search" className="navHeader_input" />
           <Button className="navHeader_btn">
-            <span className="iconXasis iconXasis-search" />
+            <span className="iconXaxis iconXaxis-search" />
           </Button>
           <div className="context">
             <Select
@@ -43,13 +43,13 @@ const Layout: FC<ILayout> = props => {
             />
             <div className="context_options">
               <button className="btnNavLayout">
-                <span className="iconXasis iconXasis-question-circle" />
+                <span className="iconXaxis iconXaxis-question-circle" />
               </button>
               <button className="btnNavLayout">
-                <span className="iconXasis iconXasis-bell" />
+                <span className="iconXaxis iconXaxis-bell" />
               </button>
               <button className="btnNavLayout">
-                <span className="iconXasis iconXasis-user-circle" />
+                <span className="iconXaxis iconXaxis-user-circle" />
               </button>
             </div>
           </div>
@@ -61,7 +61,7 @@ const Layout: FC<ILayout> = props => {
           {/* <div className="overflow-container"> */}
           <ul className="optionList">
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <a
                 className="linkMenu"
                 onClick={() => navigate(DiscoPaths.AccountSetup)}>
@@ -70,29 +70,29 @@ const Layout: FC<ILayout> = props => {
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <a className="linkMenu">Account Set Up</a>
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <a className="linkMenu">Campaigns</a>
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <a className="linkMenu">Creatives</a>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <a className="linkMenu">Asset Library</a>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <a className="linkMenu">Creative Matrix</a>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXasis iconXasis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-home "></span>
               <a className="linkMenu">Reports</a>
             </li>
           </ul>

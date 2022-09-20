@@ -14,7 +14,7 @@ const TemplateCard: FC<TemplateCardProps> = props => {
   const navigate = useNavigate();
 
   const iconsPlataform = plataform => {
-    const stringIcon = 'iconXasis iconXasis-';
+    const stringIcon = 'iconXaxis iconXaxis-';
     if (plataform === 'KPI') {
       return;
       `${stringIcon}filter`;
