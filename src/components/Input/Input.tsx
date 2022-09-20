@@ -30,7 +30,6 @@ const Input: FC<InputProps> = props => {
         type={type}
         disabled={disabled}
         onChange={onChange}
-        {...props}
       />
     </div>
   );
