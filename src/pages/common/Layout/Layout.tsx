@@ -83,39 +83,39 @@ const Layout: FC<ILayout> = props => {
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXaxis iconXaxis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-power-off "></span>
               <Link className="linkMenu" to={`/${DiscoPaths.AccountSetup}`}>
                 Account Set Up
               </Link>
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXaxis iconXaxis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-list "></span>
               <Link className="linkMenu" to={`/${DiscoPaths.Campaigns}`}>
                 Campaigns
               </Link>
             </li>
 
             <li className="optionList_item">
-              <span className="iconMenu iconXaxis iconXaxis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-images "></span>
               <Link className="linkMenu" to="#">
                 Creatives
               </Link>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXaxis iconXaxis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-folder "></span>
               <Link className="linkMenu" to="#">
                 Asset Library
               </Link>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXaxis iconXaxis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-border-none "></span>
               <Link className="linkMenu" to={`/${DiscoPaths.CreativeMatrix}`}>
                 Creative Matrix
               </Link>
             </li>
             <li className="optionList_item">
-              <span className="iconMenu iconXaxis iconXaxis-home "></span>
+              <span className="iconMenu iconXaxis iconXaxis-chart-pie "></span>
               <Link className="linkMenu" to="#">
                 Reports
               </Link>
