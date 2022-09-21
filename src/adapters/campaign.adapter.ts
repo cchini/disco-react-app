@@ -16,6 +16,7 @@ export const allCampaignsAdapter = (data: any): Campaign[] => {
       status: value?.status,
       modified: value?.modified,
       created: value?.created,
+      typeDescription: value?.typeDescription,
     };
     return campaign;
   });

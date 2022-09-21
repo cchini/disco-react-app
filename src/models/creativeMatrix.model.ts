@@ -11,6 +11,7 @@ export interface CreativeMatrix {
   modified: Date;
   value?: string;
   label?: string;
+  typeDescription: string;
 }
 
 export interface TemplateMatrix {

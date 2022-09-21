@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker';
 import { DiscoPaths } from '../../../routes/models/path.model';
 import { Button, Input, Modal, Switch, Select } from '@components/index';
 import Layout from '../../common/Layout/Layout';
-// import 'react-datepicker/dist/react-datepicker.css';
 import './newCampaigns.scss';
 
 const NewCampaignsStep1 = () => {

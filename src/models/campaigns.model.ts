@@ -1,16 +1,5 @@
 import { PagePlatform, Status } from '@models/public.model';
 
-export interface Campaigns {
-  id: string;
-  name: string;
-  statusId: string;
-  status: Status;
-  accountId: string;
-  deleted: boolean;
-  created: Date;
-  modified: Date;
-}
-
 export interface TemplateCampaigns {
   id: string;
   title?: string;
@@ -30,4 +19,5 @@ export interface Campaign {
   status: Status;
   modified: Date;
   created: Date;
+  typeDescription: string;
 }

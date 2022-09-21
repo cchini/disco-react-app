@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Button } from '@components/index';
+import dayjs from 'dayjs';
 import { Campaign } from '@models/Campaigns.model';
 
 interface CampaignsTableProps {
@@ -45,10 +45,16 @@ const CampaignsTable: FC<CampaignsTableProps> = props => {
           </li>
           <li className="contentTable_item">{campaign?.id}</li>
           <li className="contentTable_item">{campaign?.name}</li>
-          <li className="contentTable_item">Type</li>
+          <li className="contentTable_item">{campaign?.typeDescription}</li>
           <li className="contentTable_item">{campaign?.budget}</li>
-          <li className="contentTable_item">01/01/2022 - 30/09/2022</li>
-          <li className="contentTable_item">Last modified</li>
+          <li className="contentTable_item">{`${dayjs(
+            campaign?.startDate,
+          ).format('DD/MM/YYYY')} - ${dayjs(campaign?.endDate).format(
+            'DD/MM/YYYY',
+          )}`}</li>
+          <li className="contentTable_item">
+            {dayjs(campaign?.modified).format('MMM DD, YYYY HH:mm A')}
+          </li>
         </ul>
       ))}
     </section>

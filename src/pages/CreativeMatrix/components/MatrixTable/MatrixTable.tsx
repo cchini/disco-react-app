@@ -22,9 +22,7 @@ const MatrixTable: FC<MatrixTableProps> = props => {
         <ul key={matrix?.id} className="contentTable">
           <li className="contentTable_item">{matrix?.id}</li>
           <li className="contentTable_item">{matrix?.name}</li>
-          <li className="contentTable_item">
-            All channels (FB & IG, TikTok, SONA)
-          </li>
+          <li className="contentTable_item">{matrix?.typeDescription}</li>
           <li className="contentTable_item">{matrix?.status?.name}</li>
           <li className="contentTable_item">{matrix?.modified?.toString()}</li>
           <li className="contentTable_item contentTable_item__actions">
