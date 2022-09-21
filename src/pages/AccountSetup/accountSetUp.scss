@@ -45,57 +45,141 @@
       }
     }
   }
-  .cardAvailablePlataforms {
-    width: 250px;
-    box-shadow: $boxShadow;
-    border-radius: 0.25rem;
-    background: $white;
-    .headerCardPlatform {
-      background: $purple;
-      padding: 0.5rem 1rem;
+  .cntCardsAvailablePlataform {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    .cardAvailablePlataforms {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
-      &_icon {
-        color: $white;
-        margin: 0 1rem 0 0;
-        &:last-child {
-          margin: 0;
+      flex-wrap: wrap;
+      width: 250px;
+      box-shadow: $boxShadow;
+      border-radius: 0.25rem;
+      background: $white;
+      align-content: flex-start;
+      flex-direction: column;
+      position: relative;
+      .headerCardPlatform {
+        width: 100%;
+        height: 32px;
+        background: $purple;
+        padding: 0.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+        &_icon {
+          color: $white;
+          margin: 0 1rem 0 0;
+          &:last-child {
+            margin: 0;
+          }
+        }
+        &_status {
+          color: white;
+          font-size: 0.875rem;
+          font-weight: map-get($fonts, medium);
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          flex-grow: 1;
+
+          .iconStatus {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 0.75rem 0 0;
+            &.iconStatus__active {
+              background: $active;
+            }
+            &.iconStatus__desactive {
+              background: $pending;
+            }
+          }
         }
       }
-      &_status {
-        color: white;
-        font-size: 0.875rem;
-        font-weight: map-get($fonts, medium);
+      .contentCardPlataform {
+        width: 100%;
+        padding: 1rem;
+        flex-grow: 1;
+        max-height: 350px;
+        overflow-y: auto;
+        &_input {
+          margin: 0 0 1rem;
+          &:last-child {
+            margin: 0;
+          }
+        }
+        &_btn {
+          margin: 0 auto;
+          .iconXaxis {
+            margin: 0 0.75rem 0 0;
+          }
+        }
+      }
+      .footerCardPlatform {
+        width: 100%;
+        border-top: 1px solid lighten($lightGray, 20%);
+        padding: 0.5rem 1rem 1rem;
+        margin: 1rem 0 0;
         display: flex;
         justify-content: flex-end;
-        align-items: center;
-        flex-grow: 1;
+        align-self: flex-end;
+      }
+    }
+  }
+}
 
-        .iconStatus {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          display: block;
-          margin: 0 0.75rem 0 0;
-          &.iconStatus__active {
-            background: $active;
-          }
-          &.iconStatus__desactive {
-            background: $pending;
-          }
-        }
-      }
+// Modal
+
+.modalAccounSetUp {
+  padding: 2rem 1.25rem;
+  width: 400px;
+  height: auto;
+  max-height: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  .modal_header {
+    padding: 0 !important;
+    width: 100%;
+  }
+  .headerModalAccounSetUp {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid lighten($lightGray, 20%);
+
+    &_title {
+      text-transform: uppercase;
+      margin: 0;
+      color: $blue;
     }
-    .contentCardPlataform {
-      padding: 1rem;
-      &_input {
-        margin: 0 0 1rem;
-        &:last-child {
-          margin: 0;
-        }
-      }
+    &_btn {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 50%;
+      padding: 0.25rem;
     }
+  }
+  .modalAccounSetUpContent {
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    max-height: 350px;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    width: 100%;
+  }
+  .footerModal {
+    margin: 0.75rem 0 0;
+    padding: 0.75rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    align-self: flex-end;
   }
 }
