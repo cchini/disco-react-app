@@ -1,4 +1,4 @@
-import { PagePlatform, Status } from '@models/public.model';
+import { PagePlatform, Status, Option } from '@models/public.model';
 
 export interface TemplateCampaigns {
   id: string;
@@ -20,4 +20,21 @@ export interface Campaign {
   modified: Date;
   created: Date;
   typeDescription: string;
+}
+
+export interface Trigger {
+  id: string;
+  trigger: Option;
+  condition: Option;
+  value: Option;
+}
+
+export interface Rule {
+  id: string;
+  trigger: Trigger[];
+  orderBy?: number;
+}
+
+export interface ReduxCampaigns {
+  rules: Rule[];
 }
