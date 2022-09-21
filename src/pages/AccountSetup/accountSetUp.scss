@@ -76,7 +76,7 @@
           }
         }
         &_status {
-          color: white;
+          color: $white;
           font-size: 0.875rem;
           font-weight: map-get($fonts, medium);
           display: flex;

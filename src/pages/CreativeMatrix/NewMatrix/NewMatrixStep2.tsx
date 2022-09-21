@@ -6,6 +6,7 @@ import {
   DragDropFile,
   PreviewUpload,
 } from '@components/index';
+import Layout from '../../common/Layout/Layout';
 import './newMatrix.scss';
 
 const NewMatrixStep2 = () => {
@@ -19,7 +20,7 @@ const NewMatrixStep2 = () => {
     setNewAssetsMatrix({ ...newAssetsMatrix, assetsImages: files });
 
   return (
-    <section>
+    <Layout className="newCreativeMatrixPage">
       <Modal
         className="modalMatrix"
         active={open}
@@ -83,42 +84,84 @@ const NewMatrixStep2 = () => {
           <Button onClick={() => setOpen(false)}>Continue</Button>
         </footer>
       </Modal>
-      <h1>Creative Matrix/New</h1>
+      <h1 className="newCreativeMatrixPage_title">Creative Matrix/New</h1>
 
       {/* Sección de cards de redes sociales */}
-      <nav className="navMatrix">
-        <h2>Enable/Disabled plataforms:</h2>
+      <nav className="navMatrix navMatrix__step2">
         <div className="contentEnabledDisabled">
+          <label className="contentEnabledDisabled_label">
+            Enable/Disabled plataforms
+          </label>
           <ul className="listOptions">
-            <li>
-              <Switch label="facebook" name="facebook" />
+            <li className="listOptions_item">
+              <Switch
+                label={
+                  <div className="labelsIcons">
+                    <span className="iconXaxis  iconXaxis-facebook-f"></span>
+                  </div>
+                }
+                className="switchAvailable"
+                name="facebook"
+              />
             </li>
-            <li>
-              <Switch label="Instragram" name="Instragram" />
+            <li className="listOptions_item">
+              <Switch
+                label={
+                  <div className="labelsIcons">
+                    <span className="iconXaxis  iconXaxis-instagram"></span>
+                  </div>
+                }
+                name="Instragram"
+                className="switchAvailable"
+              />
             </li>
-            <li>
-              <Switch label="Messenger" name="Messenger" />
+            <li className="listOptions_item">
+              <Switch
+                label={
+                  <div className="labelsIcons">
+                    <span className="iconXaxis  iconXaxis-facebook-messenger"></span>
+                  </div>
+                }
+                className="switchAvailable"
+                name="Messenger"
+              />
             </li>
-            <li>
-              <Switch label="Tiktok" name="Tiktok" />
+            <li className="listOptions_item">
+              <Switch
+                label={
+                  <div className="labelsIcons">
+                    <span className="iconXaxis  iconXaxis-tiktok"></span>
+                  </div>
+                }
+                className="switchAvailable"
+                name="Tiktok"
+              />
             </li>
-            <li>
-              <Switch label="SONA" name="SONA" />
+            <li className="listOptions_item">
+              <Switch
+                label="S"
+                name="SONA"
+                className="switchAvailable switchAvailable__sona"
+              />
             </li>
           </ul>
-          <Button className="contentEnabledDisabled_btn">
-            + Add carousel card
+        </div>
+        <div className="contentActions">
+          <Button className="contentActions_btn">
+            <span className="iconXaxis iconXaxis-plus"></span>Add carousel card
           </Button>
-          <Button className="contentEnabledDisabled_btn">
-            - Remove last carousel card
+          <Button className="contentActions_btn">
+            <span className="iconXaxis iconXaxis-trash-alt"></span> Remove last
+            carousel card
           </Button>
         </div>
       </nav>
 
       {/* Sección tabla */}
-      <section>
+      <section className="contentTableNewMatrix">
         <section className="table">
           <ul className="headerTable">
+            <li className="headerTable_item headerTable_item__actions"></li>
             <li className="headerTable_item">Disco ID</li>
             <li className="headerTable_item">Reporting label</li>
             <li className="headerTable_item">Intagram Account ID</li>
@@ -128,10 +171,15 @@ const NewMatrixStep2 = () => {
             <li className="headerTable_item">TikTok Campaign ID</li>
             <li className="headerTable_item">TikTok Ad set ID</li>
             <li className="headerTable_item">Main image/video</li>
-            <li className="headerTable_item headerTable_item__actions"></li>
           </ul>
 
           <ul className="contentTable">
+            <li className="contentTable_item contentTable_item__actions">
+              <button className="iconActionsNewMatrix2">
+                <span className="iconXaxis iconXaxis-trash-alt"></span>
+                Remove
+              </button>
+            </li>
             <li className="contentTable_item">01</li>
             <li className="contentTable_item">Reporting label</li>
             <li className="contentTable_item">1290877748484849</li>
@@ -144,12 +192,15 @@ const NewMatrixStep2 = () => {
             <li className="contentTable_item">
               <figure>IMG</figure>
             </li>
-            <li className="contentTable_item">
-              <Button>remove</Button>
-            </li>
           </ul>
 
           <ul className="contentTable">
+            <li className="contentTable_item contentTable_item__actions">
+              <button className="iconActionsNewMatrix2">
+                <span className="iconXaxis iconXaxis-trash-alt"></span>
+                Remove
+              </button>
+            </li>
             <li className="contentTable_item">01</li>
             <li className="contentTable_item">Reporting label</li>
             <li className="contentTable_item">1290877748484849</li>
@@ -160,15 +211,14 @@ const NewMatrixStep2 = () => {
             <li className="contentTable_item">765404846084849</li>
             <li className="contentTable_item">
               <figure>IMG</figure>
-            </li>
-            <li className="contentTable_item">
-              <Button>remove</Button>
             </li>
           </ul>
         </section>
       </section>
-      <Button onClick={() => setOpen(true)}>+ Add asset</Button>
-    </section>
+      <footer className="footerNewMatrix">
+        <Button onClick={() => setOpen(true)}>+ Add asset</Button>
+      </footer>
+    </Layout>
   );
 };
 
