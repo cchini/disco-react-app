@@ -5,13 +5,17 @@ import cx from 'classnames';
 import { Select, Input, Button, Modal } from '@components/index';
 import Layout from '../common/Layout/Layout';
 import { iconByPlatform } from '@utilities/common.utility';
+import { sendApproval } from '@services/accountSetup.service';
+import useFetchAndLoad from '@hooks/useFetchAndLoad';
 import './accountSetUp.scss';
 
 const IntegratedAccount = () => {
   const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState('');
   const store = useSelector((store: AppStore) => store.account);
   const account = store?.account?.account;
-
+  const { loading, callEndpoint } = useFetchAndLoad();
+  const sendEmail = async () => await callEndpoint(sendApproval(email));
   const iconByPlatformOwner = platform => {
     const baseClass = 'headerCardPlatform_icon';
     switch (platform) {
@@ -34,6 +38,16 @@ const IntegratedAccount = () => {
     }
   };
 
+  const handleSendEmail = async () => {
+    try {
+      const response = await sendEmail();
+      if (response.status == 200) setOpen(false);
+    } catch (error) {
+      console.debug(error);
+      setOpen(false);
+    }
+  };
+
   return (
     <Layout className="accountPage">
       <Modal
@@ -52,13 +66,24 @@ const IntegratedAccount = () => {
           </header>
         }>
         <section className="modalAccounSetUpContent">
-          <Input placeholder="example@xaxis.com" label="Email" type="email" />
+          <Input
+            value={email}
+            onChange={value => setEmail(value.target.value)}
+            placeholder="example@xaxis.com"
+            label="Email"
+            type="email"
+          />
         </section>
         <footer className="footerModal">
           <Button onClick={() => setOpen(false)} hierarchy="secondary">
             Cancel
           </Button>
-          <Button onClick={() => setOpen(false)}>Send</Button>
+          <Button
+            onClick={() => {
+              handleSendEmail();
+            }}>
+            Send
+          </Button>
         </footer>
       </Modal>
       <h1 className="accountPage_title">Account Set Up</h1>
