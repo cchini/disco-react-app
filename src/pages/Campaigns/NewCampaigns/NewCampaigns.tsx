@@ -99,17 +99,24 @@ const NewCampaignsStep1 = () => {
                         classNameSelect="selectRule"
                       />
                     </li>
-                    <li className="listSelect_item">
+                    <li className="listSelect_item listSelect_item__btn">
                       <button className="btnRemoveRow">
                         <span className="iconXaxis iconXaxis-trash-alt"></span>
                       </button>
                     </li>
                   </ul>
-                  <div>
-                    <Button hierarchy="secondary">Or+ </Button>
+                  <div className="addListSelect">
+                    <Button hierarchy="secondary" className="addListSelect_btn">
+                      Or <span className="iconXaxis iconXaxis-plus"></span>
+                    </Button>
                   </div>
                 </section>
-                <div>And</div>
+                <div className="andSection">
+                  <div className="andSection_line"></div>
+                  <div className="andSection_text">
+                    <p>And</p>
+                  </div>
+                </div>
                 <section className="listCreateRule">
                   <ul className="listSelect">
                     <li className="listSelect_item">
@@ -145,7 +152,7 @@ const NewCampaignsStep1 = () => {
                         classNameSelect="selectRule"
                       />
                     </li>
-                    <li className="listSelect_item">
+                    <li className="listSelect_item listSelect_item__btn">
                       <button className="btnRemoveRow">
                         <span className="iconXaxis iconXaxis-trash-alt"></span>
                       </button>
@@ -191,11 +198,15 @@ const NewCampaignsStep1 = () => {
                       </button>
                     </li>
                   </ul>
-                  <div>
-                    <Button hierarchy="secondary">Or+ </Button>
+                  <div className="addListSelect">
+                    <Button hierarchy="secondary" className="addListSelect_btn">
+                      Or <span className="iconXaxis iconXaxis-plus"></span>
+                    </Button>
                   </div>
                 </section>
-                <Button>And</Button>
+                <Button className="cntItemAccordion_btn">
+                  And <span className="iconXaxis iconXaxis-plus"></span>
+                </Button>
               </article>
             </details>
             <details className="accordion">
@@ -328,54 +339,10 @@ const NewCampaignsStep1 = () => {
               </li>
               <li className="listSwitchRules_item">
                 <Switch
-                  label="SONA"
+                  label="S"
                   name="SONA-Audience"
-                  className="swicthRule"
+                  className="swicthRule swicthRule__sona"
                 />
-              </li>
-            </ul>
-          </article>
-          <article
-            className="cardRule cardRule__center"
-            onClick={() => setOpen(true)}>
-            <span className="cardRule_icon iconXaxis iconXaxis-plus"></span>
-            <p className="cardRule_text"> Add Rule</p>
-          </article>
-        </section>
-      </section>
-      <section className="rulesConfig">
-        <h2 className="rulesConfig_title">Default</h2>
-        <section className="cntCardsRules">
-          <article className="cardRule">
-            <h3 className="cardRule_title">Default rule</h3>
-            <span className="cardRule_detail">Creative: 10</span>
-            <ul className="listSwitchRules">
-              <li className="listSwitchRules_item">
-                <Switch
-                  name="META"
-                  className="swicthRule"
-                  label={
-                    <div className="labelsIcons">
-                      <span className="iconXaxis  iconXaxis-facebook-f"></span>
-                      <span className="iconXaxis  iconXaxis-instagram"></span>
-                      <span className="iconXaxis  iconXaxis-facebook-messenger"></span>
-                    </div>
-                  }
-                />
-              </li>
-              <li className="listSwitchRules_item">
-                <Switch
-                  name="TikTok"
-                  className="swicthRule"
-                  label={
-                    <div className="labelsIcons">
-                      <span className="iconXaxis  iconXaxis-tiktok"></span>
-                    </div>
-                  }
-                />
-              </li>
-              <li className="listSwitchRules_item">
-                <Switch label="SONA" name="SONA" className="swicthRule" />
               </li>
             </ul>
           </article>

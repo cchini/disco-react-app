@@ -99,6 +99,15 @@
               display: flex;
               flex-direction: row-reverse;
               justify-content: flex-end;
+              &.swicthRule__sona {
+                > span {
+                  color: red;
+                  color: $darkGray;
+                  margin: 0 0 0 0.5rem;
+                  font-weight: map-get($fonts, bold);
+                  font-size: 1rem;
+                }
+              }
               .labelsIcons {
                 display: flex;
                 gap: 0.5rem;
@@ -181,7 +190,7 @@
       .accordion {
         border: 1px solid lighten($lightGray, 20%);
         border-radius: 0.25rem;
-        background: lighten($lightGray, 40%);
+        background: lighten($lightGray, 45%);
         margin: 0 0 1.25rem;
         transition: 0.35s all ease-in;
         &_title {
@@ -216,7 +225,7 @@
                   flex-grow: 1;
                   color: $darkGray;
                   font-size: 0.75rem;
-                  max-width: 150px;
+                  max-width: 185px;
                 }
               }
             }
@@ -228,7 +237,7 @@
                 align-items: center;
                 &_item {
                   flex-grow: 1;
-                  max-width: 150px;
+                  max-width: 185px;
                   .selectRule {
                     .reactSelect__control {
                       max-width: 100%;
@@ -252,8 +261,55 @@
                       transform: scale(0.95);
                     }
                   }
+                  &.listSelect_item__btn {
+                    flex-grow: 0;
+                    max-width: none;
+                  }
                 }
               }
+              .addListSelect {
+                display: flex;
+                justify-content: flex-end;
+                text-transform: uppercase;
+                margin: 0.5rem 0 0;
+                &_btn {
+                  min-width: auto;
+                  text-transform: uppercase;
+                  .iconXaxis {
+                    margin: 0 0 0 0.25rem;
+                  }
+                }
+              }
+            }
+            .andSection {
+              background: $white;
+              padding: 0.75rem 1rem;
+              position: relative;
+              height: 44px;
+              &_text {
+                background: $white;
+                color: $blue;
+                text-transform: uppercase;
+                position: absolute;
+                z-index: 2;
+              }
+              &_line {
+                position: absolute;
+                height: 36px;
+                width: 1px;
+                left: 31px;
+                top: 4px;
+                background: rgba($blue, 0.8);
+                z-index: 1;
+              }
+            }
+          }
+          &_btn {
+            margin: 0 0 1rem 1rem;
+            text-transform: uppercase;
+            min-width: auto;
+            .iconXaxis {
+              margin: 0 0 0 0.75rem;
             }
           }
         }
