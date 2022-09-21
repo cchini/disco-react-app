@@ -13,10 +13,6 @@ const Campaigns = () => {
   const navigate = useNavigate();
   const [campaignList, matrixList, loading] = useDataCampaigns();
 
-  // options modal - creative matrix selector
-  console.debug(matrixList);
-  console.debug('dataTemplate: ', dataTemplate);
-
   return (
     <Layout className="campaignsPage">
       {loading ? (

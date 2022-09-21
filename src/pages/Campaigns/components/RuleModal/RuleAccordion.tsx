@@ -1,7 +1,16 @@
 import React from 'react';
-import { Button, Select } from '@components/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppStore } from '@redux/store';
+import { v4 as uuidv4 } from 'uuid';
+import { Button } from '@components/index';
+import RuleSection from './RuleSection';
+import { Rule } from '@models/campaigns.model';
+import { modifyRules } from '@redux/states/campaigns.state';
 
 const RuleAccordion = () => {
+  const store = useSelector((store: AppStore) => store.campaigns);
+  const dispatch = useDispatch();
+
   return (
     <details className="accordion">
       <summary className="accordion_title">Rules</summary>
@@ -13,147 +22,45 @@ const RuleAccordion = () => {
             <li className="list_item">Value</li>
           </ul>
         </header>
-        <section className="listCreateRule">
-          <ul className="listSelect">
-            <li className="listSelect_item">
-              <Select
-                value="KPI"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li className="listSelect_item">
-              <Select
-                value="Equal to ( ===)"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li className="listSelect_item">
-              <Select
-                value="Awarees"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li className="listSelect_item listSelect_item__btn">
-              <button className="btnRemoveRow">
-                <span className="iconXaxis iconXaxis-trash-alt"></span>
-              </button>
-            </li>
-          </ul>
-          <div className="addListSelect">
-            <Button hierarchy="secondary" className="addListSelect_btn">
-              Or <span className="iconXaxis iconXaxis-plus"></span>
-            </Button>
-          </div>
-        </section>
-        <div className="andSection">
-          <div className="andSection_line"></div>
-          <div className="andSection_text">
-            <p>And</p>
-          </div>
-        </div>
-        <section className="listCreateRule">
-          <ul className="listSelect">
-            <li className="listSelect_item">
-              <Select
-                value="KPI"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li className="listSelect_item">
-              <Select
-                value="Equal to ( ===)"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li className="listSelect_item">
-              <Select
-                value="Awarees"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li className="listSelect_item listSelect_item__btn">
-              <button className="btnRemoveRow">
-                <span className="iconXaxis iconXaxis-trash-alt"></span>
-              </button>
-            </li>
-          </ul>
-          <ul className="listSelect">
-            <li className="listSelect_item">
-              <Select
-                value="KPI"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li className="listSelect_item">
-              <Select
-                value="Equal to ( ===)"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li className="listSelect_item">
-              <Select
-                value="Awarees"
-                options={[
-                  { label: 'option A', value: 'option A' },
-                  { label: 'option B', value: 'option B' },
-                  { label: 'option C', value: 'option C' },
-                ]}
-                classNameSelect="selectRule"
-              />
-            </li>
-            <li>
-              <button className="btnRemoveRow">
-                <span className="iconXaxis iconXaxis-trash"></span>
-              </button>
-            </li>
-          </ul>
-          <div className="addListSelect">
-            <Button hierarchy="secondary" className="addListSelect_btn">
-              Or <span className="iconXaxis iconXaxis-plus"></span>
-            </Button>
-          </div>
-        </section>
-        <Button className="cntItemAccordion_btn">
+        {store?.rules?.length === 0 && <RuleSection />}
+
+        {store?.rules?.length > 0 && (
+          <>
+            {store?.rules?.map((rule, index) => (
+              <>
+                {index !== 0 && (
+                  <div className="andSection">
+                    <div className="andSection_line"></div>
+                    <div className="andSection_text">
+                      <p>And</p>
+                    </div>
+                  </div>
+                )}
+
+                <RuleSection rule={rule} />
+              </>
+            ))}
+          </>
+        )}
+
+        <Button
+          className="cntItemAccordion_btn"
+          onClick={() => {
+            const rules = [...store?.rules];
+            const emptyRule: Rule = {
+              id: uuidv4(),
+              trigger: [
+                {
+                  id: uuidv4(),
+                  trigger: { label: null, value: null },
+                  condition: { label: null, value: null },
+                  value: { label: null, value: null },
+                },
+              ],
+            };
+            rules.push(emptyRule);
+            dispatch(modifyRules(rules));
+          }}>
           And <span className="iconXaxis iconXaxis-plus"></span>
         </Button>
       </article>

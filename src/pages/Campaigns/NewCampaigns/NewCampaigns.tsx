@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppStore } from '@redux/store';
 import { DiscoPaths } from '../../../routes/models/path.model';
-import { Button, Input, Modal, Switch, Select } from '@components/index';
+import { Button, Input, Switch } from '@components/index';
 import Layout from '../../common/Layout/Layout';
 import RuleModal from '../components/RuleModal/RuleModal';
+import { resetCampaigns } from '@redux/states/campaigns.state';
 import './newCampaigns.scss';
 
 const NewCampaignsStep1 = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const store = useSelector((store: AppStore) => store.matrix);
   const [open, setOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
@@ -104,7 +106,10 @@ const NewCampaignsStep1 = () => {
           </article>
           <article
             className="cardRule cardRule__center"
-            onClick={() => setOpen(true)}>
+            onClick={() => {
+              dispatch(resetCampaigns());
+              setOpen(true);
+            }}>
             <span className="cardRule_icon iconXaxis iconXaxis-plus"></span>
             <p className="cardRule_text"> Add Rule</p>
           </article>

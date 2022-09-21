@@ -38,3 +38,32 @@ export interface Status {
   name: string;
   code: string;
 }
+
+export interface Option {
+  label: string;
+  value: string;
+}
+
+export enum TriggerTypes {
+  WeekDay = 'WEEK_DAY',
+  DayPart = 'DAY_PART',
+}
+
+export enum Conditions {
+  EqualTo = '==',
+  GreaterThan = '>',
+  LessThan = '<',
+  GreaterThanOrEqualTo = '>=',
+  LessThanOrEqualTo = '<=',
+  NotEqualTo = '<>',
+}
+
+export enum Days {
+  Monday = 'MONDAY',
+  Tuesday = 'TUESDAY',
+  Wednesday = 'WEDNESDAY',
+  Thursday = 'THURSDAY',
+  Friday = 'FRIDAY',
+  Saturday = 'SATURDAY',
+  Sunday = 'SUNDAY',
+}
