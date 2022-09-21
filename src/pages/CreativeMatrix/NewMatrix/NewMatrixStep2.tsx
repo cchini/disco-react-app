@@ -158,9 +158,10 @@ const NewMatrixStep2 = () => {
       </nav>
 
       {/* Sección tabla */}
-      <section>
+      <section className="contentTableNewMatrix">
         <section className="table">
           <ul className="headerTable">
+            <li className="headerTable_item headerTable_item__actions"></li>
             <li className="headerTable_item">Disco ID</li>
             <li className="headerTable_item">Reporting label</li>
             <li className="headerTable_item">Intagram Account ID</li>
@@ -170,10 +171,15 @@ const NewMatrixStep2 = () => {
             <li className="headerTable_item">TikTok Campaign ID</li>
             <li className="headerTable_item">TikTok Ad set ID</li>
             <li className="headerTable_item">Main image/video</li>
-            <li className="headerTable_item headerTable_item__actions"></li>
           </ul>
 
           <ul className="contentTable">
+            <li className="contentTable_item contentTable_item__actions">
+              <button className="iconActionsNewMatrix2">
+                <span className="iconXaxis iconXaxis-trash-alt"></span>
+                Remove
+              </button>
+            </li>
             <li className="contentTable_item">01</li>
             <li className="contentTable_item">Reporting label</li>
             <li className="contentTable_item">1290877748484849</li>
@@ -186,12 +192,15 @@ const NewMatrixStep2 = () => {
             <li className="contentTable_item">
               <figure>IMG</figure>
             </li>
-            <li className="contentTable_item">
-              <Button>remove</Button>
-            </li>
           </ul>
 
           <ul className="contentTable">
+            <li className="contentTable_item contentTable_item__actions">
+              <button className="iconActionsNewMatrix2">
+                <span className="iconXaxis iconXaxis-trash-alt"></span>
+                Remove
+              </button>
+            </li>
             <li className="contentTable_item">01</li>
             <li className="contentTable_item">Reporting label</li>
             <li className="contentTable_item">1290877748484849</li>
@@ -202,14 +211,13 @@ const NewMatrixStep2 = () => {
             <li className="contentTable_item">765404846084849</li>
             <li className="contentTable_item">
               <figure>IMG</figure>
-            </li>
-            <li className="contentTable_item">
-              <Button>remove</Button>
             </li>
           </ul>
         </section>
       </section>
-      <Button onClick={() => setOpen(true)}>+ Add asset</Button>
+      <footer className="footerNewMatrix">
+        <Button onClick={() => setOpen(true)}>+ Add asset</Button>
+      </footer>
     </Layout>
   );
 };

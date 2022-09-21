@@ -139,6 +139,29 @@
       }
     }
   }
+  .contentTableNewMatrix {
+    overflow-x: scroll;
+    position: relative;
+    margin: 0 0 1rem;
+    .table {
+      .headerTable {
+        &_item {
+          &.headerTable_item__actions {
+            max-width: 100px;
+            min-width: 100px;
+          }
+        }
+      }
+      .contentTable {
+        &_item {
+          &.contentTable_item__actions {
+            max-width: 100px;
+            min-width: 100px;
+          }
+        }
+      }
+    }
+  }
   .footerNewMatrix {
     display: flex;
     justify-content: flex-end;
