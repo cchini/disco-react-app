@@ -10,6 +10,7 @@ import { modifyRules } from '@redux/states/campaigns.state';
 const RuleAccordion = () => {
   const store = useSelector((store: AppStore) => store.campaigns);
   const dispatch = useDispatch();
+  const cloneRules = [...store?.rules];
 
   return (
     <details className="accordion">
@@ -26,20 +27,21 @@ const RuleAccordion = () => {
 
         {store?.rules?.length > 0 && (
           <>
-            {store?.rules?.map((rule, index) => (
-              <>
-                {index !== 0 && (
-                  <div className="andSection">
-                    <div className="andSection_line"></div>
-                    <div className="andSection_text">
-                      <p>And</p>
+            {cloneRules
+              ?.sort((a, b) => a?.orderBy - b?.orderBy)
+              ?.map((rule, index) => (
+                <>
+                  {index !== 0 && (
+                    <div className="andSection">
+                      <div className="andSection_line"></div>
+                      <div className="andSection_text">
+                        <p>And</p>
+                      </div>
                     </div>
-                  </div>
-                )}
-
-                <RuleSection rule={rule} />
-              </>
-            ))}
+                  )}
+                  <RuleSection rule={rule} />
+                </>
+              ))}
           </>
         )}
 
@@ -57,6 +59,7 @@ const RuleAccordion = () => {
                   value: { label: null, value: null },
                 },
               ],
+              orderBy: rules[rules.length - 1].orderBy + 1,
             };
             rules.push(emptyRule);
             dispatch(modifyRules(rules));

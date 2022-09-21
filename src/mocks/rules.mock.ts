@@ -12,6 +12,7 @@ export const emptyRule: Rule = {
       value: { label: null, value: null },
     },
   ],
+  orderBy: 0,
 };
 
 export const triggerTypes: Option[] = [

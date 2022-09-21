@@ -28,12 +28,12 @@ const RuleSection: FC<RuleSectionProps> = props => {
     return options;
   };
 
-  const addNewTriggerRule = () => {
+  const handleNewTriggerRule = () => {
     const rules = [...store?.rules];
     const findRule = rules.find(value => value?.id === rule?.id);
     if (findRule) {
       const cloneRule = { ...findRule };
-      const cloneTrigger = [...cloneRule?.trigger];
+      const cloneTrigger = [...findRule?.trigger];
       cloneTrigger.push({
         id: uuidv4(),
         trigger: { label: null, value: null },
@@ -50,14 +50,33 @@ const RuleSection: FC<RuleSectionProps> = props => {
     }
   };
 
+  const handleRemove = (id: string) => {
+    const rules = [...store?.rules];
+    const findRule = rules.find(value => value?.id === rule?.id);
+    if (findRule) {
+      const cloneRule = { ...findRule };
+      const cloneTrigger = [...cloneRule?.trigger];
+      cloneTrigger.splice(
+        cloneTrigger.findIndex(value => value?.id === id),
+        1,
+      );
+      cloneRule.trigger = cloneTrigger;
+      rules.splice(
+        rules.findIndex(value => value?.id === rule?.id),
+        1,
+      );
+      rules.push(cloneRule);
+      dispatch(modifyRules(rules));
+    }
+  };
+
   return (
     <section className="listCreateRule">
-      {rule?.trigger?.map(() => (
+      {rule?.trigger?.map(trigger => (
         <>
           <ul className="listSelect">
             <li className="listSelect_item">
               <Select
-                value={triggerType}
                 classNameSelect="selectRule"
                 options={triggerTypes}
                 onChange={value => setTriggerType(value)}
@@ -66,7 +85,6 @@ const RuleSection: FC<RuleSectionProps> = props => {
             </li>
             <li className="listSelect_item">
               <Select
-                value={condition}
                 classNameSelect="selectRule"
                 options={conditions}
                 onChange={value => setCondition(value)}
@@ -77,7 +95,9 @@ const RuleSection: FC<RuleSectionProps> = props => {
               <Select options={valuesTypes()} classNameSelect="selectRule" />
             </li>
             <li className="listSelect_item listSelect_item__btn">
-              <button className="btnRemoveRow">
+              <button
+                className="btnRemoveRow"
+                onClick={() => handleRemove(trigger?.id)}>
                 <span className="iconXaxis iconXaxis-trash-alt"></span>
               </button>
             </li>
@@ -88,9 +108,7 @@ const RuleSection: FC<RuleSectionProps> = props => {
         <Button
           hierarchy="secondary"
           className="addListSelect_btn"
-          onClick={() => {
-            addNewTriggerRule();
-          }}>
+          onClick={() => handleNewTriggerRule()}>
           Or <span className="iconXaxis iconXaxis-plus"></span>
         </Button>
       </div>

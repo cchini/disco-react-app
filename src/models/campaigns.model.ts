@@ -32,6 +32,7 @@ export interface Trigger {
 export interface Rule {
   id: string;
   trigger: Trigger[];
+  orderBy?: number;
 }
 
 export interface ReduxCampaigns {

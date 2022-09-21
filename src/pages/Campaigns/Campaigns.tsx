@@ -11,38 +11,32 @@ import './campaigns.scss';
 
 const Campaigns = () => {
   const navigate = useNavigate();
-  const [campaignList, matrixList, loading] = useDataCampaigns();
+  const [campaignList] = useDataCampaigns();
 
   return (
     <Layout className="campaignsPage">
-      {loading ? (
-        <div>Loading</div>
-      ) : (
-        <>
-          <h1 className="campaignsPage_title">Campaigns</h1>
-          <section className="templateTypes">
-            <h2 className="templateTypes_title">Start with a Template</h2>
-            <TemplateCard data={dataTemplate} />
-          </section>
-          <section className="contentTableCampaigns">
-            <div className="navTable">
-              <div className="cntSearchTableCampaigns">
-                <Input
-                  placeholder="Search"
-                  className="cntSearchTableCampaigns_input"
-                />
-                <Button className="cntSearchTableCampaigns_btn">
-                  <span className="iconXaxis iconXaxis-search" />
-                </Button>
-              </div>
-              <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
-                New
-              </Button>
-            </div>
-            <CampaignsTable data={campaignList} />
-          </section>
-        </>
-      )}
+      <h1 className="campaignsPage_title">Campaigns</h1>
+      <section className="templateTypes">
+        <h2 className="templateTypes_title">Start with a Template</h2>
+        <TemplateCard data={dataTemplate} />
+      </section>
+      <section className="contentTableCampaigns">
+        <div className="navTable">
+          <div className="cntSearchTableCampaigns">
+            <Input
+              placeholder="Search"
+              className="cntSearchTableCampaigns_input"
+            />
+            <Button className="cntSearchTableCampaigns_btn">
+              <span className="iconXaxis iconXaxis-search" />
+            </Button>
+          </div>
+          <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
+            New
+          </Button>
+        </div>
+        <CampaignsTable data={campaignList} />
+      </section>
     </Layout>
   );
 };
