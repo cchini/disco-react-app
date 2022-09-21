@@ -20,11 +20,18 @@ const NewCampaignsStep1 = () => {
         onClose={() => setOpen(false)}
         header={
           <header className="headerModalCampaigns">
-            <div>
-              <p>Edit</p>
-              <h3>Audience a Morning | Weedkays</h3>
+            <div className="headerModalCampaignsTitle">
+              <p className="headerModalCampaignsTitle_detail">Edit</p>
+              <h3 className="headerModalCampaignsTitle_context">
+                Audience a Morning | Weedkays
+              </h3>
             </div>
-            <Button onClick={() => setOpen(false)}>X</Button>
+            <Button
+              onClick={() => setOpen(false)}
+              className="headerModalCampaigns_btn"
+              hierarchy="secondary">
+              X
+            </Button>
           </header>
         }>
         <section className="modalCampaignsContent">
@@ -35,8 +42,9 @@ const NewCampaignsStep1 = () => {
             itaque beatae. Quia?
           </p>
           <nav className="searchOptions">
-            <Input label="Rule name:" />
+            <Input label="Rule name:" className="searchOptions_field" />
             <Select
+              className="searchOptions_field"
               label="Creative Matrix"
               options={[
                 { label: 'option A', value: 'option A' },
@@ -46,19 +54,19 @@ const NewCampaignsStep1 = () => {
             />
           </nav>
           <section className="rulesSection">
-            <details>
-              <summary>Rules</summary>
-              <article>
-                <header>
-                  <ul>
-                    <li>Tigger Type</li>
-                    <li>Condition</li>
-                    <li>Value</li>
+            <details className="accordion">
+              <summary className="accordion_title">Rules</summary>
+              <article className="cntItemAccordion cntItemAccordion_first">
+                <header className="headerFieldsColumn">
+                  <ul className="list">
+                    <li className="list_item">Tigger Type</li>
+                    <li className="list_item">Condition</li>
+                    <li className="list_item">Value</li>
                   </ul>
                 </header>
                 <section className="listCreateRule">
                   <ul className="listSelect">
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="KPI"
                         options={[
@@ -66,9 +74,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Equal to ( ===)"
                         options={[
@@ -76,9 +85,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Awarees"
                         options={[
@@ -86,20 +96,30 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
-                      <Button>Remove</Button>
+                    <li className="listSelect_item listSelect_item__btn">
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash-alt"></span>
+                      </button>
                     </li>
                   </ul>
-                  <div>
-                    <Button>Or+ </Button>
+                  <div className="addListSelect">
+                    <Button hierarchy="secondary" className="addListSelect_btn">
+                      Or <span className="iconXaxis iconXaxis-plus"></span>
+                    </Button>
                   </div>
                 </section>
-                <div>And</div>
+                <div className="andSection">
+                  <div className="andSection_line"></div>
+                  <div className="andSection_text">
+                    <p>And</p>
+                  </div>
+                </div>
                 <section className="listCreateRule">
                   <ul className="listSelect">
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="KPI"
                         options={[
@@ -107,9 +127,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Equal to ( ===)"
                         options={[
@@ -117,9 +138,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Awarees"
                         options={[
@@ -127,14 +149,17 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
-                      <Button>Remove</Button>
+                    <li className="listSelect_item listSelect_item__btn">
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash-alt"></span>
+                      </button>
                     </li>
                   </ul>
                   <ul className="listSelect">
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="KPI"
                         options={[
@@ -142,9 +167,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Equal to ( ===)"
                         options={[
@@ -152,9 +178,10 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
-                    <li>
+                    <li className="listSelect_item">
                       <Select
                         value="Awarees"
                         options={[
@@ -162,23 +189,30 @@ const NewCampaignsStep1 = () => {
                           { label: 'option B', value: 'option B' },
                           { label: 'option C', value: 'option C' },
                         ]}
+                        classNameSelect="selectRule"
                       />
                     </li>
                     <li>
-                      <Button>Remove</Button>
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash"></span>
+                      </button>
                     </li>
                   </ul>
-                  <div>
-                    <Button>Or+ </Button>
+                  <div className="addListSelect">
+                    <Button hierarchy="secondary" className="addListSelect_btn">
+                      Or <span className="iconXaxis iconXaxis-plus"></span>
+                    </Button>
                   </div>
                 </section>
-                <Button>And</Button>
+                <Button className="cntItemAccordion_btn">
+                  And <span className="iconXaxis iconXaxis-plus"></span>
+                </Button>
               </article>
             </details>
-            <details>
-              <summary>Assign creatives</summary>
-              <article>
-                <section className="table">
+            <details className="accordion">
+              <summary className="accordion_title">Assign creatives</summary>
+              <article className="cntItemAccordion cntItemAccordion__table">
+                <section className="table cntItemAccordion_table">
                   <ul className="headerTable">
                     <li className="headerTable_item">Disco ID</li>
                     <li className="headerTable_item">Ad name</li>
@@ -194,8 +228,10 @@ const NewCampaignsStep1 = () => {
                     <li className="contentTable_item">
                       <figure>IMG</figure>
                     </li>
-                    <li className="contentTable_item">
-                      <Button>remove</Button>
+                    <li className="contentTable_item contentTable_item__actions">
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash-alt"></span>
+                      </button>
                     </li>
                   </ul>
                   <ul className="contentTable">
@@ -203,30 +239,66 @@ const NewCampaignsStep1 = () => {
                     <li className="contentTable_item">Audience | Weekday...</li>
                     <li className="contentTable_item">1290877748484849</li>
                     <li className="contentTable_item">
-                      <figure>IMG</figure>
+                      <figure>
+                        {/* Acá debe ir la imagén */}
+                        IMG
+                        <img />
+                      </figure>
                     </li>
-                    <li className="contentTable_item">
-                      <Button>remove</Button>
+                    <li className="contentTable_item contentTable_item__actions">
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash-alt"></span>
+                      </button>
                     </li>
                   </ul>
                 </section>
-                <Button>+</Button>
+                <Button
+                  hierarchy="secondary"
+                  className="cntItemAccordion_btn cntItemAccordion_btn__plus">
+                  <span className="iconXaxis iconXaxis-plus"></span>
+                </Button>
               </article>
             </details>
-            <details>
-              <summary>Select the channels wherethe this rule apply</summary>
-              <article>
-                <ul>
-                  <Switch label="Facebook - Instagram - Messenger" name="FIM" />
-                  <Switch label="TikTok" name="TikTok" />
-                  <Switch label="SONA" name="SONA" />
+            <details className="accordion">
+              <summary className="accordion_title">
+                Select the channels wherethe this rule apply
+              </summary>
+              <article className="cntItemAccordion">
+                <ul className="cntItemAccordion_listOptions">
+                  <Switch
+                    label={
+                      <div className="labelsIcons">
+                        <span className="iconXaxis  iconXaxis-facebook-f"></span>
+                        <span className="iconXaxis  iconXaxis-instagram"></span>
+                        <span className="iconXaxis  iconXaxis-facebook-messenger"></span>
+                      </div>
+                    }
+                    name="FIM"
+                    className="switchChannel"
+                  />
+                  <Switch
+                    label={
+                      <div className="labelsIcons">
+                        <span className="iconXaxis  iconXaxis-tiktok"></span>
+                      </div>
+                    }
+                    name="TikTok"
+                    className="switchChannel"
+                  />
+                  <Switch
+                    label="S"
+                    name="SONA"
+                    className="switchChannel switchChannel__sona"
+                  />
                 </ul>
               </article>
             </details>
           </section>
         </section>
         <footer className="footerModal">
-          <Button onClick={() => setOpen(false)}>Cancel</Button>
+          <Button onClick={() => setOpen(false)} hierarchy="secondary">
+            Cancel
+          </Button>
           <Button onClick={() => setOpen(false)}>Save</Button>
         </footer>
       </Modal>
@@ -303,54 +375,10 @@ const NewCampaignsStep1 = () => {
               </li>
               <li className="listSwitchRules_item">
                 <Switch
-                  label="SONA"
+                  label="S"
                   name="SONA-Audience"
-                  className="swicthRule"
+                  className="swicthRule swicthRule__sona"
                 />
-              </li>
-            </ul>
-          </article>
-          <article
-            className="cardRule cardRule__center"
-            onClick={() => setOpen(true)}>
-            <span className="cardRule_icon iconXaxis iconXaxis-plus"></span>
-            <p className="cardRule_text"> Add Rule</p>
-          </article>
-        </section>
-      </section>
-      <section className="rulesConfig">
-        <h2 className="rulesConfig_title">Default</h2>
-        <section className="cntCardsRules">
-          <article className="cardRule">
-            <h3 className="cardRule_title">Default rule</h3>
-            <span className="cardRule_detail">Creative: 10</span>
-            <ul className="listSwitchRules">
-              <li className="listSwitchRules_item">
-                <Switch
-                  name="META"
-                  className="swicthRule"
-                  label={
-                    <div className="labelsIcons">
-                      <span className="iconXaxis  iconXaxis-facebook-f"></span>
-                      <span className="iconXaxis  iconXaxis-instagram"></span>
-                      <span className="iconXaxis  iconXaxis-facebook-messenger"></span>
-                    </div>
-                  }
-                />
-              </li>
-              <li className="listSwitchRules_item">
-                <Switch
-                  name="TikTok"
-                  className="swicthRule"
-                  label={
-                    <div className="labelsIcons">
-                      <span className="iconXaxis  iconXaxis-tiktok"></span>
-                    </div>
-                  }
-                />
-              </li>
-              <li className="listSwitchRules_item">
-                <Switch label="SONA" name="SONA" className="swicthRule" />
               </li>
             </ul>
           </article>
@@ -363,10 +391,13 @@ const NewCampaignsStep1 = () => {
         </section>
       </section>
       <footer className="footerNewCampaign">
-        <Button hierarchy="secondary">Cancel</Button>
-        <Button>Save</Button>
+        <Button hierarchy="secondary" className="footerNewCampaign_btn">
+          Cancel
+        </Button>
+        <Button className="footerNewCampaign_btn">Save</Button>
         <Button
-          onClick={() => navigate({ pathname: `/${DiscoPaths.NewCampaigns}` })}>
+          onClick={() => navigate({ pathname: `/${DiscoPaths.NewCampaigns}` })}
+          className="footerNewCampaign_btn">
           Next
         </Button>
       </footer>

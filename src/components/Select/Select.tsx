@@ -8,6 +8,7 @@ type SelectProps = Props & {
   activeMaxHeight?: boolean;
   emptyOptionsText?: string;
   label?: string;
+  classNameSelect?: string;
 };
 
 const customStyles = {
@@ -47,7 +48,14 @@ const ReactSelect: FC<SelectProps> = ({
   activeMaxHeight = false,
   ...props
 }: SelectProps) => {
-  const { options, value, className, emptyOptionsText, label } = props;
+  const {
+    options,
+    value,
+    className,
+    emptyOptionsText,
+    label,
+    classNameSelect,
+  } = props;
 
   return (
     <div className={cx('cntSelect', className && className)}>
@@ -58,6 +66,7 @@ const ReactSelect: FC<SelectProps> = ({
         className={cx(
           'reactSelect',
           activeMaxHeight && 'reactSelect__maxHeightMenu',
+          classNameSelect,
         )}
         value={value && value}
         isDisabled={disabled && disabled}
