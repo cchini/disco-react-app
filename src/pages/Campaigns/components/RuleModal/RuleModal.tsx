@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button, Modal } from '@components/index';
 import { CreativeMatrix } from '@models/creativeMatrix.model';
 import RuleHeader from './RuleHeader';
 import RuleAccordion from './RuleAccordion';
 import CreativeAccordion from './CreativeAccordion';
 import ChannelAccordion from './ChannelAccordion';
+import { addRepeatMock } from '@redux/states/campaigns.state';
 
 interface RuleModalProps {
   openModal: (open: boolean) => void;
@@ -14,7 +16,7 @@ interface RuleModalProps {
 
 const RuleModal: FC<RuleModalProps> = props => {
   const { openModal, activeModal, matrixList } = props;
-
+  const dispatch = useDispatch();
   return (
     <Modal
       className="modalCampaigns"
@@ -48,7 +50,13 @@ const RuleModal: FC<RuleModalProps> = props => {
         <Button onClick={() => openModal(false)} hierarchy="secondary">
           Cancel
         </Button>
-        <Button onClick={() => openModal(false)}>Save</Button>
+        <Button
+          onClick={() => {
+            openModal(false);
+            dispatch(addRepeatMock());
+          }}>
+          Save
+        </Button>
       </footer>
     </Modal>
   );

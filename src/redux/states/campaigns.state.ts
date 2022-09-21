@@ -4,6 +4,7 @@ import { emptyRule } from '@mocks/rules.mock';
 
 export const CampaignsEmptyState: ReduxCampaigns = {
   rules: [emptyRule],
+  reapeatMock: 0,
 };
 
 export const campaignsSlice = createSlice({
@@ -15,10 +16,15 @@ export const campaignsSlice = createSlice({
       rules: action.payload,
     }),
     resetCampaigns: () => CampaignsEmptyState,
+
+    addRepeatMock: state => ({
+      ...state,
+      reapeatMock: state?.reapeatMock + 1,
+    }),
   },
 });
 
-export const { modifyRules, resetCampaigns /* , addRule */ } =
+export const { modifyRules, resetCampaigns, addRepeatMock } =
   campaignsSlice.actions;
 
 export default campaignsSlice.reducer;

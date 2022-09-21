@@ -54,6 +54,9 @@
       display: flex;
       justify-content: space-between;
       height: fit-content;
+      .groupRule {
+        display: flex;
+      }
       .cardRule {
         width: 200px;
         min-height: 150px;
@@ -63,6 +66,7 @@
         padding: 0.5rem;
         box-shadow: $boxShadow;
         gap: 1rem;
+        margin: 0 0.5rem 0;
         &_title {
           color: $blue;
           font-size: 0.875rem;

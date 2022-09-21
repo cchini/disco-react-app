@@ -37,4 +37,5 @@ export interface Rule {
 
 export interface ReduxCampaigns {
   rules: Rule[];
+  reapeatMock: number;
 }

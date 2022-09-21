@@ -23,7 +23,9 @@ const RuleAccordion = () => {
             <li className="list_item">Value</li>
           </ul>
         </header>
-        {store?.rules?.length === 0 && <RuleSection />}
+        {store?.rules?.length === 0 && (
+          <RuleSection totalRules={store?.rules?.length} />
+        )}
 
         {store?.rules?.length > 0 && (
           <>
@@ -39,7 +41,7 @@ const RuleAccordion = () => {
                       </div>
                     </div>
                   )}
-                  <RuleSection rule={rule} />
+                  <RuleSection totalRules={store?.rules?.length} rule={rule} />
                 </>
               ))}
           </>
