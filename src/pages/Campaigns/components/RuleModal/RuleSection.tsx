@@ -10,10 +10,11 @@ import { modifyRules } from '@redux/states/campaigns.state';
 
 interface RuleSectionProps {
   rule?: Rule;
+  totalRules: number;
 }
 
 const RuleSection: FC<RuleSectionProps> = props => {
-  const { rule } = props;
+  const { rule, totalRules } = props;
   const store = useSelector((store: AppStore) => store.campaigns);
   const dispatch = useDispatch();
   const [triggerType, setTriggerType] = useState(null);
@@ -97,7 +98,8 @@ const RuleSection: FC<RuleSectionProps> = props => {
             <li className="listSelect_item listSelect_item__btn">
               <button
                 className="btnRemoveRow"
-                onClick={() => handleRemove(trigger?.id)}>
+                onClick={() => handleRemove(trigger?.id)}
+                disabled={totalRules === 1 && rule?.trigger?.length === 1}>
                 <span className="iconXaxis iconXaxis-trash-alt"></span>
               </button>
             </li>

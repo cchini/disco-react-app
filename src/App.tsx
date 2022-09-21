@@ -15,7 +15,6 @@ const App = () => {
   if (loading) return null;
 
   store.dispatch(modifyListAccounts(accountList));
-  store.dispatch(modifyListAccounts(accountList));
   store.dispatch(modifyListMatrix(matrixList));
 
   if (accountList?.length > 0) {
