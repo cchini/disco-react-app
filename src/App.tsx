@@ -15,13 +15,20 @@ const App = () => {
   if (loading) return null;
 
   store.dispatch(modifyListAccounts(accountList));
+  store.dispatch(modifyListAccounts(accountList));
   store.dispatch(modifyListMatrix(matrixList));
 
-  if (storageAccount && accountList?.length > 0) {
-    const findAccount = accountList?.find(
-      value => value?.account?.id?.toString() === storageAccount,
-    );
-    if (findAccount) store.dispatch(modifyAccount(findAccount));
+  if (accountList?.length > 0) {
+    if (storageAccount) {
+      const findAccount = accountList?.find(
+        value => value?.account?.id?.toString() === storageAccount,
+      );
+      if (findAccount) {
+        store.dispatch(modifyAccount(findAccount));
+      }
+    } else {
+      store.dispatch(modifyAccount(accountList[0]));
+    }
   }
 
   return (
