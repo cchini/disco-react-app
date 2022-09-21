@@ -211,8 +211,8 @@ const NewCampaignsStep1 = () => {
             </details>
             <details className="accordion">
               <summary className="accordion_title">Assign creatives</summary>
-              <article>
-                <section className="table">
+              <article className="cntItemAccordion cntItemAccordion__table">
+                <section className="table cntItemAccordion_table">
                   <ul className="headerTable">
                     <li className="headerTable_item">Disco ID</li>
                     <li className="headerTable_item">Ad name</li>
@@ -228,8 +228,10 @@ const NewCampaignsStep1 = () => {
                     <li className="contentTable_item">
                       <figure>IMG</figure>
                     </li>
-                    <li className="contentTable_item">
-                      <Button>remove</Button>
+                    <li className="contentTable_item contentTable_item__actions">
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash-alt"></span>
+                      </button>
                     </li>
                   </ul>
                   <ul className="contentTable">
@@ -237,32 +239,66 @@ const NewCampaignsStep1 = () => {
                     <li className="contentTable_item">Audience | Weekday...</li>
                     <li className="contentTable_item">1290877748484849</li>
                     <li className="contentTable_item">
-                      <figure>IMG</figure>
+                      <figure>
+                        {/* Acá debe ir la imagén */}
+                        IMG
+                        <img />
+                      </figure>
                     </li>
-                    <li className="contentTable_item">
-                      <Button>remove</Button>
+                    <li className="contentTable_item contentTable_item__actions">
+                      <button className="btnRemoveRow">
+                        <span className="iconXaxis iconXaxis-trash-alt"></span>
+                      </button>
                     </li>
                   </ul>
                 </section>
-                <Button>+</Button>
+                <Button
+                  hierarchy="secondary"
+                  className="cntItemAccordion_btn cntItemAccordion_btn__plus">
+                  <span className="iconXaxis iconXaxis-plus"></span>
+                </Button>
               </article>
             </details>
             <details className="accordion">
               <summary className="accordion_title">
                 Select the channels wherethe this rule apply
               </summary>
-              <article>
-                <ul>
-                  <Switch label="Facebook - Instagram - Messenger" name="FIM" />
-                  <Switch label="TikTok" name="TikTok" />
-                  <Switch label="SONA" name="SONA" />
+              <article className="cntItemAccordion">
+                <ul className="cntItemAccordion_listOptions">
+                  <Switch
+                    label={
+                      <div className="labelsIcons">
+                        <span className="iconXaxis  iconXaxis-facebook-f"></span>
+                        <span className="iconXaxis  iconXaxis-instagram"></span>
+                        <span className="iconXaxis  iconXaxis-facebook-messenger"></span>
+                      </div>
+                    }
+                    name="FIM"
+                    className="switchChannel"
+                  />
+                  <Switch
+                    label={
+                      <div className="labelsIcons">
+                        <span className="iconXaxis  iconXaxis-tiktok"></span>
+                      </div>
+                    }
+                    name="TikTok"
+                    className="switchChannel"
+                  />
+                  <Switch
+                    label="S"
+                    name="SONA"
+                    className="switchChannel switchChannel__sona"
+                  />
                 </ul>
               </article>
             </details>
           </section>
         </section>
         <footer className="footerModal">
-          <Button onClick={() => setOpen(false)}>Cancel</Button>
+          <Button onClick={() => setOpen(false)} hierarchy="secondary">
+            Cancel
+          </Button>
           <Button onClick={() => setOpen(false)}>Save</Button>
         </footer>
       </Modal>
