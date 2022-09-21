@@ -1,7 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppStore } from '@redux/store';
-import { Switch } from '@components/index';
 import RuleCard from './RuleCard';
 import { resetCampaigns } from '@redux/states/campaigns.state';
 
