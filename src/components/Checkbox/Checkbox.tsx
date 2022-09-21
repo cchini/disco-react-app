@@ -1,5 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
+import './checkbox.scss';
 // import './checkbox.scss';
 
 export interface ICheckbox

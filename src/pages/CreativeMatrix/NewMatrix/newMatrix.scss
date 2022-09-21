@@ -65,11 +65,63 @@
       }
     }
   }
-}
-
-.plataformsConfig {
-  border-bottom: 1px solid red;
-  padding: 1rem 1rem 2rem;
+  .plataformsConfig {
+    box-shadow: $boxShadow;
+    border-radius: 0.25rem;
+    background: $white;
+    margin: 0 0 1rem;
+    &:last-child {
+      margin: 0;
+    }
+    &_title {
+      height: 32px;
+      background: $purple;
+      padding: 0.5rem 1rem;
+      border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+      text-transform: uppercase;
+      color: $white;
+      font-size: 0.875rem;
+      font-weight: map-get($fonts, regular);
+    }
+    .contentPlatformConfig {
+      padding: 0.75rem 1rem;
+      &_title {
+        color: $blue;
+        font-size: 0.875rem;
+        padding: 0.75rem 0;
+        margin: 0.875rem 0 0;
+        border-top: 1px solid $purple;
+        &:first-child {
+          margin: 0;
+          border: none;
+          padding: 0 0 0.75rem;
+        }
+      }
+      .configPlatforms {
+        display: flex;
+        gap: 1rem;
+        .listPlatform {
+          &_item {
+            margin: 0 0 0.75rem;
+            &:last-child {
+              margin: 0;
+            }
+            &.listPlatform_item__title {
+              color: $blue;
+              text-transform: uppercase;
+              font-size: 0.75rem;
+              padding: 0 0 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footerNewMatrix {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
 }
 
 .modalMatrix {
