@@ -1,13 +1,27 @@
-import React, { FC } from 'react';
-import { Button } from '@components/index';
+import React, { FC, useState } from 'react';
+import dayjs from 'dayjs';
 import { Campaign } from '@models/Campaigns.model';
 
 interface CampaignsTableProps {
   data: Campaign[];
 }
 
+interface SimulateAction {
+  status: 'active' | 'pending';
+  id: string;
+}
+
 const CampaignsTable: FC<CampaignsTableProps> = props => {
   const { data } = props;
+  const [simulate, setSimulate] = useState<SimulateAction>(null);
+
+  const handleSimulateAction = (id: string) => {
+    setSimulate({ id, status: 'pending' });
+    setTimeout(() => {
+      setSimulate(null);
+    }, 2000);
+  };
+
   return (
     <section className="table">
       <ul className="headerTable">
@@ -23,14 +37,18 @@ const CampaignsTable: FC<CampaignsTableProps> = props => {
       {data?.map(campaign => (
         <ul key={campaign?.id} className="contentTable">
           <li className="contentTable_item contentTable_item__status">
-            {campaign?.status?.name}
+            {simulate?.id && simulate?.id === campaign?.id
+              ? simulate?.status
+              : campaign?.status?.name}
           </li>
           <li className="contentTable_item contentTable_item__actions">
             <button className="iconActionsCampaign">
               <span className="iconXaxis iconXaxis-edit"></span>
               Edit
             </button>
-            <button className="iconActionsCampaign">
+            <button
+              className="iconActionsCampaign"
+              onClick={() => handleSimulateAction(campaign?.id)}>
               <span className="iconXaxis iconXaxis-edit"></span>
               Refresh
             </button>
@@ -38,17 +56,25 @@ const CampaignsTable: FC<CampaignsTableProps> = props => {
               <span className="iconXaxis iconXaxis-edit"></span>
               View
             </button>
-            <button className="iconActionsCampaign">
+            <button
+              className="iconActionsCampaign"
+              onClick={() => handleSimulateAction(campaign?.id)}>
               <span className="iconXaxis iconXaxis-edit"></span>
               Publish
             </button>
           </li>
           <li className="contentTable_item">{campaign?.id}</li>
           <li className="contentTable_item">{campaign?.name}</li>
-          <li className="contentTable_item">Type</li>
+          <li className="contentTable_item">{campaign?.typeDescription}</li>
           <li className="contentTable_item">{campaign?.budget}</li>
-          <li className="contentTable_item">01/01/2022 - 30/09/2022</li>
-          <li className="contentTable_item">Last modified</li>
+          <li className="contentTable_item">{`${dayjs(
+            campaign?.startDate,
+          ).format('DD/MM/YYYY')} - ${dayjs(campaign?.endDate).format(
+            'DD/MM/YYYY',
+          )}`}</li>
+          <li className="contentTable_item">
+            {dayjs(campaign?.modified).format('MMM DD, YYYY HH:mm A')}
+          </li>
         </ul>
       ))}
     </section>
