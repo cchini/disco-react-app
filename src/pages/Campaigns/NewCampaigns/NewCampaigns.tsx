@@ -342,7 +342,7 @@ const NewCampaignsStep1 = () => {
         />
       </nav>
       <section className="rulesConfig">
-        <h2 className="rulesConfig_title">priority group 1</h2>
+        <h2 className="rulesConfig_title">priority group</h2>
         <section className="cntCardsRules">
           <article className="cardRule">
             <h3 className="cardRule_title">Audience a morning | Weekdays</h3>
@@ -390,14 +390,16 @@ const NewCampaignsStep1 = () => {
         </section>
       </section>
       <footer className="footerNewCampaign">
-        <Button hierarchy="secondary" className="footerNewCampaign_btn">
+        <Button
+          hierarchy="secondary"
+          className="footerNewCampaign_btn"
+          onClick={() => navigate(`/${DiscoPaths.Campaigns}`)}>
           Cancel
         </Button>
-        <Button className="footerNewCampaign_btn">Save</Button>
         <Button
-          onClick={() => navigate({ pathname: `/${DiscoPaths.NewCampaigns}` })}
-          className="footerNewCampaign_btn">
-          Next
+          className="footerNewCampaign_btn"
+          onClick={() => navigate(`/${DiscoPaths.Campaigns}`)}>
+          Save
         </Button>
       </footer>
     </Layout>
