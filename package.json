@@ -7,7 +7,8 @@
     "start": "webpack serve --config ./webpack/webpack.dev.js",
     "start:stubs": "concurrently --kill-others \"npm run start\"  \"npm run start:stubby\"",
     "start:stubby": "stubby -d stubs/stubby-config.yml -w -s 8200 -q",
-    "deploy": "webpack --config ./webpack/webpack.prod.js"
+    "deploy": "webpack --config ./webpack/webpack.prod.js",
+    "build": "webpack --config ./webpack/webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,11 @@
   },
   "homepage": "https://github.com/cchini/disco-react-app#readme",
   "dependencies": {
+    "16": "0.0.2",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "dayjs": "^1.11.5",
+    "nvm": "0.0.4",
     "react": "^18.2.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
