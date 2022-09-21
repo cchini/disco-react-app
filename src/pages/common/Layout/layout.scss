@@ -24,7 +24,7 @@
         }
       }
       .contentPages {
-        background-color: #eee;
+        background-color: $bg;
         position: absolute;
         transform: translate3d(200px, 0, 0);
         width: calc(100% - 250px);
@@ -152,19 +152,19 @@
         color: $white;
         position: relative;
         .iconMenu {
-          color: #777;
+          color: $white;
           position: absolute;
           top: 12px;
           right: 10px;
           pointer-events: none;
           width: 24px;
           height: 24px;
-          color: $white;
         }
         &:hover {
           background: $white;
           opacity: 0.4;
-          .iconMenu {
+          .iconMenu,
+          .linkMenu {
             color: $blue;
           }
         }
@@ -174,14 +174,6 @@
           padding: 1em;
           font-size: 14px;
           color: $white;
-          &:hover {
-            color: $white;
-          }
-          &:visited {
-            color: #aaa;
-            text-decoration: none !important;
-            position: relative;
-          }
         }
       }
     }
