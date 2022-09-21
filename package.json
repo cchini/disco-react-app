@@ -4,6 +4,7 @@
   "description": "Disco App",
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "npm install --dev",
     "start": "webpack serve --config ./webpack/webpack.dev.js",
     "start:stubs": "concurrently --kill-others \"npm run start\"  \"npm run start:stubby\"",
     "start:stubby": "stubby -d stubs/stubby-config.yml -w -s 8200 -q",
