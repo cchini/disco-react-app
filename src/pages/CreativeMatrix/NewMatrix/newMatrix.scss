@@ -15,11 +15,33 @@
     box-shadow: $boxShadow;
     border-radius: 0.25rem;
     gap: 1rem;
+    &.navMatrix__step2 {
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .contentActions {
+      display: flex;
+      gap: 1rem;
+      &_btn {
+        &:first-child {
+          background: $confirm;
+          &:hover {
+            background: lighten($confirm, 10%);
+          }
+        }
+        &:last-child {
+          background: $pink;
+          &:hover {
+            background: lighten($pink, 10%);
+          }
+        }
+        .iconXaxis {
+          margin: 0 0.5rem 0 0;
+        }
+      }
+    }
     &_input {
       width: 200px;
-    }
-    > h2 {
-      width: 100%;
     }
     .contentEnabledDisabled {
       &_label {

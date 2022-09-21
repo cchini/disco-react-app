@@ -129,7 +129,7 @@ const NewMatrixStep2 = () => {
         />
         <div className="contentEnabledDisabled">
           <label className="contentEnabledDisabled_label">
-            Enable/Disabled plataforms:
+            Enable/Disabled plataforms
           </label>
           <ul className="listOptions">
             <li className="listOptions_item">

@@ -6,6 +6,7 @@ import {
   DragDropFile,
   PreviewUpload,
 } from '@components/index';
+import Layout from '../../common/Layout/Layout';
 import './newMatrix.scss';
 
 const NewMatrixStep2 = () => {
@@ -19,7 +20,7 @@ const NewMatrixStep2 = () => {
     setNewAssetsMatrix({ ...newAssetsMatrix, assetsImages: files });
 
   return (
-    <section>
+    <Layout className="newCreativeMatrixPage">
       <Modal
         className="modalMatrix"
         active={open}
@@ -83,34 +84,75 @@ const NewMatrixStep2 = () => {
           <Button onClick={() => setOpen(false)}>Continue</Button>
         </footer>
       </Modal>
-      <h1>Creative Matrix/New</h1>
+      <h1 className="newCreativeMatrixPage_title">Creative Matrix/New</h1>
 
       {/* Sección de cards de redes sociales */}
-      <nav className="navMatrix">
-        <h2>Enable/Disabled plataforms:</h2>
+      <nav className="navMatrix navMatrix__step2">
         <div className="contentEnabledDisabled">
+          <label className="contentEnabledDisabled_label">
+            Enable/Disabled plataforms
+          </label>
           <ul className="listOptions">
-            <li>
-              <Switch label="facebook" name="facebook" />
+            <li className="listOptions_item">
+              <Switch
+                label={
+                  <div className="labelsIcons">
+                    <span className="iconXaxis  iconXaxis-facebook-f"></span>
+                  </div>
+                }
+                className="switchAvailable"
+                name="facebook"
+              />
             </li>
-            <li>
-              <Switch label="Instragram" name="Instragram" />
+            <li className="listOptions_item">
+              <Switch
+                label={
+                  <div className="labelsIcons">
+                    <span className="iconXaxis  iconXaxis-instagram"></span>
+                  </div>
+                }
+                name="Instragram"
+                className="switchAvailable"
+              />
             </li>
-            <li>
-              <Switch label="Messenger" name="Messenger" />
+            <li className="listOptions_item">
+              <Switch
+                label={
+                  <div className="labelsIcons">
+                    <span className="iconXaxis  iconXaxis-facebook-messenger"></span>
+                  </div>
+                }
+                className="switchAvailable"
+                name="Messenger"
+              />
             </li>
-            <li>
-              <Switch label="Tiktok" name="Tiktok" />
+            <li className="listOptions_item">
+              <Switch
+                label={
+                  <div className="labelsIcons">
+                    <span className="iconXaxis  iconXaxis-tiktok"></span>
+                  </div>
+                }
+                className="switchAvailable"
+                name="Tiktok"
+              />
             </li>
-            <li>
-              <Switch label="SONA" name="SONA" />
+            <li className="listOptions_item">
+              <Switch
+                label="S"
+                name="SONA"
+                className="switchAvailable switchAvailable__sona"
+              />
             </li>
           </ul>
-          <Button className="contentEnabledDisabled_btn">
-            + Add carousel card
+        </div>
+        <div className="contentActions">
+          <Button className="contentActions_btn">
+            <span className="iconXaxis iconXaxis-plus"></span>Add carousel card
           </Button>
-          <Button className="contentEnabledDisabled_btn">
-            - Remove last carousel card
+          <Button className="contentActions_btn">
+            <span className="iconXaxis iconXaxis-trash-alt"></span> Remove last
+            carousel card
           </Button>
         </div>
       </nav>
@@ -168,7 +210,7 @@ const NewMatrixStep2 = () => {
         </section>
       </section>
       <Button onClick={() => setOpen(true)}>+ Add asset</Button>
-    </section>
+    </Layout>
   );
 };
 
