@@ -15,6 +15,7 @@ export const allCreativeMatrixAdapter = (
       deleted: value?.deleted,
       created: value?.created,
       modified: value?.modified,
+      typeDescription: value?.typeDescription,
     };
     if (isSelector)
       matrix = { ...matrix, label: value?.name, value: value?.id };

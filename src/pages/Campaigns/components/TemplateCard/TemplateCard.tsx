@@ -28,6 +28,7 @@ const TemplateCard: FC<TemplateCardProps> = props => {
         return `${baseClass}clock`;
     }
   };
+
   return (
     <section className="cardsContent cardsTamplatesCampaigns">
       {data?.map(template => (
