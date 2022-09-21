@@ -1,35 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Router from './routes/Router';
 import { Provider } from 'react-redux';
 import store from '@redux/store';
-import { AccountOption } from '@models/account.model';
-import useFetchAndLoad from '@hooks/useFetchAndLoad';
-import { getAccounts } from '@services/accountSetup.service';
-import { accountOptionAdapter } from '@adapters/account.adapter';
-import { useAsync } from '@hooks/useAsyncAxios';
 import { modifyListAccounts, modifyAccount } from '@redux/states/account.state';
+import { modifyListMatrix } from '@redux/states/creativeMatrix.state';
 import { getAccountStorage } from '@utilities/localstorage.utility';
+import useDataInit from '@hooks/useInitData';
 import './index.scss';
 
 const App = () => {
   const storageAccount = getAccountStorage();
-  const [accounts, setAccounts] = useState<AccountOption[]>([]);
-  const { loading, callEndpoint } = useFetchAndLoad();
-  const getApiData = async () => await callEndpoint(getAccounts());
-  useAsync(
-    getApiData,
-    response => setAccounts(accountOptionAdapter(response)),
-    () => {},
-  );
+  const [accountList, matrixList, loading] = useDataInit();
 
-  /* if (loading) return <div>Loading</div>; */
+  if (loading) return null;
 
-  store.dispatch(modifyListAccounts(accounts));
-  if (storageAccount && accounts?.length > 0) {
-    const findAccount = accounts?.find(
-      value => value?.account?.id?.toString() === storageAccount,
-    );
-    if (findAccount) store.dispatch(modifyAccount(findAccount));
+  store.dispatch(modifyListAccounts(accountList));
+  store.dispatch(modifyListAccounts(accountList));
+  store.dispatch(modifyListMatrix(matrixList));
+
+  if (accountList?.length > 0) {
+    if (storageAccount) {
+      const findAccount = accountList?.find(
+        value => value?.account?.id?.toString() === storageAccount,
+      );
+      if (findAccount) {
+        store.dispatch(modifyAccount(findAccount));
+      }
+    } else {
+      store.dispatch(modifyAccount(accountList[0]));
+    }
   }
 
   return (

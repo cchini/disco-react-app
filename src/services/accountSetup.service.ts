@@ -3,14 +3,14 @@ import { Account } from '@models/account.model';
 import axios from 'axios';
 
 const DISCO_API = process.env.DISCO_API;
+const ACCOUNT_ID = process.env.ACCOUNT_ID;
 
 export const getAccounts = () => {
   const controller = loadAbort();
   return {
-    call: axios.get<Account[]>(
-      `${DISCO_API}/account/?clientId=6d1ea72d-8173-4aa2-b0f4-7cd574c5d24c`,
-      { signal: controller.signal },
-    ),
+    call: axios.get<Account[]>(`${DISCO_API}/account?accountId=${ACCOUNT_ID}`, {
+      signal: controller.signal,
+    }),
     controller,
   };
 };

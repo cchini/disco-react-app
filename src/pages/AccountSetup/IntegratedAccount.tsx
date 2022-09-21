@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { AppStore } from '@redux/store';
 import cx from 'classnames';
@@ -15,16 +15,21 @@ const IntegratedAccount = () => {
     const baseClass = 'headerCardPlatform_icon';
     switch (platform) {
       case 'META':
+        const fb = `${baseClass} ${iconByPlatform('FACEBOOK')}`;
+        const ig = `${baseClass} ${iconByPlatform('INSTAGRAM')}`;
+        const msg = `${baseClass} ${iconByPlatform('MESSENGER')}`;
         return [
-          <span className={`${baseClass} ${iconByPlatform('FACEBOOK')}`} />,
-          <span className={`${baseClass} ${iconByPlatform('INSTAGRAM')}`} />,
-          <span className={`${baseClass} ${iconByPlatform('MESSENGER')}`} />,
+          <span key="fb" className={fb} />,
+          <span key="ig" className={ig} />,
+          <span key="msg" className={msg} />,
         ];
       case 'TIKTOK':
-        return <span className={`${baseClass} ${iconByPlatform('TIKTOK')}`} />;
+        const ttk = `${baseClass} ${iconByPlatform('TIKTOK')}`;
+        return <span key="ttk" className={ttk} />;
 
       case 'SONA':
-        return <span className={`${baseClass} ${iconByPlatform('SONA')}`} />;
+        const sona = `${baseClass} ${iconByPlatform('SONA')}`;
+        return <span key="sn" className={sona} />;
     }
   };
 
@@ -48,29 +53,22 @@ const IntegratedAccount = () => {
           <div className="accountRrss">
             <label className="accountRrss_label">Available plataforms</label>
             <ul className="listRrss">
-              {account?.platforms?.map(plat => (
-                <>
-                  {plat?.pages?.map(available => (
-                    <>
-                      {available?.platform?.enabled && (
-                        <li
-                          className={`listRrss_item ${iconByPlatform(
-                            available?.platform?.code,
-                          )}`}></li>
-                      )}
-                    </>
-                  ))}
-                </>
-              ))}
+              {account?.platforms?.map(plat =>
+                plat?.pages?.map(available => (
+                  <li
+                    key={available?.platform?.code}
+                    className={`listRrss_item ${iconByPlatform(
+                      available?.platform?.code,
+                    )}`}></li>
+                )),
+              )}
             </ul>
           </div>
         </header>
       )}
 
-      {account?.platforms?.map((platform, index) => (
-        <article
-          key={`${platform?.businessManagerId}_${index}`}
-          className="cardAvailablePlataforms">
+      {account?.platforms?.map(platform => (
+        <article key={platform?.id} className="cardAvailablePlataforms">
           <header className="headerCardPlatform">
             {iconByPlatformOwner(platform?.platformOwner?.code)}
             <p className="headerCardPlatform_status">
@@ -99,7 +97,7 @@ const IntegratedAccount = () => {
               disabled={true}
             />
             {platform?.pages?.map(page => (
-              <>
+              <Fragment key={`${page?.platform?.name}`}>
                 <Input
                   label={`${page?.platform?.name} ID`}
                   value={page?.pageId}
@@ -112,7 +110,7 @@ const IntegratedAccount = () => {
                   className="contentCardPlataform_input"
                   disabled={true}
                 />
-              </>
+              </Fragment>
             ))}
           </section>
         </article>

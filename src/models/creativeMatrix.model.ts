@@ -18,3 +18,7 @@ export interface TemplateMatrix {
   title?: string;
   platforms: PagePlatform[];
 }
+
+export interface ReduxMatrix {
+  matrixList: CreativeMatrix[];
+}
