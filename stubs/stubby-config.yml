@@ -10,6 +10,17 @@
         content-type: application/json
       file: ./account/get-all-200.json
 - request:
+    url: /disco/api/account/sendMail
+    method: POST
+    query:
+      to: correo@gmail.com
+  response:
+    - status: 200
+      latency: 500
+      headers:
+        content-type: application/json
+      file: ./campaign/get-all-200.json
+- request:
     url: /disco/api/creative-matrix
     method: GET
   response:

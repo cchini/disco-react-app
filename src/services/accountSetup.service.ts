@@ -14,3 +14,13 @@ export const getAccounts = () => {
     controller,
   };
 };
+
+export const sendApproval = (email: string) => {
+  const controller = loadAbort();
+  return {
+    call: axios.post(`${DISCO_API}/account/sendMail?to=${email}`, {
+      signal: controller.signal,
+    }),
+    controller,
+  };
+};
