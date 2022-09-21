@@ -4,13 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-
-// .ENV variables
-/* const env = dotenv.config().parsed || {};
-const envKeys = Object.keys(env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {}); */
+require('dotenv').config();
 
 module.exports = {
   entry: {
@@ -95,7 +89,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new Dotenv(),
+    new webpack.EnvironmentPlugin(['DISCO_API', 'ACCOUNT_ID']),
     new MiniCssExtractPlugin({
       filename: 'css/app.css',
     }),
