@@ -4,9 +4,10 @@ import { AppStore } from '@redux/store';
 import { modifyAccount } from '@redux/states/account.state';
 import { setAccountStorage } from '@utilities/localstorage.utility';
 import { AccountOption } from '@models/account.model';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Input, Button, Select } from '@components/index';
 import { DiscoPaths } from '@routes/models/path.model';
+import XaxisLogo from '../../../assets/images/xaxis.svg';
 import cx from 'classnames';
 import './layout.scss';
 
@@ -19,7 +20,6 @@ export interface ILayout {
 const Layout: FC<ILayout> = props => {
   const { className, children } = props;
   const [openMenu, setOpenMenu] = useState(false);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const store = useSelector((store: AppStore) => store.account);
 
@@ -39,12 +39,15 @@ const Layout: FC<ILayout> = props => {
           )}
           onClick={() => setOpenMenu(!openMenu)}
         />
+        <figure className="headerLayout_figure">
+          <img src={XaxisLogo} className="imgLogo" />
+        </figure>
         <nav className="navHeader">
-          <Input placeholder="Search" className="navHeader_input" />
-          <Button className="navHeader_btn">
-            <span className="iconXaxis iconXaxis-search" />
-          </Button>
           <div className="context">
+            <Input placeholder="Search" className="context_input" />
+            <Button className="context_btn">
+              <span className="iconXaxis iconXaxis-search" />
+            </Button>
             <Select
               className="context_select"
               options={store?.accounts}

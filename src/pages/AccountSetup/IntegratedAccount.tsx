@@ -1,13 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AppStore } from '@redux/store';
 import cx from 'classnames';
-import { Select, Input, Button } from '@components/index';
+import { Select, Input, Button, Modal } from '@components/index';
 import Layout from '../common/Layout/Layout';
 import { iconByPlatform } from '@utilities/common.utility';
 import './accountSetup.scss';
 
 const IntegratedAccount = () => {
+  const [open, setOpen] = useState(false);
   const store = useSelector((store: AppStore) => store.account);
   const account = store?.account?.account;
 
@@ -35,6 +36,31 @@ const IntegratedAccount = () => {
 
   return (
     <Layout className="accountPage">
+      <Modal
+        className="modalAccounSetUp"
+        active={open}
+        onClose={() => setOpen(false)}
+        header={
+          <header className="headerModalAccounSetUp">
+            <h2 className="headerModalAccounSetUp_title">Send Approval</h2>
+            <Button
+              onClick={() => setOpen(false)}
+              className="headerModalAccounSetUp_btn"
+              hierarchy="secondary">
+              X
+            </Button>
+          </header>
+        }>
+        <section className="modalAccounSetUpContent">
+          <Input placeholder="example@xaxis.com" label="Email" type="email" />
+        </section>
+        <footer className="footerModal">
+          <Button onClick={() => setOpen(false)} hierarchy="secondary">
+            Cancel
+          </Button>
+          <Button onClick={() => setOpen(false)}>Send</Button>
+        </footer>
+      </Modal>
       <h1 className="accountPage_title">Account Set Up</h1>
       {account && (
         <header className="accountPage_header">
@@ -149,7 +175,9 @@ const IntegratedAccount = () => {
               value={'Tiktok Name'}
               className="contentCardPlataform_input"
             />
-            <Button className="contentCardPlataform_btn">
+            <Button
+              className="contentCardPlataform_btn"
+              onClick={() => setOpen(true)}>
               <span className="iconXaxis iconXaxis-paper-plane"></span>
               Send approval
             </Button>
