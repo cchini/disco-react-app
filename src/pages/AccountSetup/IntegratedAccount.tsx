@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { Select, Input, Button, Modal } from '@components/index';
 import Layout from '../common/Layout/Layout';
 import { iconByPlatform } from '@utilities/common.utility';
-import './accountSetup.scss';
+import './accountSetUp.scss';
 
 const IntegratedAccount = () => {
   const [open, setOpen] = useState(false);
