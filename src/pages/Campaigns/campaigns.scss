@@ -147,7 +147,7 @@
   .footerModal {
     margin: 0.75rem 0 0;
     padding: 0.5rem 0;
-    border-top: 1px solid grey;
+    border-top: 1px solid lighten($lightGray, 20%);
     display: flex;
     justify-content: flex-end;
   }
