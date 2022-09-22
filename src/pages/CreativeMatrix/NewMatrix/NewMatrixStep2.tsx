@@ -224,11 +224,15 @@ const NewMatrixStep2 = () => {
               <figure>IMG</figure>
             </li>
           </ul>
+          <ul className="contentTable">
+            <li className="contentTable_item contentTable_item__addAsset">
+              <Button onClick={() => setOpen(true)} hierarchy="secondary">
+                <span className="iconXaxis iconXaxis-plus"></span> Add asset
+              </Button>
+            </li>
+          </ul>
         </section>
       </section>
-      <footer className="footerNewMatrix">
-        <Button onClick={() => setOpen(true)}>+ Add asset</Button>
-      </footer>
     </Layout>
   );
 };

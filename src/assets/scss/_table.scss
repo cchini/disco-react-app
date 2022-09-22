@@ -54,6 +54,15 @@
       &.contentTable_item__actions {
         min-width: 300px;
       }
+      &.contentTable_item__addAsset {
+        min-width: auto;
+        flex-grow: 1;
+        padding: 0.75rem;
+        .iconXaxis {
+          font-size: 0.75rem;
+          margin: 0 0.5rem 0 0;
+        }
+      }
       .iconActionsCampaign,
       .iconActionsCreativeMatrix,
       .iconActionsNewMatrix2 {
