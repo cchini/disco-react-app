@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Modal,
-  Switch,
-  DragDropFile,
-  PreviewUpload,
-} from '@components/index';
+import { Button, Modal, Switch, DragDropFile } from '@components/index';
 import Layout from '../../common/Layout/Layout';
 import './newMatrix.scss';
 
@@ -22,61 +16,78 @@ const NewMatrixStep2 = () => {
   return (
     <Layout className="newCreativeMatrixPage">
       <Modal
-        className="modalMatrix"
+        className="modalCreativeMatrixAdd"
         active={open}
         onClose={() => setOpen(false)}
         header={
-          <header className="headerModalMatrix">
-            <h3>Select your asset</h3>
+          <header className="headerModalCreativeMatrixAssets">
+            <h3 className="headerModalCreativeMatrixAssets_title">
+              Select your asset
+            </h3>
           </header>
         }>
-        <section className="modalContent">
+        <section className="modalAssetsContent">
           <div className="library">
-            <h4>Asset Library</h4>
-            <ul title="2022 may getircampaign name">
-              <ul title="Images">
-                <li>
-                  <b>IMAGES</b>
+            <h4 className="library_title">Asset Library</h4>
+            <ul className="principalList">
+              <li className="principalList_item principalList_item__title">
+                2022 may getircampaign name
+              </li>
+              <ul title="Images" className="secondaryList">
+                <li className="secondaryList_item secondaryList_item__title">
+                  <span className="iconXaxis iconXaxis-folder"></span>
+                  IMAGES
                 </li>
-                <li>image 01</li>
-                <li>image 02</li>
-                <li>image 03</li>
-                <li>image 04</li>
-                <li>image 05</li>
-                <li>image 06</li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-image"></span>image 01
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-image"></span>image 02
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-image"></span>image 03
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-image"></span>image 04
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-image"></span>image 05
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-image"></span>image 06
+                </li>
               </ul>
-              <ul title="Videos">
-                <li>
-                  <b>VIDEOS</b>
+              <ul title="Images" className="secondaryList">
+                <li className="secondaryList_item secondaryList_item__title">
+                  <span className="iconXaxis iconXaxis-folder"></span>
+                  Videos
                 </li>
-                <li>video 01</li>
-                <li>video 02</li>
-                <li>video 03</li>
-                <li>video 04</li>
-                <li>video 05</li>
-                <li>video 06</li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-video"></span>video 01
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-video"></span>video 02
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-video"></span>video 03
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-video"></span>video 04
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-video"></span>video 05
+                </li>
+                <li className="secondaryList_item">
+                  <span className="iconXaxis iconXaxis-video"></span>video 06
+                </li>
               </ul>
             </ul>
           </div>
-          <div className="upload">
-            <h4>Upload</h4>
-            <DragDropFile
-              accept=".jpg,.png,.jpeg"
-              label="Assets Image(s)"
-              multiple
-              updateFilesCb={updateUploadedFiles}
-            />
-          </div>
-          <div className="preview">
-            <h4>Preview</h4>
-            {/* Acá debería ir el compoennte preview con la parte de previsualización de DragDropUpload */}
-            {/* <PreviewUpload
-              accept=".jpg,.png,.jpeg"
-              label="Assets Image(s)"
-              multiple
-              updateFilesCb={updateUploadedFiles}
-            /> */}
-          </div>
+          <DragDropFile
+            accept=".jpg,.png,.jpeg"
+            label=""
+            updateFilesCb={updateUploadedFiles}
+          />
         </section>
 
         <footer className="footerModal">
