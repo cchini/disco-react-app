@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Button } from '@components/index';
 import { CreativeMatrix } from '@models/creativeMatrix.model';
 
@@ -6,8 +6,22 @@ interface MatrixTableProps {
   data: CreativeMatrix[];
 }
 
+interface SimulateAction {
+  status: 'Active' | 'Pending';
+  id: string;
+}
+
 const MatrixTable: FC<MatrixTableProps> = props => {
   const { data } = props;
+  const [simulate, setSimulate] = useState<SimulateAction>(null);
+
+  const handleSimulateAction = (id: string) => {
+    setSimulate({ id, status: 'Pending' });
+    setTimeout(() => {
+      setSimulate(null);
+    }, 2000);
+  };
+
   return (
     <section className="table">
       <ul className="headerTable">
@@ -21,18 +35,24 @@ const MatrixTable: FC<MatrixTableProps> = props => {
       {data?.map(matrix => (
         <ul key={matrix?.id} className="contentTable">
           <li className="contentTable_item contentTable_item__status">
-            {matrix?.status?.name}
+            {simulate?.id && simulate?.id === matrix?.id
+              ? simulate?.status
+              : matrix?.status?.name}
           </li>
           <li className="contentTable_item contentTable_item__actions">
             <button className="iconActionsCreativeMatrix">
               <span className="iconXaxis iconXaxis-edit"></span>
               Edit
             </button>
-            <button className="iconActionsCreativeMatrix">
+            <button
+              className="iconActionsCreativeMatrix"
+              onClick={() => handleSimulateAction(matrix?.id)}>
               <span className="iconXaxis iconXaxis-edit"></span>
               Refresh
             </button>
-            <button className="iconActionsCreativeMatrix">
+            <button
+              className="iconActionsCreativeMatrix"
+              onClick={() => handleSimulateAction(matrix?.id)}>
               <span className="iconXaxis iconXaxis-edit"></span>
               Publish
             </button>

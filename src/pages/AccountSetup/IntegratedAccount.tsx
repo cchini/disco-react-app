@@ -48,8 +48,6 @@ const IntegratedAccount = () => {
     }
   };
 
-  console.debug(account);
-
   return (
     <Layout className="accountPage">
       {!loading && (

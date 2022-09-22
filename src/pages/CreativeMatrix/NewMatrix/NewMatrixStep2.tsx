@@ -172,7 +172,7 @@ const NewMatrixStep2 = () => {
       <section className="contentTableNewMatrix">
         <section className="table">
           <ul className="headerTable">
-            <li className="headerTable_item headerTable_item__actions"></li>
+            <li className="headerTable_item"></li>
             <li className="headerTable_item">Disco ID</li>
             <li className="headerTable_item">Reporting label</li>
             <li className="headerTable_item">Intagram Account ID</li>
@@ -185,7 +185,7 @@ const NewMatrixStep2 = () => {
           </ul>
 
           <ul className="contentTable">
-            <li className="contentTable_item contentTable_item__actions">
+            <li className="contentTable_item ">
               <button className="iconActionsNewMatrix2">
                 <span className="iconXaxis iconXaxis-trash-alt"></span>
                 Remove
@@ -201,12 +201,17 @@ const NewMatrixStep2 = () => {
 
             <li className="contentTable_item">765404846084849</li>
             <li className="contentTable_item">
-              <figure>IMG</figure>
+              <button
+                className="iconActionsNewMatrix2"
+                onClick={() => setOpen(true)}>
+                <span className="iconXaxis iconXaxis-plus"></span>
+                Add asset
+              </button>
             </li>
           </ul>
 
           <ul className="contentTable">
-            <li className="contentTable_item contentTable_item__actions">
+            <li className="contentTable_item ">
               <button className="iconActionsNewMatrix2">
                 <span className="iconXaxis iconXaxis-trash-alt"></span>
                 Remove
@@ -221,14 +226,16 @@ const NewMatrixStep2 = () => {
             <li className="contentTable_item">608774846084849</li>
             <li className="contentTable_item">765404846084849</li>
             <li className="contentTable_item">
-              <figure>IMG</figure>
+              <button
+                className="iconActionsNewMatrix2"
+                onClick={() => setOpen(true)}>
+                <span className="iconXaxis iconXaxis-plus"></span>
+                Add asset
+              </button>
             </li>
           </ul>
         </section>
       </section>
-      <footer className="footerNewMatrix">
-        <Button onClick={() => setOpen(true)}>+ Add asset</Button>
-      </footer>
     </Layout>
   );
 };
