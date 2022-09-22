@@ -8,6 +8,7 @@ export enum DiscoPaths {
   NewMatrixStep1 = 'creative-matrix/new-1',
   NewMatrixStep2 = 'creative-matrix/new-2',
   NewCampaigns = 'campaigns/new',
+  ViewCampaign = 'campaigns/view',
 }
 
 export interface DiscoPages {

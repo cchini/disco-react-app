@@ -6,6 +6,7 @@ import NewCampaigns from '../pages/Campaigns/NewCampaigns/NewCampaigns';
 import CreativeMatrix from '../pages/CreativeMatrix/CreativeMatrix';
 import NewMatrixStep1 from '../pages/CreativeMatrix/NewMatrix/NewMatrixStep1';
 import NewMatrixStep2 from '../pages/CreativeMatrix/NewMatrix/NewMatrixStep2';
+import ViewCampaign from '../pages/Campaigns/ViewCampaign/ViewCampaign';
 
 export const discoPaths: DiscoPages[] = [
   {
@@ -36,5 +37,9 @@ export const discoPaths: DiscoPages[] = [
   {
     component: NewCampaigns,
     path: DiscoPaths.NewCampaigns,
+  },
+  {
+    component: ViewCampaign,
+    path: DiscoPaths.ViewCampaign,
   },
 ];
