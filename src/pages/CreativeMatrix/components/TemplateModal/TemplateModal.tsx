@@ -16,26 +16,41 @@ const TemplateModal: FC<TemplateModalProps> = props => {
   const navigate = useNavigate();
   return (
     <Modal
-      className="modalDetails"
+      className="modalCreativeMatrix"
       active={activeModal}
       onClose={() => openModal(false)}
       header={
-        <header className="headerModal">
-          <div>
-            <p>Template</p>
-            <h3>{data?.title}</h3>
+        <header className="headerModalCreativeMatrix">
+          <div className="headerModalCreativeMatrixTitle">
+            <p className="headerModalCreativeMatrixTitle_detail">Template</p>
+            <h3 className="headerModalCreativeMatrixTitle_context">
+              {data?.title}
+            </h3>
           </div>
-          <Button onClick={() => openModal(false)}>X</Button>
+          <Button
+            onClick={() => openModal(false)}
+            className="headerModalCreativeMatrix_btn"
+            hierarchy="secondary">
+            X
+          </Button>
         </header>
       }>
-      <section className="modalContent">
+      <section className="modalCreativeMatrixContent">
+        <p className="modalCreativeMatrixContent_text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
+          temporibus culpa nisi dolorem, voluptas, iusto illum quas dicta ad
+          similique repudiandae veritatis aperiam nobis tempora cum velit itaque
+          beatae. Quia?
+        </p>
         <TemplatePlatform data={data?.platforms} />
       </section>
       <footer className="footerModal">
+        <Button onClick={() => openModal(false)} hierarchy="secondary">
+          Cancel
+        </Button>
         <Button onClick={() => navigate(`/${DiscoPaths.NewMatrixStep2}`)}>
           Select
         </Button>
-        <Button onClick={() => openModal(false)}>Cancel</Button>
       </footer>
     </Modal>
   );

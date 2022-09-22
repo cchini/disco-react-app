@@ -102,55 +102,177 @@
     }
   }
 }
-.modalDetails {
-  padding: 1.5rem 1rem;
-  width: 500px;
-  height: 100%;
-  max-height: 450px;
+.modalCreativeMatrix {
+  padding: 2rem 1.25rem;
+  width: 700px;
+  height: 500px;
+  max-height: 500px;
   overflow-y: hidden;
-  .headerModal {
+  display: flex;
+  flex-wrap: wrap;
+  .modal_header {
+    padding: 0 !important;
+    width: 100%;
+  }
+  .headerModalCreativeMatrix {
     display: flex;
     justify-content: space-between;
-    > h3 {
-      text-transform: uppercase;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid lighten($lightGray, 20%);
+
+    .headerModalCreativeMatrixTitle {
+      &_detail {
+        margin: 0;
+        padding: 0 0 0.25rem;
+        color: $blue;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+      }
+      &_context {
+        text-transform: uppercase;
+        margin: 0;
+        color: $blue;
+      }
+    }
+    &_btn {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 50%;
+      padding: 0.25rem;
     }
   }
-  .modalContent {
-    overflow-y: scroll;
-    max-height: 300px;
-    .rrssItem {
+  .modalCreativeMatrixContent {
+    overflow-y: auto;
+    max-height: 350px;
+    padding: 1rem 0 0;
+    width: 100%;
+    &_text {
+      width: 100%;
+      color: $lightGray;
+      font-size: 0.75rem;
+    }
+    .plataformBussines {
+      padding: 1rem 0;
+      width: 100%;
+      &_title {
+        color: $blue;
+        text-transform: uppercase;
+        padding: 0 0 0.5rem;
+      }
       .content {
         display: flex;
-        .formats,
+        .formats {
+          width: 300px;
+          &_title {
+            color: $blue;
+            padding: 0 0 0.5rem;
+          }
+          &_text {
+            width: 100%;
+            color: $lightGray;
+            font-size: 0.75rem;
+            padding: 0 0 0.5rem;
+          }
+          .listFormts {
+            width: 100%;
+            &_item {
+              color: $darkGray;
+              font-size: 0.75rem;
+              display: flex;
+              align-items: center;
+              gap: 0.25rem;
+              margin: 0 0 0.75rem;
+              font-weight: map-get($fonts, medium);
+              &:last-child {
+                margin: 0;
+              }
+              .iconFromts {
+                margin: 0 0.5rem 0 0;
+                font-size: 1.5rem;
+                color: lighten($lightGray, 20%);
+              }
+            }
+          }
+        }
+
         .placements {
           flex: 1;
-        }
-        .placements {
+          &_title {
+            color: $blue;
+            padding: 0 0 1.75rem;
+          }
           .placementsList {
+            width: 100%;
             &_item {
               position: relative;
-
+              color: $darkGray;
+              font-size: 0.75rem;
+              display: flex;
+              align-items: center;
+              margin: 0 0 0.5rem;
+              width: 100%;
+              cursor: pointer;
+              &:last-child {
+                margin: 0;
+              }
               .placements_tooltip {
-                display: none;
-                background: lightsteelblue;
+                background: $white;
                 border: 1px solid red;
                 opacity: 0;
                 transition: opacity 0.5s ease-in-out;
-
+                visibility: hidden;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 12;
+                padding: 0.75rem;
+                border-radius: 0.25rem;
+                box-shadow: $boxShadow;
+                border: 1px solid lighten($lightGray, 40%);
+                gap: 0.75rem;
                 .imageTooltip {
-                  background: lightseagreen;
-                  height: 100px;
-                  width: 50px;
+                  height: 200px;
+                  width: 100px;
                   flex: 1;
+                  background: lightseagreen;
+                  .imagePlataform {
+                    width: 100%;
+                    height: auto;
+                  }
                 }
                 .info {
                   flex: 1;
+                  &_title {
+                    color: $darkGray;
+                    font-size: 0.75rem;
+                    padding: 0.5rem 0;
+                    &:first-child {
+                      padding: 0 0 0.5rem;
+                    }
+                  }
+                  &_text {
+                    width: 100%;
+                    color: $lightGray;
+                    font-size: 0.5rem;
+                  }
+                  .infoList {
+                    padding: 0 0 0 1rem;
+                    &_item {
+                      font-size: 0.625rem;
+                      padding: 0 0 0.25rem;
+                      &:last-child {
+                        padding: 0;
+                      }
+                    }
+                  }
                 }
               }
               &:hover {
                 .placements_tooltip {
                   opacity: 1;
                   display: flex;
+                  visibility: visible;
                 }
               }
             }
@@ -161,9 +283,12 @@
   }
   .footerModal {
     margin: 0.75rem 0 0;
-    padding: 0.5rem 0;
-    border-top: 1px solid grey;
+    padding: 0.75rem 0 0;
+    border-top: 1px solid lighten($lightGray, 20%);
     display: flex;
     justify-content: flex-end;
+    gap: 0.75rem;
+    width: 100%;
+    align-self: flex-end;
   }
 }
