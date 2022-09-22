@@ -102,14 +102,13 @@
     }
   }
 }
+
 .modalCreativeMatrix {
   padding: 2rem 1.25rem;
   width: 700px;
   height: 500px;
   max-height: 500px;
   overflow-y: hidden;
-  display: flex;
-  flex-wrap: wrap;
   .modal_header {
     padding: 0 !important;
     width: 100%;

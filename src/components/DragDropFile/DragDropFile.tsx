@@ -55,38 +55,44 @@ const DragDropFile = ({
   };
 
   return (
-    <>
-      <section className="fileUploadContainer">
-        <label className="inputLabel">{label}</label>
-        <p className="dragDropText">Drag and drop your files anywhere or</p>
-        <button
-          type="button"
-          onClick={handleUploadBtnClick}
-          className="uploadFileBtn">
-          <i className="fas fa-file-upload" />
-          <span> Upload {otherProps.multiple ? 'files' : 'a file'}</span>
-        </button>
-        <input
-          className="formField"
-          type="file"
-          ref={fileInputField}
-          onChange={handleNewDragDropFile}
-          title=""
-          value=""
-          {...otherProps}
-        />
-      </section>
+    <section className="addAsset">
+      <div className="upload">
+        <h4 className="upload_title">Upload</h4>
+        <section className="fileUploadContainer">
+          <label className="fileUploadContainer_inputLabel">{label}</label>
+          <p className="fileUploadContainer_dragDropText">
+            Drag and drop your files anywhere or
+          </p>
+          <button
+            type="button"
+            onClick={handleUploadBtnClick}
+            className="uploadFileBtn">
+            <span className="iconXaxis iconXaxis-upload"></span>
+            <span> Upload {otherProps.multiple ? 'files' : 'a file'}</span>
+          </button>
+          <input
+            className="formField"
+            type="file"
+            ref={fileInputField}
+            onChange={handleNewDragDropFile}
+            title=""
+            value=""
+            {...otherProps}
+          />
+        </section>
+      </div>
 
       {/* Sección preview que debería ir en el componente <Preview/> */}
-      <article className="filePreviewContainer">
-        <span>To Upload</span>
-        <section className="previewList">
-          {Object.keys(files).map((fileName, index) => {
-            let file = files[fileName];
-            let isImageFile = file.type.split('/')[0] === 'image';
-            return (
-              <section key={fileName} className="previewContainer">
-                <div>
+
+      <div className="preview">
+        <h4 className="preview_title">Preview</h4>
+        <article className="filePreviewContainer">
+          <section className="previewList">
+            {Object.keys(files).map((fileName, index) => {
+              let file = files[fileName];
+              let isImageFile = file.type.split('/')[0] === 'image';
+              return (
+                <figure key={fileName} className="previewContainer">
                   {isImageFile && (
                     <img
                       className="imagePreview"
@@ -100,19 +106,19 @@ const DragDropFile = ({
                       <aside>
                         <span>{convertBytesToKB(file.size)} kb</span>
                         <span
-                          className="fas fa-trash-alt removeFileIcon"
+                          className="iconXaxis iconXaxis-trash-alt removeFileIcon"
                           onClick={() => removeFile(fileName)}
                         />
                       </aside>
                     </div>
                   )}
-                </div>
-              </section>
-            );
-          })}
-        </section>
-      </article>
-    </>
+                </figure>
+              );
+            })}
+          </section>
+        </article>
+      </div>
+    </section>
   );
 };
 

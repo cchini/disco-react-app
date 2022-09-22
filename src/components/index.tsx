@@ -5,15 +5,5 @@ import Modal from './Modal/Modal';
 import Switch from './Switch/Switch';
 import Checkbox from './Checkbox/Checkbox';
 import DragDropFile from './DragDropFile/DragDropFile';
-import PreviewUpload from './PreviewUpload/PreviewUpload';
 
-export {
-  Button,
-  Select,
-  Input,
-  Modal,
-  Switch,
-  Checkbox,
-  DragDropFile,
-  PreviewUpload,
-};
+export { Button, Select, Input, Modal, Switch, Checkbox, DragDropFile };
