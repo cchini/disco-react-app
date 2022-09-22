@@ -1,6 +1,8 @@
 import React, { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { Campaign } from '@models/Campaigns.model';
+import { DiscoPaths } from '@routes/models/path.model';
 
 interface CampaignsTableProps {
   data: Campaign[];
@@ -13,6 +15,7 @@ interface SimulateAction {
 
 const CampaignsTable: FC<CampaignsTableProps> = props => {
   const { data } = props;
+  const navigate = useNavigate();
   const [simulate, setSimulate] = useState<SimulateAction>(null);
 
   const handleSimulateAction = (id: string) => {
@@ -52,7 +55,9 @@ const CampaignsTable: FC<CampaignsTableProps> = props => {
               <span className="iconXaxis iconXaxis-edit"></span>
               Refresh
             </button>
-            <button className="iconActionsCampaign">
+            <button
+              className="iconActionsCampaign"
+              onClick={() => navigate(`/${DiscoPaths.ViewCampaign}`)}>
               <span className="iconXaxis iconXaxis-edit"></span>
               View
             </button>
