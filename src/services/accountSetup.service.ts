@@ -8,9 +8,12 @@ const ACCOUNT_ID = process.env.ACCOUNT_ID;
 export const getAccounts = () => {
   const controller = loadAbort();
   return {
-    call: axios.get<Account[]>(`${DISCO_API}/account?accountId=${ACCOUNT_ID}`, {
-      signal: controller.signal,
-    }),
+    call: axios.get<Account[]>(
+      `${DISCO_API}/account/?accountId=${ACCOUNT_ID}`,
+      {
+        signal: controller.signal,
+      },
+    ),
     controller,
   };
 };
@@ -18,9 +21,7 @@ export const getAccounts = () => {
 export const sendApproval = (email: string) => {
   const controller = loadAbort();
   return {
-    call: axios.post(`${DISCO_API}/account/sendMail?to=${email}`, {
-      signal: controller.signal,
-    }),
+    call: axios.post(`${DISCO_API}/account/sendMail/?to=${email}`),
     controller,
   };
 };

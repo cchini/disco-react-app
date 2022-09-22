@@ -7,7 +7,7 @@ const DISCO_API = process.env.DISCO_API;
 export const getAllCreativeMatrix = () => {
   const controller = loadAbort();
   return {
-    call: axios.get<CreativeMatrix[]>(`${DISCO_API}/creative-matrix`, {
+    call: axios.get<CreativeMatrix[]>(`${DISCO_API}/creative-matrix/`, {
       signal: controller.signal,
     }),
     controller,

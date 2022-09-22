@@ -24,8 +24,12 @@ const TemplateCard: FC<TemplateCardProps> = props => {
               if (platform?.enabled) {
                 return (
                   <li className="listIconsTemplates_item">
-                    <span
-                      className={`${iconByPlatform(platform?.code)}`}></span>
+                    {platform?.code === 'SONA' ? (
+                      <span className="listIconsTemplates__sona">S</span>
+                    ) : (
+                      <span
+                        className={`${iconByPlatform(platform?.code)}`}></span>
+                    )}
                   </li>
                 );
               }

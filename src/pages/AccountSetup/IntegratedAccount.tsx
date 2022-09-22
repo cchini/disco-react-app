@@ -48,219 +48,194 @@ const IntegratedAccount = () => {
     }
   };
 
+  console.debug(account);
+
   return (
     <Layout className="accountPage">
-      <Modal
-        className="modalAccounSetUp"
-        active={open}
-        onClose={() => setOpen(false)}
-        header={
-          <header className="headerModalAccounSetUp">
-            <h2 className="headerModalAccounSetUp_title">Send Approval</h2>
-            <Button
-              onClick={() => setOpen(false)}
-              className="headerModalAccounSetUp_btn"
-              hierarchy="secondary">
-              X
-            </Button>
-          </header>
-        }>
-        <section className="modalAccounSetUpContent">
-          <Input
-            value={email}
-            onChange={value => setEmail(value.target.value)}
-            placeholder="example@xaxis.com"
-            label="Email"
-            type="email"
-          />
-        </section>
-        <footer className="footerModal">
-          <Button onClick={() => setOpen(false)} hierarchy="secondary">
-            Cancel
-          </Button>
-          <Button
-            onClick={() => {
-              handleSendEmail();
-            }}>
-            Send
-          </Button>
-        </footer>
-      </Modal>
-      <h1 className="accountPage_title">Account Set Up</h1>
-      {account && (
-        <header className="accountPage_header">
-          <Select
-            className="selectAccount"
-            label="Account name"
-            options={store?.accounts}
-            value={store?.account}
-            disabled={true}
-            isClearable={false}
-          />
-          <div className="accountRrss">
-            <label className="accountRrss_label">Country</label>
-            <p className="accountRrss_country">{account?.countryName}</p>
-          </div>
-          <div className="accountRrss">
-            <label className="accountRrss_label">Available plataforms</label>
-            <ul className="listRrss">
-              {account?.platforms?.map(plat =>
-                plat?.pages?.map(available => (
-                  <li
-                    key={available?.platform?.code}
-                    className={`listRrss_item ${iconByPlatform(
-                      available?.platform?.code,
-                    )}`}></li>
-                )),
-              )}
-            </ul>
-          </div>
-        </header>
-      )}
-
-      <section className="cntCardsAvailablePlataform">
-        {account?.platforms?.map(platform => (
-          <article key={platform?.id} className="cardAvailablePlataforms">
-            <header className="headerCardPlatform">
-              {iconByPlatformOwner(platform?.platformOwner?.code)}
-              <p className="headerCardPlatform_status">
-                <span
-                  className={cx(
-                    'iconStatus',
-                    platform?.status
-                      ? 'iconStatus__active'
-                      : 'iconStatus__desactive',
-                  )}
-                />
-                {platform?.status ? 'Active' : 'Pendend'}
-              </p>
-            </header>
-            <section className="contentCardPlataform">
+      {!loading && (
+        <>
+          <Modal
+            className="modalAccounSetUp"
+            active={open}
+            onClose={() => setOpen(false)}
+            header={
+              <header className="headerModalAccounSetUp">
+                <h2 className="headerModalAccounSetUp_title">Send Approval</h2>
+                <Button
+                  onClick={() => setOpen(false)}
+                  className="headerModalAccounSetUp_btn"
+                  hierarchy="secondary">
+                  X
+                </Button>
+              </header>
+            }>
+            <section className="modalAccounSetUpContent">
               <Input
-                label={`${platform?.platformOwner?.name} Business Manager ID`}
-                value={platform?.businessManagerId}
-                className="contentCardPlataform_input"
-                disabled={true}
+                value={email}
+                onChange={value => setEmail(value.target.value)}
+                placeholder="example@xaxis.com"
+                label="Email"
+                type="email"
               />
-              <Input
-                label={`${platform?.platformOwner?.name} Business Manager Name`}
-                value={platform?.businessManagerName}
-                className="contentCardPlataform_input"
-                disabled={true}
-              />
-              {platform?.pages?.map(page => (
-                <Fragment key={`${page?.platform?.name}`}>
-                  <Input
-                    label={`${page?.platform?.name} ID`}
-                    value={page?.pageId}
-                    className="contentCardPlataform_input"
-                    disabled={true}
-                  />
-                  <Input
-                    label={`${page?.platform?.name} Name`}
-                    value={page?.pageName}
-                    className="contentCardPlataform_input"
-                    disabled={true}
-                  />
-                </Fragment>
-              ))}
             </section>
-            <footer className="footerCardPlatform">
-              <Button hierarchy="secondary">Edit</Button>
+            <footer className="footerModal">
+              <Button onClick={() => setOpen(false)} hierarchy="secondary">
+                Cancel
+              </Button>
+              <Button
+                onClick={() => {
+                  handleSendEmail();
+                }}>
+                Send
+              </Button>
             </footer>
-          </article>
-        ))}
-        {/* Tiktok */}
-        <article className="cardAvailablePlataforms">
-          <header className="headerCardPlatform">
-            <span className="headerCardPlatform_icon iconXaxis iconXaxis-tiktok"></span>
-            <p className="headerCardPlatform_status">
-              <span className={cx('iconStatus', 'iconStatus__desactive')} />
-              Pendend
-            </p>
-          </header>
-          <section className="contentCardPlataform">
-            <Input
-              label={`Tiktok Business Account ID`}
-              value={'Tiktok'}
-              className="contentCardPlataform_input"
-            />
-            <Input
-              label={`Tiktok Business Account Name`}
-              value={'Tiktok'}
-              className="contentCardPlataform_input"
-            />
-            <Input
-              label={'Tiktok Page ID'}
-              value={'Tiktok ID'}
-              className="contentCardPlataform_input"
-            />
-            <Input
-              label={'Tiktok Page Name'}
-              value={'Tiktok Name'}
-              className="contentCardPlataform_input"
-            />
-            <Button
-              className="contentCardPlataform_btn"
-              onClick={() => setOpen(true)}>
-              <span className="iconXaxis iconXaxis-paper-plane"></span>
-              Send approval
-            </Button>
-          </section>
+          </Modal>
+          <h1 className="accountPage_title">Account Set Up</h1>
+          {account && (
+            <header className="accountPage_header">
+              <Select
+                className="selectAccount"
+                label="Account name"
+                options={store?.accounts}
+                value={store?.account}
+                disabled={true}
+                isClearable={false}
+              />
+              <div className="accountRrss">
+                <label className="accountRrss_label">Country</label>
+                <p className="accountRrss_country">{account?.countryName}</p>
+              </div>
+              <div className="accountRrss">
+                <label className="accountRrss_label">
+                  Available plataforms
+                </label>
+                <ul className="listRrss">
+                  {account?.ownerPlatforms?.map(plat =>
+                    plat?.pages?.map(available => (
+                      <li
+                        key={available?.platform?.code}
+                        className={`listRrss_item ${iconByPlatform(
+                          available?.platform?.code,
+                        )}`}></li>
+                    )),
+                  )}
+                </ul>
+              </div>
+            </header>
+          )}
 
-          <footer className="footerCardPlatform">
-            <Button hierarchy="secondary">Edit</Button>
-          </footer>
-        </article>
+          <section className="cntCardsAvailablePlataform">
+            {account?.ownerPlatforms?.map(platform => (
+              <article key={platform?.id} className="cardAvailablePlataforms">
+                <header className="headerCardPlatform">
+                  {iconByPlatformOwner(platform?.platformOwner?.code)}
+                  <p className="headerCardPlatform_status">
+                    <span
+                      className={cx(
+                        'iconStatus',
+                        platform?.status
+                          ? 'iconStatus__active'
+                          : 'iconStatus__desactive',
+                      )}
+                    />
+                    {platform?.status ? 'Active' : 'Pendend'}
+                  </p>
+                </header>
+                <section className="contentCardPlataform">
+                  <Input
+                    label={`${platform?.platformOwner?.name} Business Manager ID`}
+                    value={platform?.businessManagerId}
+                    className="contentCardPlataform_input"
+                    disabled={true}
+                  />
+                  <Input
+                    label={`${platform?.platformOwner?.name} Business Manager Name`}
+                    value={platform?.businessManagerName}
+                    className="contentCardPlataform_input"
+                    disabled={true}
+                  />
+                  {platform?.pages?.map(page => (
+                    <Fragment key={`${page?.platform?.name}`}>
+                      <Input
+                        label={`${page?.platform?.name} ID`}
+                        value={page?.pageId}
+                        className="contentCardPlataform_input"
+                        disabled={true}
+                      />
+                      <Input
+                        label={`${page?.platform?.name} Name`}
+                        value={page?.pageName}
+                        className="contentCardPlataform_input"
+                        disabled={true}
+                      />
+                    </Fragment>
+                  ))}
+                </section>
+                <footer className="footerCardPlatform">
+                  {/*  <Button hierarchy="secondary">Edit</Button> */}
+                </footer>
+              </article>
+            ))}
 
-        {/* SONA */}
-        <article className="cardAvailablePlataforms">
-          <header className="headerCardPlatform">
-            <span className="headerCardPlatform_icon headerCardPlatform_icon__sona">
-              S
-            </span>
-            <p className="headerCardPlatform_status">
-              <span className={cx('iconStatus', 'iconStatus__active')} />
-              Active
-            </p>
-          </header>
-          <section className="contentCardPlataform">
-            <Input
-              label={`Campaign Manager Account ID`}
-              value={'SONA ID'}
-              className="contentCardPlataform_input"
-            />
-            <Input
-              label={`Campaign Manager Account Name`}
-              value={'SONA Name'}
-              className="contentCardPlataform_input"
-            />
-            <Input
-              label={'DV360 Account ID'}
-              value={'DV360 ID'}
-              className="contentCardPlataform_input"
-            />
-            <Input
-              label={'DV360 Account Name'}
-              value={'DV360 Name'}
-              className="contentCardPlataform_input"
-            />
-            <Input
-              label={'Sizmek Account Name'}
-              value={'Sizmek Name'}
-              className="contentCardPlataform_input"
-            />
-            <Input
-              label={'Sizmek Account ID'}
-              value={'Sizmek ID'}
-              className="contentCardPlataform_input"
-            />
-          </section>
-          <footer className="footerCardPlatform">
+            {/* SONA */}
+            <article className="cardAvailablePlataforms">
+              <header className="headerCardPlatform">
+                <span className="headerCardPlatform_icon headerCardPlatform_icon__sona">
+                  S
+                </span>
+                <p className="headerCardPlatform_status">
+                  <span className={cx('iconStatus', 'iconStatus__desactive')} />
+                  Pendend
+                </p>
+              </header>
+              <section className="contentCardPlataform">
+                <label className="contentCardPlataform_label">
+                  No linked accounts
+                </label>
+                {/* <Input
+                  label={`Campaign Manager Account ID`}
+                  placeholder="SONA ID"
+                  className="contentCardPlataform_input"
+                />
+                <Input
+                  label={`Campaign Manager Account Name`}
+                  placeholder="SONA Name"
+                  className="contentCardPlataform_input"
+                />
+                <Input
+                  label={'DV360 Account ID'}
+                  placeholder="DV360 ID"
+                  className="contentCardPlataform_input"
+                />
+                <Input
+                  label={'DV360 Account Name'}
+                  placeholder="DV360 Name"
+                  className="contentCardPlataform_input"
+                />
+                <Input
+                  label={'Sizmek Account Name'}
+                  placeholder="Sizmek Name"
+                  className="contentCardPlataform_input"
+                />
+                <Input
+                  label={'Sizmek Account ID'}
+                  placeholder="Sizmek ID"
+                  className="contentCardPlataform_input"
+                /> */}
+                <Button
+                  className="contentCardPlataform_btn"
+                  onClick={() => setOpen(true)}>
+                  <span className="iconXaxis iconXaxis-paper-plane"></span>
+                  Send approval
+                </Button>
+              </section>
+              {/*  <footer className="footerCardPlatform">
             <Button hierarchy="secondary">Edit</Button>
-          </footer>
-        </article>
-      </section>
+          </footer> */}
+            </article>
+          </section>
+        </>
+      )}
     </Layout>
   );
 };

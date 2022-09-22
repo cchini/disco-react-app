@@ -34,7 +34,7 @@ export interface Account {
   name: string;
   deleted: boolean;
   countryName: string;
-  platforms: Platform[];
+  ownerPlatforms: Platform[];
 }
 
 export interface AccountOption {
