@@ -103,7 +103,7 @@
         width: 100%;
         padding: 1rem;
         flex-grow: 1;
-        max-height: 350px;
+        //  max-height: 350px;
         overflow-y: auto;
         &_input {
           margin: 0 0 1rem;
@@ -117,10 +117,18 @@
             margin: 0 0.75rem 0 0;
           }
         }
+        &_label {
+          margin: 0 0 1rem;
+          display: flex;
+          align-items: center;
+          font-size: 0.75rem;
+          font-weight: map-get($fonts, medium);
+          color: $darkGray;
+        }
       }
       .footerCardPlatform {
         width: 100%;
-        border-top: 1px solid lighten($lightGray, 20%);
+        // border-top: 1px solid lighten($lightGray, 20%);
         padding: 0.5rem 1rem 1rem;
         margin: 1rem 0 0;
         display: flex;

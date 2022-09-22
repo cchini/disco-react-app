@@ -7,7 +7,7 @@ interface CampaignsTableProps {
 }
 
 interface SimulateAction {
-  status: 'active' | 'pending';
+  status: 'Active' | 'Pending';
   id: string;
 }
 
@@ -16,7 +16,7 @@ const CampaignsTable: FC<CampaignsTableProps> = props => {
   const [simulate, setSimulate] = useState<SimulateAction>(null);
 
   const handleSimulateAction = (id: string) => {
-    setSimulate({ id, status: 'pending' });
+    setSimulate({ id, status: 'Pending' });
     setTimeout(() => {
       setSimulate(null);
     }, 2000);
