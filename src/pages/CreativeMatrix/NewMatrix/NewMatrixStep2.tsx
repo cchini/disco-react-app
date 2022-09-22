@@ -190,12 +190,6 @@ const NewMatrixStep2 = () => {
                 <span className="iconXaxis iconXaxis-trash-alt"></span>
                 Remove
               </button>
-              <button
-                className="iconActionsNewMatrix2"
-                onClick={() => setOpen(true)}>
-                <span className="iconXaxis iconXaxis-plus"></span>
-                Add asset
-              </button>
             </li>
             <li className="contentTable_item">01</li>
             <li className="contentTable_item">Reporting label</li>
@@ -207,7 +201,12 @@ const NewMatrixStep2 = () => {
 
             <li className="contentTable_item">765404846084849</li>
             <li className="contentTable_item">
-              <figure>IMG</figure>
+              <button
+                className="iconActionsNewMatrix2"
+                onClick={() => setOpen(true)}>
+                <span className="iconXaxis iconXaxis-plus"></span>
+                Add asset
+              </button>
             </li>
           </ul>
 
@@ -217,12 +216,6 @@ const NewMatrixStep2 = () => {
                 <span className="iconXaxis iconXaxis-trash-alt"></span>
                 Remove
               </button>
-              <button
-                className="iconActionsNewMatrix2"
-                onClick={() => setOpen(true)}>
-                <span className="iconXaxis iconXaxis-plus"></span>
-                Add asset
-              </button>
             </li>
             <li className="contentTable_item">01</li>
             <li className="contentTable_item">Reporting label</li>
@@ -233,7 +226,12 @@ const NewMatrixStep2 = () => {
             <li className="contentTable_item">608774846084849</li>
             <li className="contentTable_item">765404846084849</li>
             <li className="contentTable_item">
-              <figure>IMG</figure>
+              <button
+                className="iconActionsNewMatrix2"
+                onClick={() => setOpen(true)}>
+                <span className="iconXaxis iconXaxis-plus"></span>
+                Add asset
+              </button>
             </li>
           </ul>
         </section>
