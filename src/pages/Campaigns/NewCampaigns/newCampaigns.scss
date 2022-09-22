@@ -79,6 +79,7 @@
         &.cardRule__center {
           text-align: center;
           padding: 2rem 0 0;
+          cursor: pointer;
           .cardRule_icon {
             color: $darkGray;
             font-size: 1rem;
@@ -209,6 +210,7 @@
           border-radius: calc(0.25rem - 1px);
           list-style: none;
           font-weight: map-get($fonts, medium);
+          cursor: pointer;
           &::marker,
           &::-webkit-details-marker {
             display: none;
