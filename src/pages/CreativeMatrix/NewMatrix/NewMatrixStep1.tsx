@@ -193,7 +193,13 @@ const NewMatrixStep2 = () => {
         </section>
       </section>
       <footer className="footerNewMatrix">
-        <Button hierarchy="secondary">Cancel</Button>
+        <Button
+          hierarchy="secondary"
+          onClick={() =>
+            navigate({ pathname: `/${DiscoPaths.CreativeMatrix}` })
+          }>
+          Cancel
+        </Button>
         <Button
           onClick={() =>
             navigate({ pathname: `/${DiscoPaths.NewMatrixStep2}` })

@@ -91,7 +91,9 @@ const NewMatrixStep2 = () => {
         </section>
 
         <footer className="footerModal">
-          <Button onClick={() => setOpen(false)}>Cancel</Button>
+          <Button onClick={() => setOpen(false)} hierarchy="secondary">
+            Cancel
+          </Button>
           <Button onClick={() => setOpen(false)}>Continue</Button>
         </footer>
       </Modal>

@@ -31,7 +31,9 @@ const Campaigns = () => {
               <span className="iconXaxis iconXaxis-search" />
             </Button>
           </div>
-          <Button onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}>
+          <Button
+            onClick={() => navigate(`/${DiscoPaths.NewCampaigns}`)}
+            hierarchy="secondary">
             New
           </Button>
         </div>

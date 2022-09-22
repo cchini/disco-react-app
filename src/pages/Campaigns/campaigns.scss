@@ -66,12 +66,8 @@
     position: relative;
     .navTable {
       display: flex;
-      justify-content: space-between;
-      top: 0;
-      left: 0;
-      right: 0;
-      position: sticky;
       margin: 0 0 1rem;
+      gap: 2rem;
       .cntSearchTableCampaigns {
         display: flex;
         &_input {
@@ -84,71 +80,5 @@
         }
       }
     }
-  }
-}
-
-.modalDetails {
-  padding: 1.5rem 1rem;
-  width: 500px;
-  height: 100%;
-  max-height: 450px;
-  overflow-y: hidden;
-  .headerModal {
-    display: flex;
-    justify-content: space-between;
-    > h3 {
-      text-transform: uppercase;
-    }
-  }
-  .modalContent {
-    overflow-y: scroll;
-    max-height: 300px;
-    .rrssItem {
-      .content {
-        display: flex;
-        .formats,
-        .placements {
-          flex: 1;
-        }
-        .placements {
-          .placementsList {
-            &_item {
-              position: relative;
-
-              .placements_tooltip {
-                display: none;
-                background: lightsteelblue;
-                border: 1px solid red;
-                opacity: 0;
-                transition: opacity 0.5s ease-in-out;
-
-                .imageTooltip {
-                  background: lightseagreen;
-                  height: 100px;
-                  width: 50px;
-                  flex: 1;
-                }
-                .info {
-                  flex: 1;
-                }
-              }
-              &:hover {
-                .placements_tooltip {
-                  opacity: 1;
-                  display: flex;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  .footerModal {
-    margin: 0.75rem 0 0;
-    padding: 0.5rem 0;
-    border-top: 1px solid lighten($lightGray, 20%);
-    display: flex;
-    justify-content: flex-end;
   }
 }

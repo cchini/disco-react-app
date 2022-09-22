@@ -55,7 +55,9 @@ const CreativeMatrix = () => {
               <span className="iconXaxis iconXaxis-search" />
             </Button>
           </div>
-          <Button onClick={() => navigate(`/${DiscoPaths.NewMatrixStep1}`)}>
+          <Button
+            onClick={() => navigate(`/${DiscoPaths.NewMatrixStep1}`)}
+            hierarchy="secondary">
             New
           </Button>
         </div>

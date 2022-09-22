@@ -66,12 +66,8 @@
     position: relative;
     .navTable {
       display: flex;
-      justify-content: space-between;
-      top: 0;
-      left: 0;
-      right: 0;
-      position: sticky;
       margin: 0 0 1rem;
+      gap: 2rem;
       .cntSearchTableCreativeMatrix {
         display: flex;
         &_input {
