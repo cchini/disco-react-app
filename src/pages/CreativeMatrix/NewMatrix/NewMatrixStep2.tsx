@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { DiscoPaths } from '../../../routes/models/path.model';
 import { Button, Modal, Switch, DragDropFile } from '@components/index';
 import Layout from '../../common/Layout/Layout';
 import NewMatrixTable from '../components/NewMatrixTable/NewMatrixTable';
@@ -8,7 +10,7 @@ import './newMatrix.scss';
 const NewMatrixStep2 = () => {
   const [open, setOpen] = useState(false);
   const [dataMatrix, setDataMatrix] = useState(newMatrixTable);
-
+  const navigate = useNavigate();
   const [newAssetsMatrix, setNewAssetsMatrix] = useState({
     assetsImages: [],
   });
@@ -192,6 +194,17 @@ const NewMatrixStep2 = () => {
 
       {/* Sección tabla */}
       <NewMatrixTable data={newMatrixTable} setOpen={setOpen} />
+
+      <footer className="footerNewMatrix">
+        <Button
+          hierarchy="secondary"
+          onClick={() =>
+            navigate({ pathname: `/${DiscoPaths.NewMatrixStep1}` })
+          }>
+          Cancel
+        </Button>
+        <Button>Save</Button>
+      </footer>
     </Layout>
   );
 };
