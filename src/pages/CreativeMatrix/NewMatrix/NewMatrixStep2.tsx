@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { DiscoPaths } from '../../../routes/models/path.model';
 import { Button, Modal, Switch, DragDropFile } from '@components/index';
 import Layout from '../../common/Layout/Layout';
+import NewMatrixTable from '../components/NewMatrixTable/NewMatrixTable';
+import { newMatrixTable } from '@mocks/newMatrix.mock';
 import './newMatrix.scss';
 
 const NewMatrixStep2 = () => {
   const [open, setOpen] = useState(false);
-
+  const [dataMatrix, setDataMatrix] = useState(newMatrixTable);
+  const navigate = useNavigate();
   const [newAssetsMatrix, setNewAssetsMatrix] = useState({
     assetsImages: [],
   });
@@ -13,6 +18,36 @@ const NewMatrixStep2 = () => {
   const updateUploadedFiles = files =>
     setNewAssetsMatrix({ ...newAssetsMatrix, assetsImages: files });
 
+  const handleAddCarousel = () => {
+    const data = [...dataMatrix];
+
+    const newData = data?.map(item => {
+      const itemclone = { ...item };
+      const first = { ...data[0] };
+      first.carousel.push({
+        image: null,
+        title: null,
+        account: null,
+        url: null,
+      });
+      itemclone.carousel = first.carousel;
+      return itemclone;
+    });
+    setDataMatrix(newData);
+  };
+
+  const handleAddItem = () => {
+    const data = [...dataMatrix];
+    const newItem = { ...newMatrixTable[0] };
+    newItem.discoId = (data.length + 1).toString();
+    newItem.reportingLabel = null;
+    newItem.instagram.campaignId = null;
+    newItem.facebook.campaignId = null;
+    newItem.tiktok.campaignId = null;
+    data.push(newItem);
+    setDataMatrix(data);
+  };
+  console.debug(dataMatrix);
   return (
     <Layout className="newCreativeMatrixPage">
       <Modal
@@ -160,7 +195,9 @@ const NewMatrixStep2 = () => {
           </ul>
         </div>
         <div className="contentActions">
-          <Button className="contentActions_btn">
+          <Button
+            className="contentActions_btn"
+            onClick={() => handleAddCarousel()}>
             <span className="iconXaxis iconXaxis-plus"></span>Add carousel card
           </Button>
           <Button className="contentActions_btn">
@@ -171,73 +208,24 @@ const NewMatrixStep2 = () => {
       </nav>
 
       {/* Sección tabla */}
-      <section className="contentTableNewMatrix">
-        <section className="table">
-          <ul className="headerTable">
-            <li className="headerTable_item"></li>
-            <li className="headerTable_item">Disco ID</li>
-            <li className="headerTable_item">Reporting label</li>
-            <li className="headerTable_item">Intagram Account ID</li>
-            <li className="headerTable_item">Facebook Account ID</li>
-            <li className="headerTable_item">Facebook Campaign ID</li>
-            <li className="headerTable_item">Facebook Ad set ID</li>
-            <li className="headerTable_item">TikTok Campaign ID</li>
-            <li className="headerTable_item">TikTok Ad set ID</li>
-            <li className="headerTable_item">Main image/video</li>
-          </ul>
-
-          <ul className="contentTable">
-            <li className="contentTable_item ">
-              <button className="iconActionsNewMatrix2">
-                <span className="iconXaxis iconXaxis-trash-alt"></span>
-                Remove
-              </button>
-            </li>
-            <li className="contentTable_item">01</li>
-            <li className="contentTable_item">Reporting label</li>
-            <li className="contentTable_item">1290877748484849</li>
-            <li className="contentTable_item">9087774848444849</li>
-            <li className="contentTable_item">8760873748484849</li>
-            <li className="contentTable_item">608774845484849</li>
-            <li className="contentTable_item">608774846084849</li>
-
-            <li className="contentTable_item">765404846084849</li>
-            <li className="contentTable_item">
-              <button
-                className="iconActionsNewMatrix2"
-                onClick={() => setOpen(true)}>
-                <span className="iconXaxis iconXaxis-plus"></span>
-                Add asset
-              </button>
-            </li>
-          </ul>
-
-          <ul className="contentTable">
-            <li className="contentTable_item ">
-              <button className="iconActionsNewMatrix2">
-                <span className="iconXaxis iconXaxis-trash-alt"></span>
-                Remove
-              </button>
-            </li>
-            <li className="contentTable_item">01</li>
-            <li className="contentTable_item">Reporting label</li>
-            <li className="contentTable_item">1290877748484849</li>
-            <li className="contentTable_item">9087774848444849</li>
-            <li className="contentTable_item">8760873748484849</li>
-            <li className="contentTable_item">608774845484849</li>
-            <li className="contentTable_item">608774846084849</li>
-            <li className="contentTable_item">765404846084849</li>
-            <li className="contentTable_item">
-              <button
-                className="iconActionsNewMatrix2"
-                onClick={() => setOpen(true)}>
-                <span className="iconXaxis iconXaxis-plus"></span>
-                Add asset
-              </button>
-            </li>
-          </ul>
-        </section>
-      </section>
+      <NewMatrixTable data={dataMatrix} setOpen={setOpen} />
+      <Button
+        onClick={() => handleAddItem()}
+        className="newCreativeMatrixPage_btn">
+        <span className="iconXaxis iconXaxis-plus"></span> Add
+      </Button>
+      <footer className="footerNewMatrix">
+        <Button
+          hierarchy="secondary"
+          onClick={() =>
+            navigate({ pathname: `/${DiscoPaths.NewMatrixStep1}` })
+          }>
+          Cancel
+        </Button>
+        <Button onClick={() => navigate(`/${DiscoPaths.CreativeMatrix}`)}>
+          Save
+        </Button>
+      </footer>
     </Layout>
   );
 };

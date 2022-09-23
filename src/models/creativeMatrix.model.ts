@@ -1,4 +1,9 @@
-import { PagePlatform, Status } from '@models/public.model';
+import {
+  PagePlatform,
+  Status,
+  FacebookPlacements,
+  InstagramPlacements,
+} from '@models/public.model';
 
 export interface CreativeMatrix {
   id: string;
@@ -22,4 +27,28 @@ export interface TemplateMatrix {
 
 export interface ReduxMatrix {
   matrixList: CreativeMatrix[];
+}
+
+export interface MatrixPage {
+  pageId?: string;
+  campaignId?: string;
+  adSetId?: string;
+}
+
+export interface Carousel {
+  image?: string;
+  title?: string;
+  account?: string;
+  url?: string;
+}
+
+export interface NewMatrix {
+  discoId: string;
+  reportingLabel: string;
+  instagram: MatrixPage;
+  facebook: MatrixPage;
+  tiktok?: MatrixPage;
+  mainImage: Carousel;
+  carousel?: Carousel[];
+  placement?: InstagramPlacements[] | FacebookPlacements[];
 }
