@@ -194,7 +194,11 @@ const NewMatrixStep2 = () => {
 
       {/* Sección tabla */}
       <NewMatrixTable data={newMatrixTable} setOpen={setOpen} />
-
+      <Button
+        onClick={() => setOpen(true)}
+        className="newCreativeMatrixPage_btn">
+        <span className="iconXaxis iconXaxis-plus"></span> Add
+      </Button>
       <footer className="footerNewMatrix">
         <Button
           hierarchy="secondary"
