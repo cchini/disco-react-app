@@ -10,8 +10,6 @@ interface NewMatrixTableProps {
 const NewMatrixTable: FC<NewMatrixTableProps> = props => {
   const { data, setOpen } = props;
 
-  // console.debug(data);
-
   return (
     <section className="contentTableNewMatrix">
       <section className="table">

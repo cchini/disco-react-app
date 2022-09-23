@@ -20,19 +20,34 @@ const NewMatrixStep2 = () => {
 
   const handleAddCarousel = () => {
     const data = [...dataMatrix];
+
     const newData = data?.map(item => {
-      const newItem = { ...item };
-      item.carousel.push({
+      const itemclone = { ...item };
+      const first = { ...data[0] };
+      first.carousel.push({
         image: null,
         title: null,
         account: null,
         url: null,
       });
-      return newItem;
+      itemclone.carousel = first.carousel;
+      return itemclone;
     });
     setDataMatrix(newData);
   };
 
+  const handleAddItem = () => {
+    const data = [...dataMatrix];
+    const newItem = { ...newMatrixTable[0] };
+    newItem.discoId = (data.length + 1).toString();
+    newItem.reportingLabel = null;
+    newItem.instagram.campaignId = null;
+    newItem.facebook.campaignId = null;
+    newItem.tiktok.campaignId = null;
+    data.push(newItem);
+    setDataMatrix(data);
+  };
+  console.debug(dataMatrix);
   return (
     <Layout className="newCreativeMatrixPage">
       <Modal
@@ -193,9 +208,9 @@ const NewMatrixStep2 = () => {
       </nav>
 
       {/* Sección tabla */}
-      <NewMatrixTable data={newMatrixTable} setOpen={setOpen} />
+      <NewMatrixTable data={dataMatrix} setOpen={setOpen} />
       <Button
-        onClick={() => setOpen(true)}
+        onClick={() => handleAddItem()}
         className="newCreativeMatrixPage_btn">
         <span className="iconXaxis iconXaxis-plus"></span> Add
       </Button>
@@ -207,7 +222,9 @@ const NewMatrixStep2 = () => {
           }>
           Cancel
         </Button>
-        <Button>Save</Button>
+        <Button onClick={() => navigate(`/${DiscoPaths.CreativeMatrix}`)}>
+          Save
+        </Button>
       </footer>
     </Layout>
   );
