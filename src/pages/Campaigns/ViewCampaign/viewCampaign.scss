@@ -261,9 +261,9 @@
 
 .modalCampaigns {
   padding: 2rem 1.25rem;
-  width: 700px;
-  height: 500px;
-  max-height: 500px;
+  width: 850px;
+  height: 600px;
+  max-height: 600px;
   overflow-y: hidden;
   display: flex;
   flex-wrap: wrap;
@@ -302,7 +302,7 @@
   .modalCampaignsContent {
     display: flex;
     overflow-y: scroll;
-    max-height: 350px;
+    max-height: 450px;
     flex-wrap: wrap;
     padding: 1rem 0 0;
     width: 100%;
