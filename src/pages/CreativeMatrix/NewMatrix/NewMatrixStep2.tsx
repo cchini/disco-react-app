@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Modal, Switch, DragDropFile } from '@components/index';
 import Layout from '../../common/Layout/Layout';
+import NewMatrixTable from '../components/NewMatrixTable/NewMatrixTable';
+import { newMatrixTable } from '@mocks/newMatrix.mock';
 import './newMatrix.scss';
 
 const NewMatrixStep2 = () => {
   const [open, setOpen] = useState(false);
+  const [dataMatrix, setDataMatrix] = useState(newMatrixTable);
 
   const [newAssetsMatrix, setNewAssetsMatrix] = useState({
     assetsImages: [],
@@ -12,6 +15,21 @@ const NewMatrixStep2 = () => {
 
   const updateUploadedFiles = files =>
     setNewAssetsMatrix({ ...newAssetsMatrix, assetsImages: files });
+
+  const handleAddCarousel = () => {
+    const data = [...dataMatrix];
+    const newData = data?.map(item => {
+      const newItem = { ...item };
+      item.carousel.push({
+        image: null,
+        title: null,
+        account: null,
+        url: null,
+      });
+      return newItem;
+    });
+    setDataMatrix(newData);
+  };
 
   return (
     <Layout className="newCreativeMatrixPage">
@@ -160,7 +178,9 @@ const NewMatrixStep2 = () => {
           </ul>
         </div>
         <div className="contentActions">
-          <Button className="contentActions_btn">
+          <Button
+            className="contentActions_btn"
+            onClick={() => handleAddCarousel()}>
             <span className="iconXaxis iconXaxis-plus"></span>Add carousel card
           </Button>
           <Button className="contentActions_btn">
@@ -171,73 +191,7 @@ const NewMatrixStep2 = () => {
       </nav>
 
       {/* Sección tabla */}
-      <section className="contentTableNewMatrix">
-        <section className="table">
-          <ul className="headerTable">
-            <li className="headerTable_item"></li>
-            <li className="headerTable_item">Disco ID</li>
-            <li className="headerTable_item">Reporting label</li>
-            <li className="headerTable_item">Intagram Account ID</li>
-            <li className="headerTable_item">Facebook Account ID</li>
-            <li className="headerTable_item">Facebook Campaign ID</li>
-            <li className="headerTable_item">Facebook Ad set ID</li>
-            <li className="headerTable_item">TikTok Campaign ID</li>
-            <li className="headerTable_item">TikTok Ad set ID</li>
-            <li className="headerTable_item">Main image/video</li>
-          </ul>
-
-          <ul className="contentTable">
-            <li className="contentTable_item ">
-              <button className="iconActionsNewMatrix2">
-                <span className="iconXaxis iconXaxis-trash-alt"></span>
-                Remove
-              </button>
-            </li>
-            <li className="contentTable_item">01</li>
-            <li className="contentTable_item">Reporting label</li>
-            <li className="contentTable_item">1290877748484849</li>
-            <li className="contentTable_item">9087774848444849</li>
-            <li className="contentTable_item">8760873748484849</li>
-            <li className="contentTable_item">608774845484849</li>
-            <li className="contentTable_item">608774846084849</li>
-
-            <li className="contentTable_item">765404846084849</li>
-            <li className="contentTable_item">
-              <button
-                className="iconActionsNewMatrix2"
-                onClick={() => setOpen(true)}>
-                <span className="iconXaxis iconXaxis-plus"></span>
-                Add asset
-              </button>
-            </li>
-          </ul>
-
-          <ul className="contentTable">
-            <li className="contentTable_item ">
-              <button className="iconActionsNewMatrix2">
-                <span className="iconXaxis iconXaxis-trash-alt"></span>
-                Remove
-              </button>
-            </li>
-            <li className="contentTable_item">01</li>
-            <li className="contentTable_item">Reporting label</li>
-            <li className="contentTable_item">1290877748484849</li>
-            <li className="contentTable_item">9087774848444849</li>
-            <li className="contentTable_item">8760873748484849</li>
-            <li className="contentTable_item">608774845484849</li>
-            <li className="contentTable_item">608774846084849</li>
-            <li className="contentTable_item">765404846084849</li>
-            <li className="contentTable_item">
-              <button
-                className="iconActionsNewMatrix2"
-                onClick={() => setOpen(true)}>
-                <span className="iconXaxis iconXaxis-plus"></span>
-                Add asset
-              </button>
-            </li>
-          </ul>
-        </section>
-      </section>
+      <NewMatrixTable data={newMatrixTable} setOpen={setOpen} />
     </Layout>
   );
 };
