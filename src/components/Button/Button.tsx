@@ -1,6 +1,5 @@
 import React, { FC, DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
 import cx from 'classnames';
-
 import './button.scss';
 
 interface ButtonProps
