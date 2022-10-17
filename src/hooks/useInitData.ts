@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CreativeMatrix } from '@models/creativeMatrix.model';
 import useFetchAndLoad from '@hooks/useFetchAndLoad';
-import { getAccounts } from '@services/accountSetup.service';
+import { getAccounts } from '@services/account-setup.service';
 import { getAllCreativeMatrix } from '@services/creativeMatrix.service';
 import { useAsync } from '@hooks/useAsyncAxios';
 import { allCreativeMatrixAdapter } from '@adapters/creativeMatrix.adapter';
@@ -23,7 +23,9 @@ const useInitData = (): [AccountOption[], CreativeMatrix[], boolean] => {
   );
   useAsync(
     getApiMatrix,
-    response => setMatrixList(allCreativeMatrixAdapter(response, true)),
+    (response: any) => {
+      return setMatrixList(allCreativeMatrixAdapter(response, true));
+    },
     () => {},
   );
 

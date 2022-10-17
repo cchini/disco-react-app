@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import { discoPaths } from './DiscoPaths';
+import { discoPaths } from './disco-paths';
 import { DiscoPaths } from './models/path.model';
 import Home from '../pages/Home/Home';
 
