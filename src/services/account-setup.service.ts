@@ -1,4 +1,4 @@
-import { loadAbort } from '@utilities/loadAbortAxios.utility';
+import { loadAbort } from '@utilities/load-abort-axios.utility';
 import { Account } from '@models/account.model';
 import axios from 'axios';
 

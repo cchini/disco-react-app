@@ -11,4 +11,16 @@ describe('disco-app/Button', () => {
     const heading = screen.getByRole('button');
     expect(heading).toBeInTheDocument();
   });
+
+  it('should render custom className', () => {
+    render(<Button className="customClassName">Button</Button>);
+    const button = screen.getByRole('button');
+    expect(button.classList.contains('customClassName')).toBe(true);
+  });
+
+  it('should render secondary button', () => {
+    render(<Button hierarchy="secondary">Button</Button>);
+    const button = screen.getByRole('button');
+    expect(button.classList.contains('btnXaxis__secondary')).toBe(true);
+  });
 });

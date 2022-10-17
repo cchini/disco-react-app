@@ -11,6 +11,11 @@ module.exports = {
       '<rootDir>/tests/__mocks__/fileMock.js',
     '\\.module\\.(css|scss)$': '<rootDir>/node_modules/identity-obj-proxy',
     '\\.(css|scss|less)$': '<rootDir>/tests/__mocks__/styleMock.js',
+    '@/(.*)': '<rootDir>/src/$1',
+    '@utilities/(.*)': '<rootDir>/src/utilities/$1',
+    '@hooks/(.*)': '<rootDir>/src/hooks/$1',
+    '@services/(.*)': '<rootDir>/src/services/$1',
+    '@adapters/(.*)': '<rootDir>/src/adapters/$1',
   },
   setupFilesAfterEnv: [
     '<rootDir>/tests/jest-setup.js',

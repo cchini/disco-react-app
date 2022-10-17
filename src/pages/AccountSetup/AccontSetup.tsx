@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { Select, Input, Button, Modal } from '@components/index';
 import Layout from '../common/Layout/Layout';
 import { iconByPlatform } from '@utilities/common.utility';
-import { sendApproval } from '@services/accountSetup.service';
+import { sendApproval } from '@services/account-setup.service';
 import useFetchAndLoad from '@hooks/useFetchAndLoad';
 import './accountSetUp.scss';
 
@@ -16,6 +16,7 @@ const IntegratedAccount = () => {
   const account = store?.account?.account;
   const { loading, callEndpoint } = useFetchAndLoad();
   const sendEmail = async () => await callEndpoint(sendApproval(email));
+
   const iconByPlatformOwner = platform => {
     const baseClass = 'headerCardPlatform_icon';
     switch (platform) {

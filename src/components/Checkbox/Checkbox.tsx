@@ -1,11 +1,15 @@
-import * as React from 'react';
+import React, {
+  FC,
+  ReactNode,
+  DetailedHTMLProps,
+  InputHTMLAttributes,
+} from 'react';
 import cx from 'classnames';
 import './checkbox.scss';
-// import './checkbox.scss';
 
 export interface ICheckbox
-  extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
+  extends DetailedHTMLProps<
+    InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
   /** overwrite className */
@@ -13,15 +17,15 @@ export interface ICheckbox
   /** overwrite className in checkbox */
   classNameCheckbox?: string;
   /** label Left side checkbox */
-  labelLeft?: React.ReactNode | string;
+  labelLeft?: ReactNode | string;
   /** label Right side checkbox */
-  labelRight?: React.ReactNode | string;
+  labelRight?: ReactNode | string;
   /** disabled state */
   disabled?: boolean;
   ref?: any;
 }
 
-const Checkbox: React.FC<ICheckbox> = ({
+const Checkbox: FC<ICheckbox> = ({
   labelLeft = '',
   labelRight = '',
   disabled = false,
